@@ -4,6 +4,8 @@ namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
+
 /**
  * InvoiceElement
  *
@@ -12,6 +14,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class InvoiceElement
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="invoice_elements")
+     * @@ORM\JoinColumn(name="invoice_id", referencedColumnName="id")
+     */
+    private $invoice;
+
     /**
      * @var int
      *
@@ -240,5 +249,28 @@ class InvoiceElement
     public function getVatRate()
     {
         return $this->vatRate;
+    }
+
+    /**
+     * Set invoice
+     *
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\Invoice $invoice
+     * @return InvoiceElement
+     */
+    public function setInvoice(\mysiar\Bundle\InvoiceBundle\Entity\Invoice $invoice = null)
+    {
+        $this->invoice = $invoice;
+
+        return $this;
+    }
+
+    /**
+     * Get invoice
+     *
+     * @return \mysiar\Bundle\InvoiceBundle\Entity\Invoice 
+     */
+    public function getInvoice()
+    {
+        return $this->invoice;
     }
 }

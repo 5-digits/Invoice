@@ -4,6 +4,8 @@ namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
+
 /**
  * Invoice
  *
@@ -12,6 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Invoice
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="InvoiceElement", mappedBy="invoice")
+     */
+    private $invoice_elements;
+
     /**
      * @var int
      *
@@ -150,5 +158,45 @@ class Invoice
     public function getPaymentDue()
     {
         return $this->paymentDue;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->invoice_elements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add invoice_elements
+     *
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements
+     * @return Invoice
+     */
+    public function addInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements)
+    {
+        $this->invoice_elements[] = $invoiceElements;
+
+        return $this;
+    }
+
+    /**
+     * Remove invoice_elements
+     *
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements
+     */
+    public function removeInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements)
+    {
+        $this->invoice_elements->removeElement($invoiceElements);
+    }
+
+    /**
+     * Get invoice_elements
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInvoiceElements()
+    {
+        return $this->invoice_elements;
     }
 }
