@@ -1,4 +1,6 @@
-Invoice
-=======
+# Invoice
 
-A Symfony project created on October 4, 2016, 10:59 am.
+### **Symfony** application at <a target="_blank" href="http://coderslab.pl">CodersLab</a> **BACK-END Developer** training
+
+###Components used
+* Symfony 2.8
