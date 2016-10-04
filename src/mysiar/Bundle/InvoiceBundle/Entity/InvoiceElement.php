@@ -5,12 +5,12 @@ namespace mysiar\Bundle\InvoiceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * InvoiceElements
+ * InvoiceElement
  *
  * @ORM\Table(name="invoice_elements")
- * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\InvoiceElementsRepository")
+ * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\InvoiceElementRepository")
  */
-class InvoiceElements
+class InvoiceElement
 {
     /**
      * @var int
@@ -85,7 +85,7 @@ class InvoiceElements
      * Set name
      *
      * @param string $name
-     * @return InvoiceElements
+     * @return InvoiceElement
      */
     public function setName($name)
     {
@@ -108,7 +108,7 @@ class InvoiceElements
      * Set amount
      *
      * @param string $amount
-     * @return InvoiceElements
+     * @return InvoiceElement
      */
     public function setAmount($amount)
     {
@@ -131,7 +131,7 @@ class InvoiceElements
      * Set unit
      *
      * @param string $unit
-     * @return InvoiceElements
+     * @return InvoiceElement
      */
     public function setUnit($unit)
     {
@@ -154,7 +154,7 @@ class InvoiceElements
      * Set priceNet
      *
      * @param string $priceNet
-     * @return InvoiceElements
+     * @return InvoiceElement
      */
     public function setPriceNet($priceNet)
     {
@@ -177,7 +177,7 @@ class InvoiceElements
      * Set discount
      *
      * @param string $discount
-     * @return InvoiceElements
+     * @return InvoiceElement
      */
     public function setDiscount($discount)
     {
@@ -200,7 +200,7 @@ class InvoiceElements
      * Set pkwiuCode
      *
      * @param string $pkwiuCode
-     * @return InvoiceElements
+     * @return InvoiceElement
      */
     public function setPkwiuCode($pkwiuCode)
     {
@@ -223,7 +223,7 @@ class InvoiceElements
      * Set vatRate
      *
      * @param string $vatRate
-     * @return InvoiceElements
+     * @return InvoiceElement
      */
     public function setVatRate($vatRate)
     {
