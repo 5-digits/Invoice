@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 
+
+
 /**
  * Invoice
  *
@@ -14,6 +16,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Invoice
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="IUser")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $iuser;
 
     /**
      * @ORM\OneToMany(targetEntity="InvoiceElement", mappedBy="invoice")
@@ -198,5 +206,29 @@ class Invoice
     public function getInvoiceElements()
     {
         return $this->invoice_elements;
+    }
+
+    /**
+     * Set iuser
+     *
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser
+     *
+     * @return Invoice
+     */
+    public function setIuser(\mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser = null)
+    {
+        $this->iuser = $iuser;
+
+        return $this;
+    }
+
+    /**
+     * Get iuser
+     *
+     * @return \mysiar\Bundle\InvoiceBundle\Entity\IUser
+     */
+    public function getIuser()
+    {
+        return $this->iuser;
     }
 }

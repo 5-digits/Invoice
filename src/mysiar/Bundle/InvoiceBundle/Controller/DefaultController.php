@@ -12,6 +12,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('InvoiceBundle:Default:index.html.twig');
+        return $this->redirectToRoute('invoice_index');
     }
 }
