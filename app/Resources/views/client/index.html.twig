@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'top_menu.html.twig' %}
+<div class="row">
+    <div class="col-lg-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Client list</h4>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="td-center">Id</th>
+                <th>Client</th>
+                <th>Company</th>
+                <th>Vatid</th>
+                <th>City</th>
+                <th>Country</th>
+
+                <th class="td-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td class="td-center"><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
+                <td>{{ client.clientName }}</td>
+                <td>{{ client.companyName }}</td>
+                <td>{{ client.vatId }}</td>
+
+                <td>{{ client.addressCity }}</td>
+                <td>{{ client.addressCountry }}</td>
+
+                <td class="td-center">
+                    <ul class="list-inline">
+                        <li >
+                            <a href="{{ path('client_show', { 'id': client.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('client_edit', { 'id': client.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('client_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

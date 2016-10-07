@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
-
-
 {% block body %}
+
     {% include 'top_menu.html.twig' %}
 
     <div class="row">
@@ -17,7 +16,7 @@
                         <thead>
                         <tr>
                             <th class="td-center">Id</th>
-                            <th>Invoice number</th>
+                            <th>Invoice</th>
                             <th>Date of issue</th>
                             <th>Date of sell</th>
                             <th>Payment due</th>
@@ -28,7 +27,7 @@
                         {% for invoice in invoices %}
                             <tr>
                                 <td class="td-center"><a href="{{ path('invoice_show', { 'id': invoice.id }) }}">{{ invoice.id }}</a></td>
-                                <td>{{ invoice.invoiceNumber }}</td>
+                                <td>{{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</td>
                                 <td>{% if invoice.dateOfIssue %}{{ invoice.dateOfIssue|date('Y-m-d') }}{% endif %}</td>
                                 <td>{% if invoice.dateOfSell %}{{ invoice.dateOfSell|date('Y-m-d') }}{% endif %}</td>
                                 <td>{% if invoice.paymentDue %}{{ invoice.paymentDue|date('Y-m-d') }}{% endif %}</td>

@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\FOSUserBundle;
 use mysiar\Bundle\InvoiceBundle\Entity\IUser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 
 /**
@@ -41,7 +42,40 @@ class InvoiceRepository extends EntityRepository
     }
 
     public function getAllInvoiceForUser( $user ){
-        return $this->_em->getRepository($this->_entityName)->findBy(array( 'iuser' => $user));
+        return $this->_em->getRepository($this->_entityName)
+                    ->findBy(
+                        array( 'iuser' => $user),
+                        array( 'dateOfIssue' => 'ASC')
+                    );
+
     }
 
+    /**
+     * Generates next number for invoice.
+     * sequential number for a year
+     *
+     * @return int
+     */
+    public function generateInvoiceNumber()
+    {
+        $firstDay = new \DateTime();
+        $firstDay->setDate($firstDay->format('Y'),1,1);
+        $lastDay = new \DateTime();
+        $lastDay->setDate($lastDay->format('Y'),12,31);
+
+        $query = $this->createQueryBuilder('invoice')
+            ->select('MAX(invoice.invoiceNumber) AS last_invoice_number')
+            ->where('invoice.dateOfIssue >= :fromDate')
+            ->andWhere('invoice.dateOfIssue <= :toDate')
+            ->setParameter('fromDate', $firstDay)
+            ->setParameter('toDate', $lastDay)
+            ->getQuery();
+
+        $last_invoice_number = $query->getResult()[0]['last_invoice_number'];
+
+        return $last_invoice_number ? $last_invoice_number+1 : 1;
+    }
+
+
+    // end of class
 }

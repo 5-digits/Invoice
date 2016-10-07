@@ -12,7 +12,7 @@ use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
 use mysiar\Bundle\InvoiceBundle\Repository\InvoiceRepository as InvoiceRepo;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
+use DateInterval;
 
 use mysiar\Bundle\InvoiceBundle\Entity\IUser;
 
@@ -55,6 +55,18 @@ class InvoiceController extends Controller
     public function newAction(Request $request)
     {
         $invoice = new Invoice();
+
+        $today = new \DateTime();
+        $payment = new \DateTime();
+        $payment->add(new DateInterval('P'.$this->getUser()->getPayment().'D'));
+
+        $invoice->setInvoiceNumber($this->getInvoiceRepository()->generateInvoiceNumber());
+        $invoice->setInvoiceNumberPrefix($this->getUser()->getInvoiceNumberPrefix());
+
+        $invoice->setDateOfIssue($today);
+        $invoice->setDateOfSell($today);
+        $invoice->setPaymentDue($payment);
+
         $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice);
         $form->handleRequest($request);
 
@@ -70,6 +82,7 @@ class InvoiceController extends Controller
         return $this->render('invoice/new.html.twig', array(
             'invoice' => $invoice,
             'form' => $form->createView(),
+            'username' => $this->getUser()->getUsername()
         ));
     }
 
@@ -131,6 +144,7 @@ class InvoiceController extends Controller
                         'invoice' => $invoice,
                         'edit_form' => $editForm->createView(),
                         'delete_form' => $deleteForm->createView(),
+                        'username' => $this->getUser()->getUsername()
                     )
                 );
             }

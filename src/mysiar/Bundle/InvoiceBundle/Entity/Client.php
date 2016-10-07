@@ -7,11 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Client
  *
- * @ORM\Table(name="client")
+ * @ORM\Table(name="clients")
  * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\ClientRepository")
  */
 class Client
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="IUser")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $iuser;
+    
     /**
      * @var int
      *
@@ -27,6 +33,14 @@ class Client
      * @ORM\Column(name="client_name", type="string", length=255)
      */
     private $clientName;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="company_name", type="string", length=255)
+     */
+    private $companyName;
 
     /**
      * @var string
@@ -434,5 +448,54 @@ class Client
     {
         return $this->contactWww;
     }
-}
 
+    /**
+     * @return string
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * @param string $companyName
+     * @return Client
+     */
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
+    
+
+    /**
+     * Set iuser
+     *
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser
+     *
+     * @return Client
+     */
+    public function setIuser(\mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser = null)
+    {
+        $this->iuser = $iuser;
+
+        return $this;
+    }
+
+    /**
+     * Get iuser
+     *
+     * @return \mysiar\Bundle\InvoiceBundle\Entity\IUser
+     */
+    public function getIuser()
+    {
+        return $this->iuser;
+    }
+
+
+    public function __toString()
+    {
+        return $this->clientName;
+    }
+}

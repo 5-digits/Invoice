@@ -8,26 +8,30 @@
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ invoice.id }}</td>
-            </tr>
-            <tr>
-                <th>Invoicenumber</th>
-                <td>{{ invoice.invoiceNumber }}</td>
-            </tr>
-            <tr>
-                <th>Dateofissue</th>
-                <td>{% if invoice.dateOfIssue %}{{ invoice.dateOfIssue|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Dateofsell</th>
-                <td>{% if invoice.dateOfSell %}{{ invoice.dateOfSell|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Paymentdue</th>
-                <td>{% if invoice.paymentDue %}{{ invoice.paymentDue|date('Y-m-d') }}{% endif %}</td>
-            </tr>
+        <tr>
+        </tr>
+        <tr>
+            <th>Invoice number</th>
+            <td>{{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</td>
+        </tr>
+        <tr>
+            <th>Date of issue</th>
+            <td>{% if invoice.dateOfIssue %}{{ invoice.dateOfIssue|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Date of sell</th>
+            <td>{% if invoice.dateOfSell %}{{ invoice.dateOfSell|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Payment due</th>
+            <td>{% if invoice.paymentDue %}{{ invoice.paymentDue|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Client name</th>
+            <td>{{ invoice.clientName }}</td>
+        <tr>
+
+        </tr>
         </tbody>
     </table>
 
@@ -40,7 +44,7 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

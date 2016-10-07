@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Client</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ client.id }}</td>
+            </tr>
+            <tr>
+                <th>Clientname</th>
+                <td>{{ client.clientName }}</td>
+            </tr>
+            <tr>
+                <th>Vatid</th>
+                <td>{{ client.vatId }}</td>
+            </tr>
+            <tr>
+                <th>Addressstreet</th>
+                <td>{{ client.addressStreet }}</td>
+            </tr>
+            <tr>
+                <th>Addresshouse</th>
+                <td>{{ client.addressHouse }}</td>
+            </tr>
+            <tr>
+                <th>Addressflat</th>
+                <td>{{ client.addressFlat }}</td>
+            </tr>
+            <tr>
+                <th>Addresszip</th>
+                <td>{{ client.addressZip }}</td>
+            </tr>
+            <tr>
+                <th>Addresscity</th>
+                <td>{{ client.addressCity }}</td>
+            </tr>
+            <tr>
+                <th>Addresscountry</th>
+                <td>{{ client.addressCountry }}</td>
+            </tr>
+            <tr>
+                <th>Contactphone</th>
+                <td>{{ client.contactPhone }}</td>
+            </tr>
+            <tr>
+                <th>Contactmobile</th>
+                <td>{{ client.contactMobile }}</td>
+            </tr>
+            <tr>
+                <th>Contactfax</th>
+                <td>{{ client.contactFax }}</td>
+            </tr>
+            <tr>
+                <th>Contactemail</th>
+                <td>{{ client.contactEmail }}</td>
+            </tr>
+            <tr>
+                <th>Contactwww</th>
+                <td>{{ client.contactWww }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('client_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('client_edit', { 'id': client.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
