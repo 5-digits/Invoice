@@ -4,12 +4,15 @@ namespace mysiar\Bundle\InvoiceBundle\Controller;
 
 use mysiar\Bundle\InvoiceBundle\Repository\InvoiceRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
+use mysiar\Bundle\InvoiceBundle\Repository\InvoiceRepository as InvoiceRepo;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
 
 use mysiar\Bundle\InvoiceBundle\Entity\IUser;
 
@@ -34,10 +37,12 @@ class InvoiceController extends Controller
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
 
-        $invoices = $em->getRepository('InvoiceBundle:Invoice')->findBy(array( 'iuser' => $user));
+        //$invoices = $em->getRepository('InvoiceBundle:Invoice')->findBy(array( 'iuser' => $user));
+        $invoices = $this->getInvoiceRepository()->getAllInvoiceForUser( $user );
 
         return $this->render('invoice/index.html.twig', array(
             'invoices' => $invoices,
+            'username' => $this->getUser()->getUsername()
         ));
     }
 
@@ -76,10 +81,10 @@ class InvoiceController extends Controller
      */
     public function showAction($id)
     {
-        $invoice = $this->getInvoiceById($id);
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
         if(isset($invoice))
         {
-            if ($this->invoiceOwner($invoice)) {
+            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
                 $deleteForm = $this->createDeleteForm($invoice);
 
                 return $this->render(
@@ -87,11 +92,13 @@ class InvoiceController extends Controller
                     array(
                         'invoice' => $invoice,
                         'delete_form' => $deleteForm->createView(),
+                        'username' => $this->getUser()->getUsername()
                     )
                 );
             }
         }
 
+        //return new Response(dump($invoice));
         return $this->redirectToRoute('invoice_index');
     }
 
@@ -101,25 +108,35 @@ class InvoiceController extends Controller
      * @Route("/{id}/edit", name="invoice_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Invoice $invoice)
+    public function editAction(Request $request, $id)
     {
-        $deleteForm = $this->createDeleteForm($invoice);
-        $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice);
-        $editForm->handleRequest($request);
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
+        if(isset($invoice)) {
+            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
+                $deleteForm = $this->createDeleteForm($invoice);
+                $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice);
+                $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($invoice);
-            $em->flush();
+                if ($editForm->isSubmitted() && $editForm->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($invoice);
+                    $em->flush();
 
-            return $this->redirectToRoute('invoice_edit', array('id' => $invoice->getId()));
+                    return $this->redirectToRoute('invoice_edit', array('id' => $invoice->getId()));
+                }
+
+                return $this->render(
+                    'invoice/edit.html.twig',
+                    array(
+                        'invoice' => $invoice,
+                        'edit_form' => $editForm->createView(),
+                        'delete_form' => $deleteForm->createView(),
+                    )
+                );
+            }
         }
+        return $this->redirectToRoute('invoice_index');
 
-        return $this->render('invoice/edit.html.twig', array(
-            'invoice' => $invoice,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
     }
 
     /**
@@ -128,15 +145,20 @@ class InvoiceController extends Controller
      * @Route("/{id}", name="invoice_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Invoice $invoice)
+    public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($invoice);
-        $form->handleRequest($request);
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
+        if(isset($invoice)) {
+            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
+                $form = $this->createDeleteForm($invoice);
+                $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($invoice);
-            $em->flush();
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->remove($invoice);
+                    $em->flush();
+                }
+            }
         }
 
         return $this->redirectToRoute('invoice_index');
@@ -159,35 +181,14 @@ class InvoiceController extends Controller
     }
 
 
-
     /**
-     * Gets invoice by its id from repository
+     * Gets InvoiceBundle:Invoice repository
      *
-     * @param $id
-     * @return object
+     * @return \Doctrine\Common\Persistence\ObjectRepository
      */
-    private function getInvoiceById( $id )
+    private function getInvoiceRepository()
     {
-        $em = $this->getDoctrine()->getManager();
-        return $em->getRepository('InvoiceBundle:Invoice')->find($id);
-    }
-
-    /**
-     * Checks if invoice is own by logged user
-     *
-     * @param Invoice $invoice
-     * @return bool|\Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    private function invoiceOwner( Invoice $invoice )
-    {
-        if( $this->getUser() == $invoice->getIuser() ){
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
-
+        return $this->getDoctrine()->getRepository('InvoiceBundle:Invoice');
     }
 
 }

@@ -3,7 +3,10 @@
 namespace mysiar\Bundle\InvoiceBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use FOS\UserBundle\FOSUserBundle;
 use mysiar\Bundle\InvoiceBundle\Entity\IUser;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 
 /**
  * InvoiceRepository
@@ -14,6 +17,31 @@ use mysiar\Bundle\InvoiceBundle\Entity\IUser;
 class InvoiceRepository extends EntityRepository
 {
 
+    /**
+     * Gets invoice by its id from repository
+     *
+     * @param $id
+     * @return object
+     */
+    public function getInvoiceById( $id )
+    {
+        return $this->_em->find($this->_entityName, $id);
+    }
 
+   /**
+     * Checks if invoice is own by logged user
+     *
+     * @param Invoice $invoice
+     * @param IUser $user
+     * @return bool
+     */
+    public function invoiceOwner( $invoice, $user )
+    {
+        return $user == $invoice->getIuser() ? true : false;
+    }
+
+    public function getAllInvoiceForUser( $user ){
+        return $this->_em->getRepository($this->_entityName)->findBy(array( 'iuser' => $user));
+    }
 
 }
