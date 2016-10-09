@@ -56,7 +56,7 @@ class InvoiceRepository extends EntityRepository
      *
      * @return int
      */
-    public function generateInvoiceNumber()
+    public function generateInvoiceNumber($user)
     {
         $firstDay = new \DateTime();
         $firstDay->setDate($firstDay->format('Y'),1,1);
@@ -67,8 +67,10 @@ class InvoiceRepository extends EntityRepository
             ->select('MAX(invoice.invoiceNumber) AS last_invoice_number')
             ->where('invoice.dateOfIssue >= :fromDate')
             ->andWhere('invoice.dateOfIssue <= :toDate')
+            ->andWhere('invoice.iuser = :iuser')
             ->setParameter('fromDate', $firstDay)
             ->setParameter('toDate', $lastDay)
+            ->setParameter('iuser', $user)
             ->getQuery();
 
         $last_invoice_number = $query->getResult()[0]['last_invoice_number'];

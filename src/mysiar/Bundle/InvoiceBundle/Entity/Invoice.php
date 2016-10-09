@@ -5,9 +5,6 @@ namespace mysiar\Bundle\InvoiceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 
-
-
-
 /**
  * Invoice
  *
@@ -143,13 +140,10 @@ class Invoice
     private $addressCountry;
 
 
-
-
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -172,7 +166,7 @@ class Invoice
     /**
      * Get invoiceNumber
      *
-     * @return string 
+     * @return string
      */
     public function getInvoiceNumber()
     {
@@ -195,7 +189,7 @@ class Invoice
     /**
      * Get dateOfIssue
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateOfIssue()
     {
@@ -218,7 +212,7 @@ class Invoice
     /**
      * Get dateOfSell
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateOfSell()
     {
@@ -241,7 +235,7 @@ class Invoice
     /**
      * Get paymentDue
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getPaymentDue()
     {
@@ -439,9 +433,9 @@ class Invoice
     }
 
 
-
-    public function setNewInvoice($user)
+    public function setNewInvoice()
     {
+
 
     }
 
@@ -488,7 +482,7 @@ class Invoice
     /**
      * Get invoice_elements
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getInvoiceElements()
     {
@@ -529,7 +523,6 @@ class Invoice
     public function setClient(\mysiar\Bundle\InvoiceBundle\Entity\Client $client = null)
     {
         $this->client = $client;
-
         return $this;
     }
 

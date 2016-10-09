@@ -25,9 +25,8 @@ class ClientController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $clients = $em->getRepository('InvoiceBundle:Client')->findAll();
+        $user = $this->getUser();
+        $clients = $this->getClientRepository()->getAllClientsForUser($user);
 
         return $this->render('client/index.html.twig', array(
             'clients' => $clients,
@@ -142,5 +141,15 @@ class ClientController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * Gets InvoiceBundle:Client repository
+     *
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    private function getClientRepository()
+    {
+        return $this->getDoctrine()->getRepository('InvoiceBundle:Client');
     }
 }

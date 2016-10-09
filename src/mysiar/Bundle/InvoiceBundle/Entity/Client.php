@@ -12,8 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Client
 {
+
     /**
-     * @ORM\ManyToOne(targetEntity="IUser")
+     * @ORM\ManyToOne(targetEntity="IUser", inversedBy="clients")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $iuser;

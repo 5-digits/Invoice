@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
 use mysiar\Bundle\InvoiceBundle\Repository\InvoiceRepository as InvoiceRepo;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceType;
+use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DateInterval;
 
@@ -32,12 +33,7 @@ class InvoiceController extends Controller
      */
     public function indexAction()
     {
-        //$this->denyAccessUnlessGranted('ROLE_USER', null, '');
-
         $user = $this->getUser();
-        $em = $this->getDoctrine()->getManager();
-
-        //$invoices = $em->getRepository('InvoiceBundle:Invoice')->findBy(array( 'iuser' => $user));
         $invoices = $this->getInvoiceRepository()->getAllInvoiceForUser( $user );
 
         return $this->render('invoice/index.html.twig', array(
@@ -56,23 +52,34 @@ class InvoiceController extends Controller
     {
         $invoice = new Invoice();
 
+        // initial invoice set start
         $today = new \DateTime();
         $payment = new \DateTime();
-        $payment->add(new DateInterval('P'.$this->getUser()->getPayment().'D'));
+        $payment_time = $this->getUser()->getPayment();
+        if(!$payment_time) $payment_time=0;
+        $payment->add(new DateInterval('P'.$payment_time.'D'));
 
-        $invoice->setInvoiceNumber($this->getInvoiceRepository()->generateInvoiceNumber());
+        $invoice->setInvoiceNumber($this->getInvoiceRepository()->generateInvoiceNumber($this->getUser()));
         $invoice->setInvoiceNumberPrefix($this->getUser()->getInvoiceNumberPrefix());
 
         $invoice->setDateOfIssue($today);
         $invoice->setDateOfSell($today);
         $invoice->setPaymentDue($payment);
 
-        $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice);
+        // invoice set end
+        $clients = $this->getClientRepository()->getAllClientsForUser($this->getUser());
+
+        dump($clients);
+
+        $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice );
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $invoice->setIuser($this->getUser());
+            //$invoice->setClient();
+
             $em->persist($invoice);
             $em->flush();
 
@@ -194,7 +201,6 @@ class InvoiceController extends Controller
         ;
     }
 
-
     /**
      * Gets InvoiceBundle:Invoice repository
      *
@@ -205,4 +211,34 @@ class InvoiceController extends Controller
         return $this->getDoctrine()->getRepository('InvoiceBundle:Invoice');
     }
 
+    /**
+     * Gets InvoiceBundle:Client repository
+     *
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    private function getClientRepository()
+    {
+        return $this->getDoctrine()->getRepository('InvoiceBundle:Client');
+    }
+
+
+    /**
+     * Displays final invoice.
+     *
+     * @Route("/{id}/view", name="invoice_view")
+     * @Method({"GET", "POST"})
+     */
+    public function viewInvoice($id)
+    {
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
+
+        return $this->render(
+            'invoice/invoice1.tmpl.twig',
+            array(
+                'invoice' => $invoice,
+                'user' => $this->getUser(),
+
+            )
+        );
+    }
 }

@@ -17,6 +17,7 @@ class InvoiceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //$clients = $options['clients'];
         $builder
             ->add('invoiceNumber', TextType::class,
                 array('disabled'=>'true'))
@@ -37,9 +38,11 @@ class InvoiceType extends AbstractType
                     'format' => 'yyyy-MM-dd',
                     'placeholder' => 'yyyy-MM-dd'
                 )
-            )
-            ->add('client')
-        ;
+            );
+
+        $builder->add('client');
+
+
     }
     
     /**
@@ -51,4 +54,13 @@ class InvoiceType extends AbstractType
             'data_class' => 'mysiar\Bundle\InvoiceBundle\Entity\Invoice'
         ));
     }
+
+//    /**
+//     * @param array $options
+//     * @return array
+//     */
+//    public function getDefaultOptions(array $options)
+//    {
+//        return $options + array( 'clients' => null );
+//    }
 }
