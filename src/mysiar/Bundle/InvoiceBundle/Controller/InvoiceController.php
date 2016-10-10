@@ -122,6 +122,7 @@ class InvoiceController extends Controller
         $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
         if(isset($invoice)) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
+                $preEditInvoiceClient = $invoice->getClient();
                 $deleteForm = $this->createDeleteForm($invoice);
                 $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceEditType', $invoice);
                 $editForm->handleRequest($request);
@@ -129,9 +130,11 @@ class InvoiceController extends Controller
                 if ($editForm->isSubmitted() && $editForm->isValid()) {
                     $em = $this->getDoctrine()->getManager();
 
-                    // update invoice with Client information and store it
-                   // $invoice->updateInvoiceWithClient();
-
+                    // if client has been changed in Select of InvoiceEditType - rewrite all client data
+                    if( $preEditInvoiceClient != $invoice->getClient() )
+                    {
+                        $invoice->updateInvoiceWithClient();
+                    }
                     $em->persist($invoice);
                     $em->flush();
 
