@@ -13,7 +13,7 @@ use mysiar\Bundle\InvoiceBundle\Repository\InvoiceRepository as InvoiceRepo;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceType;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use DateInterval;
+
 
 use mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser;
 
@@ -51,23 +51,13 @@ class InvoiceController extends Controller
     public function newAction(Request $request)
     {
         $invoice = new Invoice();
-
-        // initial invoice set start
         $invoice->setInvoiceUser($this->getUser()); // invoice owner !!!
-        $today = new \DateTime();
-        $payment = new \DateTime();
-        $payment_time = $this->getUser()->getPayment();
-        if(!$payment_time) $payment_time=0;
-        $payment->add(new DateInterval('P'.$payment_time.'D'));
 
+        // initial invoice set
+        $invoice->setNewInvoice();
+
+        // setting new Invoice number based on numbers of already issued Invoices
         $invoice->setInvoiceNumber($this->getInvoiceRepository()->generateInvoiceNumber($this->getUser()));
-        $invoice->setInvoiceNumberPrefix($this->getUser()->getInvoiceNumberPrefix());
-
-        $invoice->setDateOfIssue($today);
-        $invoice->setDateOfSell($today);
-        $invoice->setPaymentDue($payment);
-
-
 
         $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice );
 
@@ -75,17 +65,9 @@ class InvoiceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $invoice->setInvoiceUser($this->getUser());
 
-            $invoice->setClientName($invoice->getClient()->getClientName());
-            $invoice->setCompanyName($invoice->getClient()->getCompanyName());
-            $invoice->setVatId($invoice->getClient()->getVatId());
-            $invoice->setAddressStreet($invoice->getClient()->getAddressStreet());
-            $invoice->setAddressHouse($invoice->getClient()->getAddressHouse());
-            $invoice->setAddressFlat($invoice->getClient()->getAddressFlat());
-            $invoice->setAddressZip($invoice->getClient()->getAddressZip());
-            $invoice->setAddressCity($invoice->getClient()->getAddressCity());
-            $invoice->setAddressCountry($invoice->getClient()->getAddressCountry());
+            // update invoice with Client information and store it
+            $invoice->updateInvoiceWithClient();
 
             $em->persist($invoice);
             $em->flush();

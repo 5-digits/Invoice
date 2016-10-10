@@ -3,7 +3,7 @@
 namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use DateInterval;
 
 /**
  * Invoice
@@ -432,12 +432,49 @@ class Invoice
         return $this;
     }
 
-
+    /**
+     * Set new Invoice for InvoiceType form
+     * requires first invoiceUser to be set
+     */
     public function setNewInvoice()
     {
+        $this->invoice_number_prefix = $this->invoiceUser->getInvoiceNumberPrefix();
 
+        $today = new \DateTime();
+        $payment = new \DateTime();
+        $payment_time = $this->invoiceUser->getPayment();
+        if (!$payment_time)
+        {
+            $payment_time = 0;
+        }
+        $payment->add(new DateInterval('P'.$payment_time.'D'));
+        $this->dateOfIssue = $today;
+        $this->dateOfSell = $today;
+        $this->paymentDue = $payment;
 
     }
+
+    /**
+     * Updates Invoice object when new Invoice is created
+     * and InvoiceType form is submitted
+     */
+    public function updateInvoiceWithClient()
+    {
+        if(isset($this->client))
+        {
+            $this->clientName = $this->client->getClientName();
+            $this->companyName = $this->client->getCompanyName();
+            $this->vatId = $this->client->getVatId();
+            $this->addressStreet = $this->client->getAddressStreet();
+            $this->addressHouse = $this->client->getAddressHouse();
+            $this->addressFlat = $this->client->getAddressFlat();
+            $this->addressZip = $this->client->getAddressZip();
+            $this->addressCity = $this->client->getAddressCity();
+            $this->addressCountry = $this->client->getAddressCountry();
+        }
+    }
+
+
 
 
 
