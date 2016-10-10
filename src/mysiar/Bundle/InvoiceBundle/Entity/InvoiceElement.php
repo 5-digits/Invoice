@@ -9,14 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InvoiceElement
  *
- * @ORM\Table(name="invoice_elements")
+ * @ORM\Table(name="invoiceElements")
  * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\InvoiceElementRepository")
  */
 class InvoiceElement
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="invoice_elements")
+     * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="invoiceElements")
      * @@ORM\JoinColumn(name="invoice_id", referencedColumnName="id")
      */
     private $invoice;

@@ -48,7 +48,7 @@ class InvoiceUser extends BaseUser
      *
      * @ORM\Column(name="invoice_number_prefix", type="string", length=255, nullable=true)
      */
-    private $invoice_number_prefix;
+    private $invoiceNumberPrefix;
 
 
     /**
@@ -145,16 +145,16 @@ class InvoiceUser extends BaseUser
      */
     public function getInvoiceNumberPrefix()
     {
-        return $this->invoice_number_prefix;
+        return $this->invoiceNumberPrefix;
     }
 
     /**
      * @param string $invoice_number_prefix
      * @return InvoiceUser
      */
-    public function setInvoiceNumberPrefix($invoice_number_prefix)
+    public function setInvoiceNumberPrefix($invoiceNumberPrefix)
     {
-        $this->invoice_number_prefix = $invoice_number_prefix;
+        $this->invoiceNumberPrefix = $invoiceNumberPrefix;
 
         return $this;
     }

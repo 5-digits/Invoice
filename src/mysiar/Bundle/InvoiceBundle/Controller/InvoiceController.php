@@ -123,11 +123,15 @@ class InvoiceController extends Controller
         if(isset($invoice)) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
                 $deleteForm = $this->createDeleteForm($invoice);
-                $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice);
+                $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceEditType', $invoice);
                 $editForm->handleRequest($request);
 
                 if ($editForm->isSubmitted() && $editForm->isValid()) {
                     $em = $this->getDoctrine()->getManager();
+
+                    // update invoice with Client information and store it
+                   // $invoice->updateInvoiceWithClient();
+
                     $em->persist($invoice);
                     $em->flush();
 

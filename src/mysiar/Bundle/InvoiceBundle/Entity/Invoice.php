@@ -29,7 +29,7 @@ class Invoice
     /**
      * @ORM\OneToMany(targetEntity="InvoiceElement", mappedBy="invoice")
      */
-    private $invoice_elements;
+    private $invoiceElements;
 
     /**
      * @var int
@@ -52,7 +52,7 @@ class Invoice
      *
      * @ORM\Column(name="invoice_number_prefix", type="string", length=255, nullable=true)
      */
-    private $invoice_number_prefix;
+    private $invoiceNumberPrefix;
 
     /**
      * @var \DateTime
@@ -247,16 +247,16 @@ class Invoice
      */
     public function getInvoiceNumberPrefix()
     {
-        return $this->invoice_number_prefix;
+        return $this->invoiceNumberPrefix;
     }
 
     /**
-     * @param string $invoice_number_prefix
+     * @param string $invoiceNumberPrefix
      * @return Invoice
      */
-    public function setInvoiceNumberPrefix($invoice_number_prefix)
+    public function setInvoiceNumberPrefix($invoiceNumberPrefix)
     {
-        $this->invoice_number_prefix = $invoice_number_prefix;
+        $this->invoiceNumberPrefix = $invoiceNumberPrefix;
 
         return $this;
     }
@@ -438,7 +438,7 @@ class Invoice
      */
     public function setNewInvoice()
     {
-        $this->invoice_number_prefix = $this->invoiceUser->getInvoiceNumberPrefix();
+        $this->invoiceNumberPrefix = $this->invoiceUser->getInvoiceNumberPrefix();
 
         $today = new \DateTime();
         $payment = new \DateTime();
@@ -490,40 +490,40 @@ class Invoice
      */
     public function __construct()
     {
-        $this->invoice_elements = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->invoiceElements = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add invoice_elements
+     * Add invoiceElements
      *
      * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements
      * @return Invoice
      */
     public function addInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements)
     {
-        $this->invoice_elements[] = $invoiceElements;
+        $this->invoiceElements[] = $invoiceElements;
 
         return $this;
     }
 
     /**
-     * Remove invoice_elements
+     * Remove invoiceElements
      *
      * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements
      */
     public function removeInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements)
     {
-        $this->invoice_elements->removeElement($invoiceElements);
+        $this->invoiceElements->removeElement($invoiceElements);
     }
 
     /**
-     * Get invoice_elements
+     * Get invoiceElements
      *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getInvoiceElements()
     {
-        return $this->invoice_elements;
+        return $this->invoiceElements;
     }
 
     /**
