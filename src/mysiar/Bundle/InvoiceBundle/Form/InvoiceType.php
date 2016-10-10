@@ -24,9 +24,6 @@ class InvoiceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-//        $entity = $builder->getData();
-//        $user = $entity->getIuser();
-
         $builder
             ->add('invoiceNumber', TextType::class,
                 array('disabled'=>'true'))
