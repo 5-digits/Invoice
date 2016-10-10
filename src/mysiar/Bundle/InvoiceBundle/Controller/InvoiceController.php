@@ -68,10 +68,6 @@ class InvoiceController extends Controller
         $invoice->setPaymentDue($payment);
 
 
-        // invoice set end
-        $clients = $this->getClientRepository()->getAllClientsForUser($this->getUser());
-
-        //dump($clients);
 
         $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice );
 
@@ -80,7 +76,16 @@ class InvoiceController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $invoice->setIuser($this->getUser());
-            //$invoice->setClient();
+
+            $invoice->setClientName($invoice->getClient()->getClientName());
+            $invoice->setCompanyName($invoice->getClient()->getCompanyName());
+            $invoice->setVatId($invoice->getClient()->getVatId());
+            $invoice->setAddressStreet($invoice->getClient()->getAddressStreet());
+            $invoice->setAddressHouse($invoice->getClient()->getAddressHouse());
+            $invoice->setAddressFlat($invoice->getClient()->getAddressFlat());
+            $invoice->setAddressZip($invoice->getClient()->getAddressZip());
+            $invoice->setAddressCity($invoice->getClient()->getAddressCity());
+            $invoice->setAddressCountry($invoice->getClient()->getAddressCountry());
 
             $em->persist($invoice);
             $em->flush();
