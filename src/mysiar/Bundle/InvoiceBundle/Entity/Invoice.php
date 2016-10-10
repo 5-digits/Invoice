@@ -15,10 +15,10 @@ class Invoice
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="IUser")
+     * @ORM\ManyToOne(targetEntity="InvoiceUser")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $iuser;
+    private $invoiceUser;
 
     /**
      * @ORM\ManyToOne(targetEntity="Client")
@@ -490,27 +490,27 @@ class Invoice
     }
 
     /**
-     * Set iuser
+     * Set invoiceUser
      *
-     * @param \mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser $invoiceUser
      *
      * @return Invoice
      */
-    public function setIuser(\mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser = null)
+    public function setInvoiceUser(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser $invoiceUser = null)
     {
-        $this->iuser = $iuser;
+        $this->invoiceUser = $invoiceUser;
 
         return $this;
     }
 
     /**
-     * Get iuser
+     * Get invoiceUser
      *
-     * @return \mysiar\Bundle\InvoiceBundle\Entity\IUser
+     * @return \mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser
      */
-    public function getIuser()
+    public function getInvoiceUser()
     {
-        return $this->iuser;
+        return $this->invoiceUser;
     }
 
     /**

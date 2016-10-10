@@ -48,7 +48,7 @@ class ClientController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $client->setIuser($this->getUser());
+            $client->setInvoiceUser($this->getUser());
             $em->persist($client);
             $em->flush();
 

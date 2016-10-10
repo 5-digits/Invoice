@@ -15,7 +15,7 @@ use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DateInterval;
 
-use mysiar\Bundle\InvoiceBundle\Entity\IUser;
+use mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser;
 
 
 /**
@@ -53,7 +53,7 @@ class InvoiceController extends Controller
         $invoice = new Invoice();
 
         // initial invoice set start
-        $invoice->setIuser($this->getUser()); // invoice owner !!!
+        $invoice->setInvoiceUser($this->getUser()); // invoice owner !!!
         $today = new \DateTime();
         $payment = new \DateTime();
         $payment_time = $this->getUser()->getPayment();
@@ -75,7 +75,7 @@ class InvoiceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $invoice->setIuser($this->getUser());
+            $invoice->setInvoiceUser($this->getUser());
 
             $invoice->setClientName($invoice->getClient()->getClientName());
             $invoice->setCompanyName($invoice->getClient()->getCompanyName());

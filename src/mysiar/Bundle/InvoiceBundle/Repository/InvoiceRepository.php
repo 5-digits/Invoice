@@ -4,7 +4,7 @@ namespace mysiar\Bundle\InvoiceBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\FOSUserBundle;
-use mysiar\Bundle\InvoiceBundle\Entity\IUser;
+use mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -33,18 +33,18 @@ class InvoiceRepository extends EntityRepository
      * Checks if invoice is own by logged user
      *
      * @param Invoice $invoice
-     * @param IUser $user
+     * @param InvoiceUser $user
      * @return bool
      */
     public function invoiceOwner( $invoice, $user )
     {
-        return $user == $invoice->getIuser() ? true : false;
+        return $user == $invoice->getInvoiceUser() ? true : false;
     }
 
     public function getAllInvoiceForUser( $user ){
         return $this->_em->getRepository($this->_entityName)
                     ->findBy(
-                        array( 'iuser' => $user),
+                        array( 'invoiceUser' => $user),
                         array( 'dateOfIssue' => 'ASC')
                     );
 
@@ -67,10 +67,10 @@ class InvoiceRepository extends EntityRepository
             ->select('MAX(invoice.invoiceNumber) AS last_invoice_number')
             ->where('invoice.dateOfIssue >= :fromDate')
             ->andWhere('invoice.dateOfIssue <= :toDate')
-            ->andWhere('invoice.iuser = :iuser')
+            ->andWhere('invoice.invoiceUser = :invoiceUser')
             ->setParameter('fromDate', $firstDay)
             ->setParameter('toDate', $lastDay)
-            ->setParameter('iuser', $user)
+            ->setParameter('invoiceUser', $user)
             ->getQuery();
 
         $last_invoice_number = $query->getResult()[0]['last_invoice_number'];

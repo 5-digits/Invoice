@@ -57,7 +57,7 @@ class InvoiceType extends AbstractType
                 array(
                     'class'       => 'InvoiceBundle:Client',
                     'placeholder' => '',
-                    'choices'     => $data->getIuser()->getClients(),
+                    'choices'     => $data->getInvoiceUser()->getClients(),
                 ));
             }
         });

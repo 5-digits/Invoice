@@ -10,16 +10,16 @@ use FOS\UserBundle\Entity\User as BaseUser;
 
 
 /**
- * IUser
+ * InvoiceUser
  *
  * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\IUserRepository")
+ * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\InvoiceUserRepository")
  */
-class IUser extends BaseUser
+class InvoiceUser extends BaseUser
 {
 
     /**
-     * @ORM\OneToMany(targetEntity="Client", mappedBy="iuser", cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Client", mappedBy="invoiceUser")
      */
     private $clients;
 
@@ -131,7 +131,7 @@ class IUser extends BaseUser
 
     /**
      * @param int $payment
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setPayment($payment)
     {
@@ -150,7 +150,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $invoice_number_prefix
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setInvoiceNumberPrefix($invoice_number_prefix)
     {
@@ -169,7 +169,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $companyName
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setCompanyName($companyName)
     {
@@ -188,7 +188,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $vatId
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setVatId($vatId)
     {
@@ -207,7 +207,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $addressStreet
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setAddressStreet($addressStreet)
     {
@@ -226,7 +226,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $addressHouse
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setAddressHouse($addressHouse)
     {
@@ -245,7 +245,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $addressFlat
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setAddressFlat($addressFlat)
     {
@@ -264,7 +264,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $addressZip
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setAddressZip($addressZip)
     {
@@ -283,7 +283,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $addressCity
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setAddressCity($addressCity)
     {
@@ -302,7 +302,7 @@ class IUser extends BaseUser
 
     /**
      * @param string $addressCountry
-     * @return IUser
+     * @return InvoiceUser
      */
     public function setAddressCountry($addressCountry)
     {
@@ -326,7 +326,7 @@ class IUser extends BaseUser
      *
      * @param \mysiar\Bundle\InvoiceBundle\Entity\Client $client
      *
-     * @return IUser
+     * @return InvoiceUser
      */
     public function addClient(\mysiar\Bundle\InvoiceBundle\Entity\Client $client)
     {

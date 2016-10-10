@@ -3,6 +3,7 @@
 namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser;
 
 /**
  * Client
@@ -14,10 +15,10 @@ class Client
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="IUser", inversedBy="clients", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="InvoiceUser", inversedBy="clients", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $iuser;
+    private $invoiceUser;
     
     /**
      * @var int
@@ -471,27 +472,27 @@ class Client
     
 
     /**
-     * Set iuser
+     * Set invoiceUser
      *
-     * @param \mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser $invoiceUser
      *
      * @return Client
      */
-    public function setIuser(\mysiar\Bundle\InvoiceBundle\Entity\IUser $iuser = null)
+    public function setInvoiceUser(InvoiceUser $invoiceUser = null)
     {
-        $this->iuser = $iuser;
+        $this->invoiceUser = $invoiceUser;
 
         return $this;
     }
 
     /**
-     * Get iuser
+     * Get invoiceUser
      *
-     * @return \mysiar\Bundle\InvoiceBundle\Entity\IUser
+     * @return \mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser
      */
-    public function getIuser()
+    public function getInvoiceUser()
     {
-        return $this->iuser;
+        return $this->invoiceUser;
     }
 
 

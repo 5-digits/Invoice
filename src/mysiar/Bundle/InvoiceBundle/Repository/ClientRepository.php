@@ -15,7 +15,7 @@ class ClientRepository extends EntityRepository
     public function getAllClientsForUser( $user ){
         return $this->_em->getRepository($this->_entityName)
             ->findBy(
-                array( 'iuser' => $user),
+                array( 'invoiceUser' => $user),
                 array( 'companyName' => 'ASC')
             );
 
