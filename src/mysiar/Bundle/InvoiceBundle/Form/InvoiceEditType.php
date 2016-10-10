@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 
 class InvoiceEditType extends AbstractType
@@ -55,6 +56,7 @@ class InvoiceEditType extends AbstractType
         $builder->add('addressZip');
         $builder->add('addressCity');
         $builder->add('addressCountry');
+
 
         // creates select for all clients owned by user
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder)

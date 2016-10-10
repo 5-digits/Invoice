@@ -1,21 +1,154 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Invoice edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    {% include 'top_menu.html.twig' %}
 
-    <ul>
-        <li>
-            <a href="{{ path('invoice_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Invoice edit</h4>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(edit_form) }}
+                    <table class="table table-hover table-responsive table-condensed">
+                        <tr>
+                            <th>
+                                Invoice #
+                            </th>
+                            <td >
+                                {{ form_widget(edit_form.invoiceNumber) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th >
+                                {{ form_label(edit_form.dateOfIssue) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.dateOfIssue) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.dateOfSell) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.dateOfSell) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.paymentDue) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.paymentDue) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.clientName) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.clientName) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.companyName) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.companyName) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.vatId) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.vatId) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.addressStreet) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.addressStreet) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.addressHouse) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.addressHouse) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.addressFlat) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.addressFlat) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.addressZip) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.addressZip) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.addressCity) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.addressCity) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.addressCountry) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.addressCountry) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ form_label(edit_form.client) }}
+                            </th>
+                            <td>
+                                {{ form_widget(edit_form.client) }}
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table-button">
+                        <tr>
+                            <td>
+                                <input class="btn btn-xs btn-info" type="submit" value="submit changes"/>
+                                {{ form_end(edit_form) }}
+                            </td>
+                            <td>
+                                <a href="{{ path('invoice_index') }}">
+                                    <button type="button" class="btn btn-xs btn-success">back to the list</button>
+                                </a>
+                            </td>
+                            <td>
+                                {{ form_start(delete_form) }}
+                                <input class="btn btn-xs btn-danger" type="submit" value="delete">
+                                {{ form_end(delete_form) }}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

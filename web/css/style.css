@@ -7,3 +7,20 @@ body {
 .td-center {
     text-align: center;
 }
+
+.table-button {
+
+}
+
+.table-button td {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.table-edit {
+    padding: 1px;
+}
+
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+    padding: 1px;
+}
