@@ -3,11 +3,17 @@
 namespace mysiar\Bundle\InvoiceBundle\Form;
 
 
+use Doctrine\ORM\EntityRepository;
+use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormEvent;
+
 
 class InvoiceType extends AbstractType
 {
@@ -17,7 +23,10 @@ class InvoiceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        //$clients = $options['clients'];
+
+//        $entity = $builder->getData();
+//        $user = $entity->getIuser();
+
         $builder
             ->add('invoiceNumber', TextType::class,
                 array('disabled'=>'true'))
@@ -40,8 +49,21 @@ class InvoiceType extends AbstractType
                 )
             );
 
-        $builder->add('client');
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder)
+        {
+            $form = $event->getForm();
+            $data = $event->getData();
 
+            if ($data instanceof Invoice)
+            {
+                $form->add('client', EntityType::class,
+                array(
+                    'class'       => 'InvoiceBundle:Client',
+                    'placeholder' => '',
+                    'choices'     => $data->getIuser()->getClients(),
+                ));
+            }
+        });
 
     }
     
@@ -54,13 +76,4 @@ class InvoiceType extends AbstractType
             'data_class' => 'mysiar\Bundle\InvoiceBundle\Entity\Invoice'
         ));
     }
-
-//    /**
-//     * @param array $options
-//     * @return array
-//     */
-//    public function getDefaultOptions(array $options)
-//    {
-//        return $options + array( 'clients' => null );
-//    }
 }

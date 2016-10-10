@@ -14,7 +14,7 @@ class Client
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="IUser", inversedBy="clients")
+     * @ORM\ManyToOne(targetEntity="IUser", inversedBy="clients", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $iuser;

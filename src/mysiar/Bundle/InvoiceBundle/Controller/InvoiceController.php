@@ -53,6 +53,7 @@ class InvoiceController extends Controller
         $invoice = new Invoice();
 
         // initial invoice set start
+        $invoice->setIuser($this->getUser()); // invoice owner !!!
         $today = new \DateTime();
         $payment = new \DateTime();
         $payment_time = $this->getUser()->getPayment();
@@ -66,10 +67,11 @@ class InvoiceController extends Controller
         $invoice->setDateOfSell($today);
         $invoice->setPaymentDue($payment);
 
+
         // invoice set end
         $clients = $this->getClientRepository()->getAllClientsForUser($this->getUser());
 
-        dump($clients);
+        //dump($clients);
 
         $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice );
 
@@ -228,7 +230,7 @@ class InvoiceController extends Controller
      * @Route("/{id}/view", name="invoice_view")
      * @Method({"GET", "POST"})
      */
-    public function viewInvoice($id)
+    public function viewInvoiceAction($id)
     {
         $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
 
@@ -241,4 +243,27 @@ class InvoiceController extends Controller
             )
         );
     }
+
+    /**
+     * Displays final invoice.
+     *
+     * @Route("/{id}/test", name="invoice_test")
+     */
+    public function testAction($id)
+    {
+        $user = $this->getUser();
+        $user_clients = $user->getClients();
+
+        count($user_clients);
+
+//        foreach ($user_clients as $uc){
+//            dump($uc);
+//        }
+
+        dump($user_clients);
+//        dump($invoice_clients);
+        return new Response( "EMPTY" );
+    }
+
+
 }

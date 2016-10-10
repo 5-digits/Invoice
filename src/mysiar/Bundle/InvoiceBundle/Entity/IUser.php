@@ -19,10 +19,9 @@ class IUser extends BaseUser
 {
 
     /**
-     * @ORM\OneToMany(targetEntity="Client", mappedBy="iuser")
+     * @ORM\OneToMany(targetEntity="Client", mappedBy="iuser", cascade={"all"}, orphanRemoval=true)
      */
     private $clients;
-
 
     /**
      * @var int
@@ -312,6 +311,14 @@ class IUser extends BaseUser
         return $this;
     }
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
