@@ -11,9 +11,8 @@ class DefaultController extends Controller
     /**
      * @Route("/")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $locale = $request->getLocale();
         return $this->redirectToRoute('invoice_index');
     }
 }

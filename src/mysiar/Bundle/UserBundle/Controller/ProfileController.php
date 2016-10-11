@@ -50,7 +50,7 @@ class ProfileController extends BaseController
             'FOSUserBundle:Profile:edit.html.'.$this->container->getParameter('fos_user.template.engine'),
             array(
                 'form' => $form->createView(),
-                'user' => $user
+                'user' => $user // passing extra var to render top_menu
             )
         );
     }

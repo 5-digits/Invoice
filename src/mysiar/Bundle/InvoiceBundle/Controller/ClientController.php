@@ -30,7 +30,7 @@ class ClientController extends Controller
 
         return $this->render('client/index.html.twig', array(
             'clients' => $clients,
-            'username' => $this->getUser()->getUsername()
+            'user' => $this->getUser()
         ));
     }
 
@@ -58,7 +58,7 @@ class ClientController extends Controller
         return $this->render('client/new.html.twig', array(
             'client' => $client,
             'form' => $form->createView(),
-            'username' => $this->getUser()->getUsername()
+            'user' => $this->getUser()
         ));
     }
 
@@ -83,7 +83,7 @@ class ClientController extends Controller
                     array(
                         'client' => $client,
                         'delete_form' => $deleteForm->createView(),
-                        'username' => $this->getUser()->getUsername()
+                        'user' => $this->getUser()
                     )
                 );
             }
@@ -123,7 +123,7 @@ class ClientController extends Controller
                         'client' => $client,
                         'edit_form' => $editForm->createView(),
                         'delete_form' => $deleteForm->createView(),
-                        'username' => $this->getUser()->getUsername()
+                        'user' => $this->getUser()
                     )
                 );
             }

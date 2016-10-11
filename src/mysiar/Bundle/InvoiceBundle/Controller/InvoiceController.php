@@ -38,7 +38,7 @@ class InvoiceController extends Controller
 
         return $this->render('invoice/index.html.twig', array(
             'invoices' => $invoices,
-            'username' => $this->getUser()->getUsername()
+            'user' => $this->getUser()
         ));
     }
 
@@ -78,7 +78,7 @@ class InvoiceController extends Controller
         return $this->render('invoice/new.html.twig', array(
             'invoice' => $invoice,
             'form' => $form->createView(),
-            'username' => $this->getUser()->getUsername()
+            'user' => $this->getUser()
         ));
     }
 
@@ -101,7 +101,7 @@ class InvoiceController extends Controller
                     array(
                         'invoice' => $invoice,
                         'user' => $this->getUser(),                   // Seller details
-                        'username' => $this->getUser()->getUsername() // Logged user name for menu
+                        'user' => $this->getUser()                    // Logged user name for menu
                     )
                 );
 
@@ -158,7 +158,7 @@ class InvoiceController extends Controller
                         'invoice' => $invoice,
                         'edit_form' => $editForm->createView(),
                         'delete_form' => $deleteForm->createView(),
-                        'username' => $this->getUser()->getUsername()
+                        'user' => $this->getUser()
                     )
                 );
             }

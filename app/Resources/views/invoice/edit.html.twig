@@ -8,14 +8,20 @@
         <div class="col-lg-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Invoice edit</h4>
+                    <h4>
+                        {% trans %}
+                            label.invoice.edit
+                        {% endtrans %}
+                    </h4>
                 </div>
                 <div class="panel-body">
                     {{ form_start(edit_form) }}
                     <table class="table table-hover table-responsive table-condensed">
                         <tr>
                             <th>
-                                Invoice #
+                                {% trans %}
+                                    label.invoice
+                                {% endtrans %} #
                             </th>
                             <td >
                                 {{ form_widget(edit_form.invoiceNumber) }}
@@ -23,7 +29,10 @@
                         </tr>
                         <tr>
                             <th >
-                                {{ form_label(edit_form.dateOfIssue) }}
+                                {#{{ form_label(edit_form.dateOfIssue) }}#}
+                                {% trans %}
+                                    label.date_of_issue
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.dateOfIssue) }}
@@ -31,7 +40,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.dateOfSell) }}
+                                {#{{ form_label(edit_form.dateOfSell) }}#}
+                                {% trans %}
+                                    label.date_of_sell
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.dateOfSell) }}
@@ -39,7 +51,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.paymentDue) }}
+                                {#{{ form_label(edit_form.paymentDue) }}#}
+                                {% trans %}
+                                    label.payment_due
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.paymentDue) }}
@@ -48,7 +63,10 @@
 
                         <tr>
                             <th>
-                                {{ form_label(edit_form.clientName) }}
+                                {#{{ form_label(edit_form.clientName) }}#}
+                                {% trans %}
+                                    label.client_name
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.clientName, { 'attr': {'style': 'width: 300px'} }) }}
@@ -56,7 +74,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.companyName) }}
+                                {% trans %}
+                                    label.company_name
+                                {% endtrans %}
+                                {#{{ form_label(edit_form.companyName) }}#}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.companyName, { 'attr': {'style': 'width: 300px'} }) }}
@@ -64,7 +85,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.vatId) }}
+                                {#{{ form_label(edit_form.vatId) }}#}
+                                {% trans %}
+                                    label.vatid
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.vatId) }}
@@ -72,7 +96,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.addressStreet) }}
+                                {#{{ form_label(edit_form.addressStreet) }}#}
+                                {% trans %}
+                                    label.address.street
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.addressStreet) }}
@@ -80,7 +107,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.addressHouse) }}
+                                {#{{ form_label(edit_form.addressHouse) }}#}
+                                {% trans %}
+                                    label.address.house
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.addressHouse) }}
@@ -88,7 +118,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.addressFlat) }}
+                                {#{{ form_label(edit_form.addressFlat) }}#}
+                                {% trans %}
+                                    label.address.flat
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.addressFlat) }}
@@ -96,7 +129,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.addressZip) }}
+                                {#{{ form_label(edit_form.addressZip) }}#}
+                                {% trans %}
+                                    label.address.zip
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.addressZip) }}
@@ -104,7 +140,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.addressCity) }}
+                                {#{{ form_label(edit_form.addressCity) }}#}
+                                {% trans %}
+                                    label.address.city
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.addressCity) }}
@@ -112,7 +151,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.addressCountry) }}
+                                {#{{ form_label(edit_form.addressCountry) }}#}
+                                {% trans %}
+                                    label.address.country
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.addressCountry) }}
@@ -120,7 +162,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ form_label(edit_form.client) }}
+                                {#{{ form_label(edit_form.client) }}#}
+                                {% trans %}
+                                    label.edit.client_change
+                                {% endtrans %}
                             </th>
                             <td>
                                 {{ form_widget(edit_form.client) }}

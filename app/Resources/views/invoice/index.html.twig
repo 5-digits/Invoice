@@ -8,13 +8,21 @@
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Invoice list</h4>
+                    <h4>
+                        {% trans %}
+                            label.invoice.list
+                        {% endtrans %}
+                    </h4>
                 </div>
                 <div class="panel-body">
                     <ul class="list-inline">
                         <li>
                             <a href="{{ path('invoice_new') }}">
-                                <button type="button" class="btn btn-xs btn-info">new Invoice</button>
+                                <button type="button" class="btn btn-xs btn-info">
+                                    {% trans %}
+                                        button.invoice.new
+                                    {% endtrans %}
+                                </button>
                             </a>
                         </li>
                     </ul>
@@ -22,11 +30,31 @@
                         <thead>
                         <tr>
                             {#<th class="td-center">Id</th>#}
-                            <th class="td-center">Invoice</th>
-                            <th>Date of issue</th>
-                            <th>Payment due</th>
-                            <th>Company</th>
-                            <th class="td-center">Actions</th>
+                            <th class="td-center">
+                                {% trans %}
+                                    label.invoice
+                                {% endtrans %}
+                            </th>
+                            <th>
+                                {% trans %}
+                                    label.date_of_issue
+                                {% endtrans %}
+                            </th>
+                            <th>
+                                {% trans %}
+                                    label.payment_due
+                                {% endtrans %}
+                            </th>
+                            <th>
+                                {% trans %}
+                                    label.company
+                                {% endtrans %}
+                            </th>
+                            <th class="td-center">
+                                {% trans %}
+                                    label.actions
+                                {% endtrans %}
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
