@@ -8,6 +8,9 @@ env:
     - DB=mysql
     - SYMFONY_VERSION=2.8.*
 
+services:
+    - mysql
+
 before_script:
     - composer install
     - cp app/config/parameters.yml.travis app/config/parameters.yml
