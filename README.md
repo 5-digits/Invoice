@@ -12,6 +12,11 @@
 
 <img src="web/img/invoice.list.png" width="600">
 
+* Invoice list PL (i18n translation)
+
+<img src="web/img/invoice.list.pl.png" width="600">
+
+
 * Invoice edit
 
 <img src="web/img/invoice.edit.png" width="600">

@@ -76,12 +76,20 @@
                                     <ul class="list-inline">
                                         <li>
                                             <a href="{{ path('invoice_show', { 'id': invoice.id }) }}">
-                                                <button type="button" class="btn btn-xs btn-success">show</button>
+                                                <button type="button" class="btn btn-xs btn-success">
+                                                    {% trans %}
+                                                        button.invoice.show
+                                                    {% endtrans %}
+                                                </button>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ path('invoice_edit', { 'id': invoice.id }) }}">
-                                                <button type="button" class="btn btn-xs btn-info">edit</button>
+                                                <button type="button" class="btn btn-xs btn-info">
+                                                    {% trans %}
+                                                        button.invoice.edit
+                                                    {% endtrans %}
+                                                </button>
                                             </a>
                                         </li>
                                     </ul>
