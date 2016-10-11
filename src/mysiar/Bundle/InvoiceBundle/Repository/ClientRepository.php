@@ -20,4 +20,28 @@ class ClientRepository extends EntityRepository
             );
 
     }
+
+
+    /**
+     * Gets client by its id from repository
+     *
+     * @param $id
+     * @return object
+     */
+    public function getClientById( $id )
+    {
+        return $this->_em->find($this->_entityName, $id);
+    }
+
+    /**
+     * Checks if client is own by logged user
+     *
+     * @param Client $client
+     * @param InvoiceUser $user
+     * @return bool
+     */
+    public function clientOwner( $client, $user )
+    {
+        return $user == $client->getInvoiceUser() ? true : false;
+    }
 }

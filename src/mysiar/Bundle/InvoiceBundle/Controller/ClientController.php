@@ -68,15 +68,27 @@ class ClientController extends Controller
      * @Route("/{id}", name="client_show")
      * @Method("GET")
      */
-    public function showAction(Client $client)
+    public function showAction($id)
     {
-        $deleteForm = $this->createDeleteForm($client);
+        $client = $this->getClientRepository()->getClientById($id, $this);
 
-        return $this->render('client/show.html.twig', array(
-            'client' => $client,
-            'delete_form' => $deleteForm->createView(),
-            'username' => $this->getUser()->getUsername()
-        ));
+        if(isset($client))
+        {
+            if ($this->getClientRepository()->clientOwner($client, $this->getUser())) {
+
+                $deleteForm = $this->createDeleteForm($client);
+
+                return $this->render(
+                    'client/show.html.twig',
+                    array(
+                        'client' => $client,
+                        'delete_form' => $deleteForm->createView(),
+                        'username' => $this->getUser()->getUsername()
+                    )
+                );
+            }
+        }
+        return $this->redirectToRoute('client_index');
     }
 
     /**
@@ -85,26 +97,40 @@ class ClientController extends Controller
      * @Route("/{id}/edit", name="client_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Client $client)
+    public function editAction(Request $request, $id)
     {
-        $deleteForm = $this->createDeleteForm($client);
-        $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ClientType', $client);
-        $editForm->handleRequest($request);
+        $client = $this->getClientRepository()->getClientById($id,$this);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($client);
-            $em->flush();
 
-            return $this->redirectToRoute('client_edit', array('id' => $client->getId()));
+
+        if(isset($client))
+        {
+            if ($this->getClientRepository()->clientOwner($client, $this->getUser())) {
+
+                $deleteForm = $this->createDeleteForm($client);
+                $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ClientType', $client);
+                $editForm->handleRequest($request);
+
+                if ($editForm->isSubmitted() && $editForm->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($client);
+                    $em->flush();
+
+                    return $this->redirectToRoute('client_edit', array('id' => $client->getId()));
+                }
+
+                return $this->render(
+                    'client/edit.html.twig',
+                    array(
+                        'client' => $client,
+                        'edit_form' => $editForm->createView(),
+                        'delete_form' => $deleteForm->createView(),
+                        'username' => $this->getUser()->getUsername()
+                    )
+                );
+            }
         }
-
-        return $this->render('client/edit.html.twig', array(
-            'client' => $client,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-            'username' => $this->getUser()->getUsername()
-        ));
+        return $this->redirectToRoute('client_index');
     }
 
     /**
