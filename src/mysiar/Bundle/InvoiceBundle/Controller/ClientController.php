@@ -101,8 +101,6 @@ class ClientController extends Controller
     {
         $client = $this->getClientRepository()->getClientById($id,$this);
 
-
-
         if(isset($client))
         {
             if ($this->getClientRepository()->clientOwner($client, $this->getUser())) {

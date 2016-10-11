@@ -2,68 +2,82 @@
 
 {% block body %}
 
-    {# TEMPLATE START #}
-    <div class="row show-grid">
+    {% include 'top_menu.html.twig' %}
 
-        <div class="col-xs-12">
-            INVOICE HEADER <b>{{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</b>
+    {% block invoice %} {# TEMPLATE START #}
+
+        <div class="row show-grid">
+
+            <div class="col-xs-12">
+                INVOICE HEADER <b>{{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</b>
+            </div>
+
+            <div class="col-xs-6">
+                SPRZEDAWCA
+                <div>
+                    <b>{{ user.userName }}</b>
+                </div>
+                <div>
+                    <b>{{ user.companyName }}</b>
+                </div>
+                <div>
+                    <b> {{ user.addressStreet }}
+                        {% if user.addressFlat|length > 0 %}
+                            {{ user.addressHouse }}/{{ user.addressFlat }}
+                        {% else %}
+                            {{ user.addressHouse }}
+                        {% endif %}
+                    </b>
+                </div>
+                <div>
+                    <b>{{ user.addressZip }} {{ user.addressCity }}</b>
+                </div>
+                <div>
+                    NIP: <b>{{ user.vatID }}</b>
+                </div>
+
+
+            </div>
+            <div class="col-xs-6">
+                NABYWCA
+                <div>
+                    Client Name :<b> {{ invoice.clientName }}</b>
+                </div>
+                <div>
+                    Company Name :<b>{{ invoice.companyName }}</b>
+                </div>
+                <div>Address :
+                    <b> {{ invoice.addressStreet }}
+                        {% if invoice.addressFlat|length > 0 %}
+                            {{ invoice.addressHouse }}/{{ invoice.addressFlat }}
+                        {% else %}
+                            {{ invoice.addressHouse }}
+                        {% endif %}
+                    </b>
+                </div>
+                <div>
+                    City : <b>{{ invoice.addressZip }} {{ invoice.addressCity }}</b>
+                </div>
+                <div>
+                    NIP: <b>{{ invoice.vatID }}</b>
+                </div>
+
+
+            </div>
+
         </div>
 
-        <div class="col-xs-6">
-            SPRZEDAWCA
-            <div>
-                <b>{{ user.userName }}</b>
-            </div>
-            <div>
-                <b>{{ user.companyName }}</b>
-            </div>
-            <div>
-                <b> {{ user.addressStreet }}
-                    {% if user.addressFlat|length > 0 %}
-                        {{ user.addressHouse }}/{{ user.addressFlat }}
-                    {% else %}
-                        {{ user.addressHouse }}
-                    {% endif %}
-                </b>
-            </div>
-            <div>
-                <b>{{ user.addressZip }} {{ user.addressCity }}</b>
-            </div>
-            <div>
-                NIP: <b>{{ user.vatID }}</b>
-            </div>
+        <div>
+            <p></p>
+            <p>Testowanie tłumaczeń</p>
 
 
-        </div>
-        <div class="col-xs-6">
-            NABYWCA
-            <div>
-                Client Name :<b> {{ invoice.clientName }}</b>
-            </div>
-            <div>
-                Company Name :<b>{{ invoice.companyName }}</b>
-            </div>
-            <div>Address :
-                <b> {{ invoice.addressStreet }}
-                    {% if invoice.addressFlat|length > 0 %}
-                        {{ invoice.addressHouse }}/{{ invoice.addressFlat }}
-                    {% else %}
-                        {{ invoice.addressHouse }}
-                    {% endif %}
-                </b>
-            </div>
-            <div>
-                City : <b>{{ invoice.addressZip }} {{ invoice.addressCity }}</b>
-            </div>
-            <div>
-                NIP: <b>{{ invoice.vatID }}</b>
-            </div>
+            {% trans %}
+                label.username
 
-
+            {% endtrans %}
         </div>
 
-    </div>
-    {# TEMPLATE END #}
-
+    {% endblock %} {# TEMPLATE END #}
 
 {% endblock %}

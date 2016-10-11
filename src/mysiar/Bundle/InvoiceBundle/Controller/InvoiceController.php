@@ -14,9 +14,9 @@ use mysiar\Bundle\InvoiceBundle\Form\InvoiceType;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
-
 use mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser;
-
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Loader\ArrayLoader;
 
 /**
  * Invoice controller.
@@ -97,13 +97,24 @@ class InvoiceController extends Controller
                 $deleteForm = $this->createDeleteForm($invoice);
 
                 return $this->render(
-                    'invoice/show.html.twig',
+                    'invoice/invoice1.tmpl.twig',
                     array(
                         'invoice' => $invoice,
-                        'delete_form' => $deleteForm->createView(),
-                        'username' => $this->getUser()->getUsername()
+                        'user' => $this->getUser(),                   // Seller details
+                        'username' => $this->getUser()->getUsername() // Logged user name for menu
                     )
                 );
+
+// original return - kept only for debug, will be removed
+//                return $this->render(
+//                    'invoice/show.html.twig',
+//                    array(
+//                        'invoice' => $invoice,
+//                        'delete_form' => $deleteForm->createView(),
+//                        'username' => $this->getUser()->getUsername()
+//                    )
+//                );
+
             }
         }
 
@@ -246,17 +257,17 @@ class InvoiceController extends Controller
     public function testAction($id)
     {
         $user = $this->getUser();
-        $user_clients = $user->getClients();
 
-        count($user_clients);
+       $translator = $this->get('translator');
 
-//        foreach ($user_clients as $uc){
-//            dump($uc);
-//        }
 
-        dump($user_clients);
-//        dump($invoice_clients);
-        return new Response( "EMPTY" );
+        dump($translator);
+
+        dump($translator->trans('label.username'));
+        dump($this->get('translator')->trans('label.username'));
+
+
+        return new Response( "Testowa akcja kontrolera Invoice" );
     }
 
 
