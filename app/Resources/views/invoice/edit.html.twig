@@ -51,7 +51,7 @@
                                 {{ form_label(edit_form.clientName) }}
                             </th>
                             <td>
-                                {{ form_widget(edit_form.clientName) }}
+                                {{ form_widget(edit_form.clientName, { 'attr': {'style': 'width: 300px'} }) }}
                             </td>
                         </tr>
                         <tr>
@@ -59,7 +59,7 @@
                                 {{ form_label(edit_form.companyName) }}
                             </th>
                             <td>
-                                {{ form_widget(edit_form.companyName) }}
+                                {{ form_widget(edit_form.companyName, { 'attr': {'style': 'width: 300px'} }) }}
                             </td>
                         </tr>
                         <tr>

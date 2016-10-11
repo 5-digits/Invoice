@@ -10,48 +10,61 @@
             </div>
             <div class="panel-body">
 
+                <ul class="list-inline">
+                    <li>
+                        <a href="{{ path('client_new') }}">
+                            <button type="button" class="btn btn-xs btn-info">new Client</button>
+                        </a>
+                    </li>
+                </ul>
+
                 <table class="table table-striped table-bordered table-hover">
-        <thead>
-            <tr>
-                <th class="td-center">Id</th>
-                <th>Client</th>
-                <th>Company</th>
-                <th>Vatid</th>
-                <th>City</th>
-                <th>Country</th>
+                    <thead>
+                    <tr>
 
-                <th class="td-center">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for client in clients %}
-            <tr>
-                <td class="td-center"><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
-                <td>{{ client.clientName }}</td>
-                <td>{{ client.companyName }}</td>
-                <td>{{ client.vatId }}</td>
+                        <th>Company</th>
+                        <th>Client</th>
 
-                <td>{{ client.addressCity }}</td>
-                <td>{{ client.addressCountry }}</td>
+                        <th>Vat ID</th>
+                        <th>City</th>
+                        <th>Country</th>
 
-                <td class="td-center">
-                    <ul class="list-inline">
-                        <li >
-                            <a href="{{ path('client_show', { 'id': client.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('client_edit', { 'id': client.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                        <th class="td-center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for client in clients %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('client_show', { 'id': client.id }) }}">
+                                    {{ client.companyName }}
+                                </a>
+                            </td>
 
-    <ul>
-        <li>
-            <a href="{{ path('client_new') }}">Create a new entry</a>
-        </li>
-    </ul>
-{% endblock %}
+                            <td>{{ client.clientName }}</td>
+
+                            <td>{{ client.vatId }}</td>
+
+                            <td>{{ client.addressCity }}</td>
+                            <td>{{ client.addressCountry }}</td>
+
+                            <td class="td-center">
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href="{{ path('client_show', { 'id': client.id }) }}">
+                                            <button type="button" class="btn btn-xs btn-success">show</button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('client_edit', { 'id': client.id }) }}">
+                                            <button type="button" class="btn btn-xs btn-info">edit</button>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                {% endblock %}
