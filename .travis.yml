@@ -2,14 +2,15 @@ php:
     - 5.6
 
 before_script:
-  - cp app/config/parameters.yml.travis app/config/parameters.yml
-  - ./app/console doctrine:database:create --env=test
-  - ./app/console doctrine:schema:create --env=test
-  - ./app/console doctrine:fixtures:load -n --env=test
+    - composer install
+    - cp app/config/parameters.yml.travis app/config/parameters.yml
+    - ./app/console doctrine:database:create --env=test
+    - ./app/console doctrine:schema:create --env=test
+    - ./app/console doctrine:fixtures:load -n --env=test
 
 script:
-  - phpunit -c app
+    - phpunit -c app
 
 notifications:
-  email:
-    -  psynowiec@gmail.com
+    email:
+        -  psynowiec@gmail.com
