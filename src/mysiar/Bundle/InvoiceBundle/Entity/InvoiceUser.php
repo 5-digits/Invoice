@@ -32,6 +32,13 @@ class InvoiceUser extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     *
+     * * @ORM\Column(name="locale", type="string", length=2)
+     */
+
+    private $locale;
 
     /**
      * Payment in number of days
@@ -310,6 +317,29 @@ class InvoiceUser extends BaseUser
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @param mixed $locale
+     * @return InvoiceUser
+     */
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+
+
+
 
 
     /**

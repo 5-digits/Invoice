@@ -254,18 +254,21 @@ class InvoiceController extends Controller
      *
      * @Route("/{id}/test", name="invoice_test")
      */
-    public function testAction($id)
+    public function testAction(Request $request, $id)
     {
         $user = $this->getUser();
 
        $translator = $this->get('translator');
 
 
-        dump($translator);
+        //dump($translator);
 
-        dump($translator->trans('label.username'));
-        dump($this->get('translator')->trans('label.username'));
+        //dump($translator->trans('label.username'));
+        //dump($this->get('translator')->trans('label.username'));
 
+        $locale = $request->getLocale();
+
+        dump($locale);
 
         return new Response( "Testowa akcja kontrolera Invoice" );
     }
