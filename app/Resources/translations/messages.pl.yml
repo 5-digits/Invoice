@@ -53,7 +53,7 @@ button.edit.delete: usuń
 button.edit.profile: edytuj profil
 
 button.password.change: zmiana hasła
-buton.cancel: anuluj
+button.cancel: anuluj
 
 label.client.name: Reprezentant
 label.client.list: Lista klientów
