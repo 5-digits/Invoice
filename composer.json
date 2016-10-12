@@ -21,7 +21,8 @@
     "sensio/distribution-bundle": "~5.0",
     "sensio/framework-extra-bundle": "^3.0.2",
     "incenteev/composer-parameter-handler": "~2.0",
-    "friendsofsymfony/user-bundle" : "1.3.*"
+    "friendsofsymfony/user-bundle" : "1.3.*",
+
 
   },
   "require-dev": {
@@ -29,6 +30,9 @@
     "symfony/phpunit-bridge": "~2.7"
   },
   "scripts": {
+    "pre-install-cmd": [
+      "mysiar\\Bundle\\InvoiceBundle\\HerokuDatabase::populateEnvironment"
+    ],
     "symfony-scripts": [
       "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -52,7 +56,14 @@
     "symfony-web-dir": "web",
     "symfony-assets-install": "relative",
     "incenteev-parameters": {
-      "file": "app/config/parameters.yml"
+      "file": "app/config/parameters.yml",
+      "env-map": {
+        "database_host": "DATABASE_HOST",
+        "database_port": "DATABASE_PORT",
+        "database_name": "DATABASE_NAME",
+        "database_user": "DATABASE_USER",
+        "database_password": "DATABASE_PASSWORD"
+      }
     }
   },
   "authors": [

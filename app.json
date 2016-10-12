@@ -1,0 +1,15 @@
+{
+  "name": "Symfony Invoice Application",
+  "description": "Application to generate invoices for your business",
+  "repository": "https://github.com/mysiar/Invoice",
+  "keywords": [
+    "symfony2"
+  ],
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "php app/console doctrine:schema:create"
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ]
+}
