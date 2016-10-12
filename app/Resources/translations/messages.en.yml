@@ -2,6 +2,7 @@ date.format: M d, Y
 time.format: g:i A
 datetime.format: M d, Y  g:i A
 label.locale: Interface language
+label.password.change: Password change
 
 # top_menu.html.twig
 menu.label.invoices: Invoices
@@ -50,6 +51,9 @@ button.edit.submit.change: submit changes
 button.edit.list: back to the list
 button.edit.delete: delete
 button.edit.profile: edit profile
+
+button.password.change: change password
+button.cancel: cancel
 
 label.client.name: Representative
 label.client.list: Client list

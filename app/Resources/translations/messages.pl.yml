@@ -2,6 +2,7 @@ date.format: Y-m-d
 time.format: H:i
 datetime.format: Y-m-d  H:i
 label.locale: Język interfejsu
+label.password.change: Zmiana hasła
 
 # top_menu.html.twig
 menu.label.invoices: Faktury
@@ -50,6 +51,9 @@ button.edit.submit.change: zatwierdź zmiany
 button.edit.list: powrót do listy
 button.edit.delete: usuń
 button.edit.profile: edytuj profil
+
+button.password.change: zmiana hasła
+buton.cancel: anuluj
 
 label.client.name: Reprezentant
 label.client.list: Lista klientów

@@ -175,24 +175,25 @@
 
                     </table>
 
-
-                {#</form>#}
                 <table class="table-button">
                     <tr>
                         <td>
                             <input class="btn btn-xs btn-info" type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
-                            {#<a href="{{ path('fos_user_profile_edit') }}">#}
-                                {#<button type="button" class="btn btn-xs btn-success">#}
-                                    {#{% trans %}#}
-                                    {#button.edit.profile#}
-                                    {#{% endtrans %}#}
-                                {#</button>#}
-                            {#</a>#}
+                        </td>
+                        <td>
+                            <a href="{{ path('fos_user_profile_show') }}">
+                                <button type="button" class="btn btn-xs btn-success">
+                                    {% trans %}
+                                        button.cancel
+                                    {% endtrans %}
+                                </button>
+                            </a>
 
                         </td>
                     </tr>
                 </table>
-                    {{ form_end(form) }}
+                {#</form>#}
+                {{ form_end(form) }}
 
             </div>
         </div>
