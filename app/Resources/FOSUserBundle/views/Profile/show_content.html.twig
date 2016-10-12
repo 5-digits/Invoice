@@ -1,4 +1,164 @@
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    {{ 'label.profile' | trans }}
+                </h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-responsive table-condensed">
+                    <tr>
+                        <td>
+                            {{ 'label.profile.lastlogin' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.lastlogin | date('datetime.format'|trans) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}
+                        </td>
+
+                        <td>
+                            {{ user.username }}
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}
+                        </td>
+
+                        <td>
+                            {{ user.email }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.invoice.prefix' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.invoiceNumberPrefix }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.company.name' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.companyName }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.vatid' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.vatId }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.address.street' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.addressStreet }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.address.house' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.addressHouse }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{  'label.address.flat' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.addressFlat }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.address.zip' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.addressZip }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.address.city' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.addressCity }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.address.country' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.addressCountry }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ 'label.locale' | trans }}
+                        </td>
+
+                        <td>
+                            {{ user.locale }}
+                        </td>
+                    </tr>
+
+
+                </table>
+
+                <table class="table-button">
+                    <tr>
+                        <td>
+                            <a href="{{ path('fos_user_profile_edit') }}">
+                                <button type="button" class="btn btn-xs btn-success">
+                                    {% trans %}
+                                        button.edit.profile
+                                    {% endtrans %}
+                                </button>
+                            </a>
+
+                        </td>
+                    </tr>
+                    </table>
+
+            </div>
+        </div>
+    </div>
 </div>

@@ -6,14 +6,22 @@
     <div class="col-lg-9">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Client list</h4>
+                <h4>
+                    {% trans %}
+                        label.client.list
+                    {% endtrans %}
+                </h4>
             </div>
             <div class="panel-body">
 
                 <ul class="list-inline">
                     <li>
                         <a href="{{ path('client_new') }}">
-                            <button type="button" class="btn btn-xs btn-info">new Client</button>
+                            <button type="button" class="btn btn-xs btn-info">
+                                {% trans %}
+                                    button.client.new
+                                {% endtrans %}
+                            </button>
                         </a>
                     </li>
                 </ul>
@@ -22,14 +30,38 @@
                     <thead>
                     <tr>
 
-                        <th>Company</th>
-                        <th>Client</th>
+                        <th>
+                            {% trans %}
+                                label.company
+                            {% endtrans %}
+                        </th>
+                        <th>
+                            {% trans %}
+                                label.client.name
+                            {% endtrans %}
+                        </th>
 
-                        <th>Vat ID</th>
-                        <th>City</th>
-                        <th>Country</th>
+                        <th>
+                            {% trans %}
+                                label.vatid
+                            {% endtrans %}
+                        </th>
+                        <th>
+                            {% trans %}
+                                label.address.city
+                            {% endtrans %}
+                        </th>
+                        <th>
+                            {% trans %}
+                                label.address.country
+                            {% endtrans %}
+                        </th>
 
-                        <th class="td-center">Actions</th>
+                        <th class="td-center">
+                            {% trans %}
+                                label.actions
+                            {% endtrans %}
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,12 +84,20 @@
                                 <ul class="list-inline">
                                     <li>
                                         <a href="{{ path('client_show', { 'id': client.id }) }}">
-                                            <button type="button" class="btn btn-xs btn-success">show</button>
+                                            <button type="button" class="btn btn-xs btn-success">
+                                                {% trans %}
+                                                    button.client.show
+                                                {% endtrans %}
+                                            </button>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ path('client_edit', { 'id': client.id }) }}">
-                                            <button type="button" class="btn btn-xs btn-info">edit</button>
+                                            <button type="button" class="btn btn-xs btn-info">
+                                                {% trans %}
+                                                    button.client.edit
+                                                {% endtrans %}
+                                            </button>
                                         </a>
                                     </li>
                                 </ul>

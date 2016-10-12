@@ -1,29 +1,7 @@
-label.username: User Name
-
-label.invoice.list: Invoice list
-label.invoice: Invoice
-label.invoice.edit: Invoice edit
-label.date_of_issue: Date of issue
-label.date_of_sell: Date of sell
-label.payment_due: Payment due
-label.company: Company
-label.actions: Actions
-label.vatid:  VAT ID
-label.address.street: Address - street
-label.address.house: Address - house
-label.address.flat: Address - flat
-label.address.zip:  Address - zip
-label.address.city: Address - city
-label.address.country: Address - country
-label.company_name: Company
-label.client_name: Representative
-label.edit.client_change: Invoice client change
-
-button.invoice.new: new Invoice
-button.invoice.show: show
-button.invoice.edit: edit
-button.invoice.delete: delete
-
+date.format: M d, Y
+time.format: g:i A
+datetime.format: M d, Y  g:i A
+label.locale: Interface language
 
 # top_menu.html.twig
 menu.label.invoices: Invoices
@@ -31,3 +9,49 @@ menu.label.clients: Clients
 menu.label.products: Products
 menu.label.user_profile: User profile
 menu.label.logout: Logout
+
+label.username: User Name
+
+label.invoice.list: Invoice list
+label.invoice: Invoice
+label.invoice.edit: Invoice edit
+label.invoice.prefix: Invoice number prefix
+
+label.date_of_issue: Date of issue
+label.date_of_sell: Date of sell
+label.payment_due: Payment due
+label.company: Company
+label.actions: Actions
+label.vatid:  VAT ID
+
+label.address.street: Address - street
+label.address.house: Address - house
+label.address.flat: Address - flat
+label.address.zip:  Address - zip
+label.address.city: Address - city
+label.address.country: Address - country
+
+label.company.name: Company
+
+label.edit.client.change: Invoice client change
+
+button.invoice.new: new Invoice
+button.invoice.show: show
+button.invoice.edit: edit
+button.invoice.delete: delete
+
+button.client.new: new Client
+button.client.show: show
+button.client.edit: edit
+button.client.delete: delete
+
+button.edit.submit.change: submit changes
+button.edit.list: back to the list
+button.edit.delete: delete
+button.edit.profile: edit profile
+
+label.client.name: Representative
+label.client.list: Client list
+
+label.profile: User profile
+label.profile.lastlogin: Last login
