@@ -350,7 +350,19 @@ class InvoiceUser extends BaseUser
      */
     public function __construct()
     {
+        $dummy = "YOU HAVE TO SET IT";
+        parent::__construct();
         $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->locale = "en";
+        $this->payment = 30;
+        $this->companyName = $dummy;
+        $this->vatId = $dummy;
+        $this->addressStreet = $dummy;
+        $this->addressHouse = $dummy;
+        $this->addressFlat = $dummy;
+        $this->addressZip = $dummy;
+        $this->addressCity = $dummy;
+
     }
 
 
