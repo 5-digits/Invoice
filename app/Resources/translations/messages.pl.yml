@@ -57,6 +57,7 @@ label.client.list: Lista klientów
 label.profile: Profil użytkownika
 label.profile.lastlogin: Ostatnie logowanie
 label.profile.edit: Edycja profilu użytkownika
+label.profile.edit.locale.msg: Zmiana nastąpie po przelogowaniu użytkownika
 
 
 

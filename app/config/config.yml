@@ -73,4 +73,5 @@ fos_user:
     user_class: mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser
     profile:
         form:
-            type: mysiar\Bundle\InvoiceBundle\Form\ProfileType
+            type: mysiar\Bundle\UserBundle\Form\Type\ProfileType
+            handler: app.form.handler.profile

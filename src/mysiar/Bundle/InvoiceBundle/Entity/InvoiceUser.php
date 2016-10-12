@@ -4,6 +4,7 @@ namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 
@@ -45,7 +46,9 @@ class InvoiceUser extends BaseUser
      *
      * @var int
      *
-     * @ORM\Column(name="payment", type="integer", nullable=true)
+     * @Assert\GreaterThan(0)
+     *
+     * @ORM\Column(name="payment", type="integer", nullable=false)
      *
      */
     private $payment;

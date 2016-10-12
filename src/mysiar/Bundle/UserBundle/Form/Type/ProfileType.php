@@ -13,7 +13,7 @@
 # app/config/services.yml
 services:
     app.form.profile:
-        class: mysiar\Bundle\InvoiceBundle\Form\ProfileType
+        class: mysiar\Bundle\UserBundle\Form\Type\ProfileType
         tags:
             - { name: form.type, alias: app_user_profile }
 
@@ -24,24 +24,46 @@ fos_user:
     # ...
     profile:
         form:
-            type: mysiar\Bundle\InvoiceBundle\Form\ProfileType
+            type: mysiar\Bundle\UserBundle\Form\Type\ProfileType
 
 
  */
 
 
 
-namespace mysiar\Bundle\InvoiceBundle\Form;
+namespace mysiar\Bundle\UserBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints\Range;
 
 class ProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('locale');
+        $builder->add('locale', ChoiceType::class, array(
+            'choices'  => array(
+                'Polish / Polski' => 'pl',
+                'English / Angielski' => 'en',
+
+            ),
+            // *this line is important*
+            'choices_as_values' => true,
+        ));
+
+        $builder->add('invoiceNumberPrefix');
+        $builder->add('payment');
+        $builder->add('companyName');
+        $builder->add('vatId');
+        $builder->add('addressStreet');
+        $builder->add('addressHouse');
+        $builder->add('addressFlat');
+        $builder->add('addressZip');
+        $builder->add('addressCity');
+        $builder->add('addressCountry');
+
     }
 
     public function getParent()

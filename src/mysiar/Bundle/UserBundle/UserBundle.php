@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Bundle to ovveride some Controllers' Method of FOSUserBundle
+ * Bundle to override FOSUserBundle functionality
  */
 
 

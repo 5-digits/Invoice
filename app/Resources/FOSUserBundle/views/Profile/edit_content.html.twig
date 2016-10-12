@@ -1,10 +1,10 @@
 
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
-    </div>
-</form>
+{#<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">#}
+    {#{{ form_widget(form) }}#}
+    {#<div>#}
+        {#<input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />#}
+    {#</div>#}
+{#</form>#}
 
 
 
@@ -28,9 +28,121 @@
                             </td>
 
                             <td>
-                                {{ form_row(form.username) }}
+                                {{ form_widget(form.username) }}
                             </td>
                         </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.email) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.invoice.prefix'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.invoiceNumberPrefix) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.payment.days'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.payment) }} <span class="text-red">{{ form_errors(form.payment) }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ 'label.company.name'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.companyName) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.vatid'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.vatId) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.address.street'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.addressStreet) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.address.house'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.addressHouse) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.address.flat'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.addressFlat) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.address.zip'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.addressZip) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.address.city'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.addressCity) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                {{ 'label.address.country'|trans }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.addressCountry) }}
+                            </td>
+                        </tr>
+
+
+
 
                         <tr>
                             <td>
@@ -38,18 +150,37 @@
                             </td>
 
                             <td>
-                                {{ form_row(form.locale) }}
+                                {{ form_widget(form.locale) }}
+                                <div>{{ 'label.profile.edit.locale.msg' | trans }}</div>
                             </td>
 
                         </tr>
 
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+
+                        {# last row - current password#}
+                        <tr>
+                            <td>
+                                {{ 'form.current_password'|trans({}, 'FOSUserBundle') }}
+                            </td>
+
+                            <td>
+                                {{ form_widget(form.current_password) }}
+                            </td>
+                        </tr>
+
                     </table>
 
-                 {{ form_end(form) }}
+
                 {#</form>#}
                 <table class="table-button">
                     <tr>
                         <td>
+                            <input class="btn btn-xs btn-info" type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
                             {#<a href="{{ path('fos_user_profile_edit') }}">#}
                                 {#<button type="button" class="btn btn-xs btn-success">#}
                                     {#{% trans %}#}
@@ -61,6 +192,7 @@
                         </td>
                     </tr>
                 </table>
+                    {{ form_end(form) }}
 
             </div>
         </div>

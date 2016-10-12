@@ -20,3 +20,11 @@
 * Invoice edit
 
 <img src="web/img/invoice.edit.png" width="600">
+
+* User profile show
+
+<img src="web/img/profile.show.png" width="600">
+
+* User profile edit
+
+<img src="web/img/profile.edit.png" width="600">
