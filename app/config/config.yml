@@ -39,7 +39,7 @@ twig:
 doctrine:
     dbal:
         #driver:   pdo_sqlite
-        driver:   pdo_mysql
+        driver:   pdo_pgsql
 #        path:     "%database_path%"
         host:     "%database_host%"
         port:     "%database_port%"
