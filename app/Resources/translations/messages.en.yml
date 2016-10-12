@@ -56,3 +56,4 @@ label.client.list: Client list
 
 label.profile: User profile
 label.profile.lastlogin: Last login
+label.profile.edit: Edit user profile
