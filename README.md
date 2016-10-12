@@ -2,9 +2,14 @@
 
 ### **Symfony** application at <a target="_blank" href="http://coderslab.pl">CodersLab</a> **BACK-END Developer** training
 
-###Components used
+### Components used
 * Symfony 2.8
 * FOSUserBundle
+
+### Working application
+ * http://invoice-cl.herokuapp.com
+ * login: jdoe@gmail.com
+ * password: john.doe
 
 ### Working application screen shots
 
