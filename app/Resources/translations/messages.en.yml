@@ -20,6 +20,7 @@ label.invoice.prefix: Invoice number prefix
 label.date_of_issue: Date of issue
 label.date_of_sell: Date of sell
 label.payment_due: Payment due
+label.payment.days: Payment in (days)
 label.company: Company
 label.actions: Actions
 label.vatid:  VAT ID

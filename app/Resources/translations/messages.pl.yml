@@ -20,6 +20,7 @@ label.invoice.prefix: Prefiks numeru faktury
 label.date_of_issue: Wystawiona
 label.date_of_sell: Sprzedaż
 label.payment_due: Płatność do
+label.payment.days: Termin płatności (dni)
 label.company: Firma
 label.actions: Akcje
 label.vatid:  NIP
