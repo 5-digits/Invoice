@@ -8,6 +8,9 @@ body {
     text-align: center;
 }
 
+.td-va-top {
+    vertical-align: top;
+}
 .table-button {
 
 }

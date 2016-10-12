@@ -47,16 +47,27 @@ button.client.show: pokaż
 button.client.edit: edycja
 button.client.delete: usuń
 
+label.contact.phone: Telefon
+label.contact.mobile: Telefon kom.
+label.contact.fax: Fax
+label.contact.email: Email
+label.contact.www: Witryna www
+
 button.edit.submit.change: zatwierdź zmiany
 button.edit.list: powrót do listy
 button.edit.delete: usuń
 button.edit.profile: edytuj profil
+
+button.show.list: powrót do listy
+button.show.edit: edytuj klienta
+button.show.delete: usuń
 
 button.password.change: zmiana hasła
 button.cancel: anuluj
 
 label.client.name: Reprezentant
 label.client.list: Lista klientów
+label.client.notes: Notatki
 
 label.profile: Profil użytkownika
 label.profile.lastlogin: Ostatnie logowanie

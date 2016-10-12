@@ -128,6 +128,14 @@ class Client
      */
     private $contactWww;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="notes", type="text", nullable=true)
+     */
+    private $notes;
+
+
 
     /**
      * Get id
@@ -469,6 +477,27 @@ class Client
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param string $notes
+     * @return Client
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
+
     
 
     /**

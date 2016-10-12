@@ -1,80 +1,113 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Client</h1>
+    {% include 'top_menu.html.twig' %}
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ client.id }}</td>
-            </tr>
-            <tr>
-                <th>Clientname</th>
-                <td>{{ client.clientName }}</td>
-            </tr>
-            <tr>
-                <th>Vatid</th>
-                <td>{{ client.vatId }}</td>
-            </tr>
-            <tr>
-                <th>Addressstreet</th>
-                <td>{{ client.addressStreet }}</td>
-            </tr>
-            <tr>
-                <th>Addresshouse</th>
-                <td>{{ client.addressHouse }}</td>
-            </tr>
-            <tr>
-                <th>Addressflat</th>
-                <td>{{ client.addressFlat }}</td>
-            </tr>
-            <tr>
-                <th>Addresszip</th>
-                <td>{{ client.addressZip }}</td>
-            </tr>
-            <tr>
-                <th>Addresscity</th>
-                <td>{{ client.addressCity }}</td>
-            </tr>
-            <tr>
-                <th>Addresscountry</th>
-                <td>{{ client.addressCountry }}</td>
-            </tr>
-            <tr>
-                <th>Contactphone</th>
-                <td>{{ client.contactPhone }}</td>
-            </tr>
-            <tr>
-                <th>Contactmobile</th>
-                <td>{{ client.contactMobile }}</td>
-            </tr>
-            <tr>
-                <th>Contactfax</th>
-                <td>{{ client.contactFax }}</td>
-            </tr>
-            <tr>
-                <th>Contactemail</th>
-                <td>{{ client.contactEmail }}</td>
-            </tr>
-            <tr>
-                <th>Contactwww</th>
-                <td>{{ client.contactWww }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('client_edit', { 'id': client.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+<div class="row">
+    <div class="col-lg-7">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    {{ client.companyName }}
+                    {% if client.clientName|length > 0 %} - {{ client.clientName }}
+                    {% endif %}
+
+                </h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-responsive table-condensed">
+                    <tr>
+                        <th class="col-md-3">{{ 'label.vatid' | trans }}</th>
+                        <td>{{ client.vatId }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{  'label.address.street' | trans }}</th>
+                        <td>{{ client.addressStreet }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.address.house' | trans }}</th>
+                        <td>{{ client.addressHouse }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.address.flat' | trans }}</th>
+                        <td>{{ client.addressFlat }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.address.zip' | trans }}</th>
+                        <td>{{ client.addressZip }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.address.city' | trans }}</th>
+                        <td>{{ client.addressCity }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.address.country' | trans }}</th>
+                        <td>{{ client.addressCountry }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.contact.phone' | trans }}</th>
+                        <td>{{ client.contactPhone }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.contact.mobile' | trans }}</th>
+                        <td>{{ client.contactMobile }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.contact.fax' | trans }}</th>
+                        <td>{{ client.contactFax }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.contact.email' | trans }}</th>
+                        <td>{{ client.contactEmail }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>{{ 'label.contact.www' | trans}}</th>
+                        <td>{{ client.contactWww }}</td>
+                    </tr>
+                    <tr>
+                        <th class="td-va-top">{{ 'label.client.notes' | trans}}</th>
+                        <td>{{ client.notes }}</td>
+                    </tr>
+
+                </table>
+
+                <table class="table-button">
+                    <tr>
+                        <td>
+                            <a href="{{ path('client_edit', { 'id': client.id }) }}">
+                                <button type="button" class="btn btn-xs btn-info">{{ 'button.show.edit' | trans }}</button>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{{ path('client_index') }}">
+                                <button type="button" class="btn btn-xs btn-success">{{ 'button.show.list' | trans }}</button>
+                            </a>
+                        </td>
+
+                        <td>
+                            {{ form_start(delete_form) }}
+                                <input class="btn btn-xs btn-danger" type="submit" value="{{ 'button.show.delete' | trans }}">
+                            {{ form_end(delete_form) }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
