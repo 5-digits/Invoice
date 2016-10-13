@@ -24,7 +24,7 @@ class InvoiceRepository extends EntityRepository
      * @param $id
      * @return object
      */
-    public function getInvoiceById( $id )
+    public function getInvoiceById($id)
     {
         return $this->_em->find($this->_entityName, $id);
     }
@@ -36,18 +36,18 @@ class InvoiceRepository extends EntityRepository
      * @param InvoiceUser $user
      * @return bool
      */
-    public function invoiceOwner( $invoice, $user )
+    public function invoiceOwner($invoice, $user)
     {
         return $user == $invoice->getInvoiceUser() ? true : false;
     }
 
-    public function getAllInvoiceForUser( $user ){
+    public function getAllInvoiceForUser($user)
+    {
         return $this->_em->getRepository($this->_entityName)
                     ->findBy(
                         array( 'invoiceUser' => $user),
                         array( 'dateOfIssue' => 'ASC')
                     );
-
     }
 
     /**
@@ -59,9 +59,9 @@ class InvoiceRepository extends EntityRepository
     public function generateInvoiceNumber($user)
     {
         $firstDay = new \DateTime();
-        $firstDay->setDate($firstDay->format('Y'),1,1);
+        $firstDay->setDate($firstDay->format('Y'), 1, 1);
         $lastDay = new \DateTime();
-        $lastDay->setDate($lastDay->format('Y'),12,31);
+        $lastDay->setDate($lastDay->format('Y'), 12, 31);
 
         $query = $this->createQueryBuilder('invoice')
             ->select('MAX(invoice.invoiceNumber) AS last_invoice_number')
@@ -78,6 +78,4 @@ class InvoiceRepository extends EntityRepository
         return $last_invoice_number ? $last_invoice_number+1 : 1;
     }
 
-
-    // end of class
 }

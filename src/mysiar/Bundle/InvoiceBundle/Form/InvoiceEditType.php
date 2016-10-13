@@ -26,21 +26,32 @@ class InvoiceEditType extends AbstractType
     {
 
         $builder
-            ->add('invoiceNumber', TextType::class,
-                array('disabled'=>'true'))
-            ->add('dateOfIssue', DateType::class,
-                array('widget' => 'single_text',
+            ->add(
+                'invoiceNumber',
+                TextType::class,
+                array('disabled'=>'true')
+            )
+            ->add(
+                'dateOfIssue',
+                DateType::class,
+                array(
+                    'widget' => 'single_text',
                     'format' => 'yyyy-MM-dd',
                     'placeholder' => 'yyyy-MM-dd'
                 )
             )
-            ->add('dateOfSell', DateType::class,
-                array('widget' => 'single_text',
+            ->add(
+                'dateOfSell',
+                DateType::class,
+                array(
+                    'widget' => 'single_text',
                     'format' => 'yyyy-MM-dd',
                     'placeholder' => 'yyyy-MM-dd'
                 )
             )
-            ->add('paymentDue', DateType::class,
+            ->add(
+                'paymentDue',
+                DateType::class,
                 array('widget' => 'single_text',
                     'format' => 'yyyy-MM-dd',
                     'placeholder' => 'yyyy-MM-dd'
@@ -57,26 +68,23 @@ class InvoiceEditType extends AbstractType
         $builder->add('addressCity');
         $builder->add('addressCountry');
 
-
         // creates select for all clients owned by user
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder)
-        {
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder) {
             $form = $event->getForm();
             $data = $event->getData();
 
-            if ($data instanceof Invoice)
-            {
-                $form->add('client', EntityType::class,
-                array(
-                    'class'       => 'InvoiceBundle:Client',
-                    'placeholder' => '',
-                    'choices'     => $data->getInvoiceUser()->getClients(),
-                ));
+            if ($data instanceof Invoice) {
+                $form->add(
+                    'client',
+                    EntityType::class,
+                    array(
+                        'class'       => 'InvoiceBundle:Client',
+                        'placeholder' => '',
+                        'choices'     => $data->getInvoiceUser()->getClients(),
+                    )
+                );
             }
         });
-
-
-
     }
     
     /**

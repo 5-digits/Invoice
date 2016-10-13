@@ -34,12 +34,15 @@ class InvoiceController extends Controller
     public function indexAction()
     {
         $user = $this->getUser();
-        $invoices = $this->getInvoiceRepository()->getAllInvoiceForUser( $user );
+        $invoices = $this->getInvoiceRepository()->getAllInvoiceForUser($user);
 
-        return $this->render('invoice/index.html.twig', array(
-            'invoices' => $invoices,
-            'user' => $this->getUser()
-        ));
+        return $this->render(
+            'invoice/index.html.twig',
+            array(
+                'invoices' => $invoices,
+                'user' => $this->getUser()
+            )
+        );
     }
 
     /**
@@ -59,7 +62,7 @@ class InvoiceController extends Controller
         // setting new Invoice number based on numbers of already issued Invoices
         $invoice->setInvoiceNumber($this->getInvoiceRepository()->generateInvoiceNumber($this->getUser()));
 
-        $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice );
+        $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceType', $invoice);
 
         $form->handleRequest($request);
 
@@ -75,11 +78,14 @@ class InvoiceController extends Controller
             return $this->redirectToRoute('invoice_show', array('id' => $invoice->getId()));
         }
 
-        return $this->render('invoice/new.html.twig', array(
-            'invoice' => $invoice,
-            'form' => $form->createView(),
-            'user' => $this->getUser()
-        ));
+        return $this->render(
+            'invoice/new.html.twig',
+            array(
+                'invoice' => $invoice,
+                'form' => $form->createView(),
+                'user' => $this->getUser()
+            )
+        );
     }
 
     /**
@@ -90,12 +96,9 @@ class InvoiceController extends Controller
      */
     public function showAction($id)
     {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
-        if(isset($invoice))
-        {
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
+        if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
-                $deleteForm = $this->createDeleteForm($invoice);
-
                 return $this->render(
                     'invoice/invoice1.tmpl.twig',
                     array(
@@ -104,21 +107,9 @@ class InvoiceController extends Controller
                         'user' => $this->getUser()                    // Logged user name for menu
                     )
                 );
-
-// original return - kept only for debug, will be removed
-//                return $this->render(
-//                    'invoice/show.html.twig',
-//                    array(
-//                        'invoice' => $invoice,
-//                        'delete_form' => $deleteForm->createView(),
-//                        'username' => $this->getUser()->getUsername()
-//                    )
-//                );
-
             }
         }
 
-        //return new Response(dump($invoice));
         return $this->redirectToRoute('invoice_index');
     }
 
@@ -130,8 +121,8 @@ class InvoiceController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
-        if(isset($invoice)) {
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
+        if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
                 $preEditInvoiceClient = $invoice->getClient();
                 $deleteForm = $this->createDeleteForm($invoice);
@@ -142,8 +133,7 @@ class InvoiceController extends Controller
                     $em = $this->getDoctrine()->getManager();
 
                     // if client has been changed in Select of InvoiceEditType - rewrite all client data
-                    if( $preEditInvoiceClient != $invoice->getClient() )
-                    {
+                    if ($preEditInvoiceClient != $invoice->getClient()) {
                         $invoice->updateInvoiceWithClient();
                     }
                     $em->persist($invoice);
@@ -163,8 +153,8 @@ class InvoiceController extends Controller
                 );
             }
         }
-        return $this->redirectToRoute('invoice_index');
 
+        return $this->redirectToRoute('invoice_index');
     }
 
     /**
@@ -175,8 +165,8 @@ class InvoiceController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
-        if(isset($invoice)) {
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
+        if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
                 $form = $this->createDeleteForm($invoice);
                 $form->handleRequest($request);
@@ -204,8 +194,7 @@ class InvoiceController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('invoice_delete', array('id' => $invoice->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 
     /**
@@ -237,7 +226,7 @@ class InvoiceController extends Controller
      */
     public function viewInvoiceAction($id)
     {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id,$this);
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
 
         return $this->render(
             'invoice/invoice1.tmpl.twig',
@@ -248,30 +237,5 @@ class InvoiceController extends Controller
             )
         );
     }
-
-    /**
-     * Displays final invoice.
-     *
-     * @Route("/{id}/test", name="invoice_test")
-     */
-    public function testAction(Request $request, $id)
-    {
-        $user = $this->getUser();
-
-       $translator = $this->get('translator');
-
-
-        //dump($translator);
-
-        //dump($translator->trans('label.username'));
-        //dump($this->get('translator')->trans('label.username'));
-
-        $locale = $request->getLocale();
-
-        dump($locale);
-
-        return new Response( "Testowa akcja kontrolera Invoice" );
-    }
-
 
 }

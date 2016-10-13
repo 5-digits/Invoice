@@ -31,7 +31,7 @@
   },
   "scripts": {
     "pre-install-cmd": [
-      "mysiar\\Bundle\\InvoiceBundle\\HerokuDatabase::populateEnvironment"
+      "HerokuDatabase::populateEnvironment"
     ],
     "symfony-scripts": [
       "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",

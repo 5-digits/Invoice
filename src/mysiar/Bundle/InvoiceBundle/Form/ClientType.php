@@ -29,7 +29,6 @@ class ClientType extends AbstractType
             ->add('contactFax')
             ->add('contactEmail')
             ->add('contactWww')
-
         ;
     }
     

@@ -12,13 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClientRepository extends EntityRepository
 {
-    public function getAllClientsForUser( $user ){
+    public function getAllClientsForUser($user)
+    {
         return $this->_em->getRepository($this->_entityName)
             ->findBy(
                 array( 'invoiceUser' => $user),
                 array( 'companyName' => 'ASC')
             );
-
     }
 
 
@@ -28,7 +28,7 @@ class ClientRepository extends EntityRepository
      * @param $id
      * @return object
      */
-    public function getClientById( $id )
+    public function getClientById($id)
     {
         return $this->_em->find($this->_entityName, $id);
     }
@@ -40,7 +40,7 @@ class ClientRepository extends EntityRepository
      * @param InvoiceUser $user
      * @return bool
      */
-    public function clientOwner( $client, $user )
+    public function clientOwner($client, $user)
     {
         return $user == $client->getInvoiceUser() ? true : false;
     }

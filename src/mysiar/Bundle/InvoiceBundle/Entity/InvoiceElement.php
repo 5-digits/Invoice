@@ -83,7 +83,7 @@ class InvoiceElement
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -106,7 +106,7 @@ class InvoiceElement
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -129,7 +129,7 @@ class InvoiceElement
     /**
      * Get amount
      *
-     * @return string 
+     * @return string
      */
     public function getAmount()
     {
@@ -152,7 +152,7 @@ class InvoiceElement
     /**
      * Get unit
      *
-     * @return string 
+     * @return string
      */
     public function getUnit()
     {
@@ -175,7 +175,7 @@ class InvoiceElement
     /**
      * Get priceNet
      *
-     * @return string 
+     * @return string
      */
     public function getPriceNet()
     {
@@ -198,7 +198,7 @@ class InvoiceElement
     /**
      * Get discount
      *
-     * @return string 
+     * @return string
      */
     public function getDiscount()
     {
@@ -221,7 +221,7 @@ class InvoiceElement
     /**
      * Get pkwiuCode
      *
-     * @return string 
+     * @return string
      */
     public function getPkwiuCode()
     {
@@ -244,7 +244,7 @@ class InvoiceElement
     /**
      * Get vatRate
      *
-     * @return string 
+     * @return string
      */
     public function getVatRate()
     {
@@ -267,7 +267,7 @@ class InvoiceElement
     /**
      * Get invoice
      *
-     * @return \mysiar\Bundle\InvoiceBundle\Entity\Invoice 
+     * @return \mysiar\Bundle\InvoiceBundle\Entity\Invoice
      */
     public function getInvoice()
     {

@@ -117,9 +117,24 @@ class InvoiceUser extends BaseUser
      */
     private $addressCountry;
 
-
-
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $dummy = "YOU HAVE TO SET IT";
+        parent::__construct();
+        $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->locale = "en";
+        $this->payment = 30;
+        $this->companyName = $dummy;
+        $this->vatId = $dummy;
+        $this->addressStreet = $dummy;
+        $this->addressHouse = $dummy;
+        $this->addressFlat = $dummy;
+        $this->addressZip = $dummy;
+        $this->addressCity = $dummy;
+    }
 
     /**
      * Get id
@@ -159,7 +174,7 @@ class InvoiceUser extends BaseUser
     }
 
     /**
-     * @param string $invoice_number_prefix
+     * @param string $invoiceNumberPrefix
      * @return InvoiceUser
      */
     public function setInvoiceNumberPrefix($invoiceNumberPrefix)
@@ -339,32 +354,6 @@ class InvoiceUser extends BaseUser
 
         return $this;
     }
-
-
-
-
-
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $dummy = "YOU HAVE TO SET IT";
-        parent::__construct();
-        $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->locale = "en";
-        $this->payment = 30;
-        $this->companyName = $dummy;
-        $this->vatId = $dummy;
-        $this->addressStreet = $dummy;
-        $this->addressHouse = $dummy;
-        $this->addressFlat = $dummy;
-        $this->addressZip = $dummy;
-        $this->addressCity = $dummy;
-
-    }
-
 
     /**
      * Add client

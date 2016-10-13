@@ -72,10 +72,8 @@ class ClientController extends Controller
     {
         $client = $this->getClientRepository()->getClientById($id, $this);
 
-        if(isset($client))
-        {
+        if ($client) {
             if ($this->getClientRepository()->clientOwner($client, $this->getUser())) {
-
                 $deleteForm = $this->createDeleteForm($client);
 
                 return $this->render(
@@ -99,12 +97,10 @@ class ClientController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $client = $this->getClientRepository()->getClientById($id,$this);
+        $client = $this->getClientRepository()->getClientById($id, $this);
 
-        if(isset($client))
-        {
+        if ($client) {
             if ($this->getClientRepository()->clientOwner($client, $this->getUser())) {
-
                 $deleteForm = $this->createDeleteForm($client);
                 $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ClientType', $client);
                 $editForm->handleRequest($request);

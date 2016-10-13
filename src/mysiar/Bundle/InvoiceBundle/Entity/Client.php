@@ -497,9 +497,6 @@ class Client
         return $this;
     }
 
-
-    
-
     /**
      * Set invoiceUser
      *
