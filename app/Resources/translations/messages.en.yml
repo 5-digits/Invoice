@@ -1,3 +1,4 @@
+app.title: Your Invoices
 date.format: M d, Y
 time.format: g:i A
 datetime.format: M d, Y  g:i A
