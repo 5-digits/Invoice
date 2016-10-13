@@ -38,6 +38,15 @@ class ProfileController extends BaseController
         $formHandler = $this->container->get('fos_user.profile.form.handler');
 
         $process = $formHandler->process($user);
+
+
+        if ($form->isSubmitted()) {
+            // changing locale in session
+            $this->container->get('session')->set('_locale', $user->getLocale());
+
+            return new RedirectResponse($this->container->get('router')->generate('fos_user_profile_show'));
+        }
+
         if ($process) {
             $this->setFlash('fos_user_success', 'profile.flash.updated');
 
@@ -52,5 +61,4 @@ class ProfileController extends BaseController
             )
         );
     }
-
 }
