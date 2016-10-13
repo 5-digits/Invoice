@@ -4,9 +4,6 @@
 
     {%  include 'head.html.twig' %}
 
-    <div class="row">
-
-    </div>
 
     <div class="container">
         <div class="row">
@@ -38,9 +35,12 @@
                                 <div><br></div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-lg btn-success btn-block" />
-                                {#<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>#}
+                                <div><br></div>
                             </fieldset>
                         </form>
+                                <a href="{{ path('fos_user_registration_register') }}">
+                                    <button class="btn btn-lg btn-danger btn-block">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</button>
+                                </a>
                     </div>
                 </div>
             </div>
