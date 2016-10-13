@@ -30,9 +30,6 @@
     "symfony/phpunit-bridge": "~2.7"
   },
   "scripts": {
-    "pre-install-cmd": [
-      "HerokuDatabase::populateEnvironment"
-    ],
     "symfony-scripts": [
       "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -40,6 +37,9 @@
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "pre-install-cmd": [
+      "HerokuDatabase::populateEnvironment"
     ],
     "post-install-cmd": [
       "@symfony-scripts"
