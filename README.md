@@ -1,5 +1,7 @@
 # Invoice
 
+### (some functionality - work in progress)
+
 ### **Symfony** application at <a target="_blank" href="http://coderslab.pl">CodersLab</a> **BACK-END Developer** training
 
 ### Components used
