@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2016-10-14T15:33:17Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="b81db93ae658298a99273bd02974f8b0381608a9" resname="app.title">
+        <source>app.title</source>
+        <target xml:space="preserve">Twoje Faktury
+</target>
+        <jms:reference-file line="4">/../app/Resources/views/head.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="83494767d24527265ca727a3dabb495b82095bb2" resname="button.cancel">
+        <source>button.cancel</source>
+        <target>anuluj</target>
+        <jms:reference-file line="54">/../app/Resources/FOSUserBundle/views/ChangePassword/changePassword_content.html.twig</jms:reference-file>
+        <jms:reference-file line="185">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c166415eb1e79c3ef425fc204d24cbd33320b99b" resname="button.client.edit">
+        <source>button.client.edit</source>
+        <target>edycja</target>
+        <jms:reference-file line="78">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2630d55bdaadbc20303a7c399e4ccd19e7c1d902" resname="button.client.new">
+        <source>button.client.new</source>
+        <target>nowy Klient</target>
+        <jms:reference-file line="19">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a84624491ab98cb461de676f37ab77fba84e9ee8" resname="button.client.show">
+        <source>button.client.show</source>
+        <target>pokaż</target>
+        <jms:reference-file line="71">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="03e0f96dd4a20c9d19b288d662b247e6f95e39be" resname="button.edit.delete">
+        <source>button.edit.delete</source>
+        <target>usuń</target>
+        <jms:reference-file line="49">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="150">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cbb75dc46509c945c918b8e55ba7bbda6b4521ad" resname="button.edit.list">
+        <source>button.edit.list</source>
+        <target>powrót do listy</target>
+        <jms:reference-file line="42">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="143">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="99e92d742ab4c3c1d97a89e41681f57f3ef9f4d2" resname="button.edit.profile">
+        <source>button.edit.profile</source>
+        <target>edytuj profil</target>
+        <jms:reference-file line="161">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="20ab1942f31d06c8bba785cfa4ab42727181ae0c" resname="button.edit.submit.change">
+        <source>button.edit.submit.change</source>
+        <target>zatwierdź zmiany</target>
+        <jms:reference-file line="35">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="136">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9a4b21aa4a1f376456614006d80d5ebce2173f5f" resname="button.invoice.edit">
+        <source>button.invoice.edit</source>
+        <target>edycja</target>
+        <jms:reference-file line="72">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="59d4eb45c80ab710493dd8ada0d614494852665e" resname="button.invoice.new">
+        <source>button.invoice.new</source>
+        <target>nowa Faktura</target>
+        <jms:reference-file line="20">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="996a3cd2f9e68f6827f63119c1af8bd57c7037a1" resname="button.invoice.show">
+        <source>button.invoice.show</source>
+        <target>pokaż</target>
+        <jms:reference-file line="65">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="643325c7436efcdd5561ea3c7ffd91ac54d424e8" resname="button.password.change">
+        <source>button.password.change</source>
+        <target>zmiana hasła</target>
+        <jms:reference-file line="169">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bfee5fd4bddbfdd45cec7d5219bcede8e3e0d15c" resname="button.show.delete">
+        <source>button.show.delete</source>
+        <target>usuń</target>
+        <jms:reference-file line="102">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6f0a4a18dc95d3d8a9260a1c8bb7d066f81d8602" resname="button.show.edit">
+        <source>button.show.edit</source>
+        <target>edycja</target>
+        <jms:reference-file line="90">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="760a673c556ed3c79b8780d358d6436900382cfd" resname="button.show.list">
+        <source>button.show.list</source>
+        <target>powrót do listy</target>
+        <jms:reference-file line="96">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="38d39c1657700fd01a9a28fed9887fdb6c39bbad" resname="datetime.format">
+        <source>datetime.format</source>
+        <target>Y-m-d  H:i</target>
+        <jms:reference-file line="19">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bbec3012ccea1aacc10dd0996f8c474a43c10eb8" resname="label.actions">
+        <source>label.actions</source>
+        <target>Akcje</target>
+        <jms:reference-file line="46">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="41">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f8ebbcff84acc051096fcff331305193175c32a2" resname="label.address.city">
+        <source>label.address.city</source>
+        <target>Miejscowość</target>
+        <jms:reference-file line="126">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="125">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="39">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="46">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+        <jms:reference-file line="109">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e87c028ac0cdb5f97f4f1a9072f67aeffef8ccbe" resname="label.address.country">
+        <source>label.address.country</source>
+        <target>Kraj</target>
+        <jms:reference-file line="136">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="135">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="51">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+        <jms:reference-file line="117">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cf9d591d2d4d1b0dd8aaf0f41ceade5ea4e0d66c" resname="label.address.flat">
+        <source>label.address.flat</source>
+        <target>Adres - nr lokalu</target>
+        <jms:reference-file line="106">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="105">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8f3eccba28153bf83ce93acdc09d3df424754b73" resname="label.address.house">
+        <source>label.address.house</source>
+        <target>Adres - nr budynku</target>
+        <jms:reference-file line="96">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="31">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e3a708ba566b1da8dda814d199f6c111012beeac" resname="label.address.street">
+        <source>label.address.street</source>
+        <target>Adres - ulica</target>
+        <jms:reference-file line="86">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+        <jms:reference-file line="77">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="896361f7da3505e5c6b3eebdd6a85dc5959a0cbf" resname="label.address.zip">
+        <source>label.address.zip</source>
+        <target>Adres - kod pocztowy</target>
+        <jms:reference-file line="116">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="115">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="41">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="84046ca497fcd5b10fbb5531c6618aec15999064" resname="label.client.edit">
+        <source>label.client.edit</source>
+        <target>Edycja klienta</target>
+        <jms:reference-file line="13">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bc9b8f6549f6f121e69e6c81ff120d79d1e2fca8" resname="label.client.list">
+        <source>label.client.list</source>
+        <target>Lista klientów</target>
+        <jms:reference-file line="10">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="aca1bae815be6bff9c76b60d4953b8d11004de74" resname="label.client.name">
+        <source>label.client.name</source>
+        <target>Reprezentant</target>
+        <jms:reference-file line="22">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="604ec6db360252ce6b99de7e4684c1cb8c361d2c" resname="label.client.notes">
+        <source>label.client.notes</source>
+        <target>Notatki</target>
+        <jms:reference-file line="80">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3f98b738e4af6432583ba1c8086a6d11daf44f9f" resname="label.company.name">
+        <source>label.company.name</source>
+        <target>Firma</target>
+        <jms:reference-file line="66">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="65">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6352ec51543188e618085bf591a29940de3c9bf9" resname="label.contact.email">
+        <source>label.contact.email</source>
+        <target>Email</target>
+        <jms:reference-file line="71">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="be643eeb295b70e134cf007775f4ce74834bb81f" resname="label.contact.fax">
+        <source>label.contact.fax</source>
+        <target>Fax</target>
+        <jms:reference-file line="66">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f6be9d900a57ca402fabf905cb790b6c6781a55d" resname="label.contact.mobile">
+        <source>label.contact.mobile</source>
+        <target>Telefon kom.</target>
+        <jms:reference-file line="61">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="08bef260e6b8e64fd297764f0cad477af13ab827" resname="label.contact.phone">
+        <source>label.contact.phone</source>
+        <target>Telefon</target>
+        <jms:reference-file line="56">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="be5ff65045020147054363d99f6dfc6681fb0b0a" resname="label.contact.www">
+        <source>label.contact.www</source>
+        <target>Witryna www</target>
+        <jms:reference-file line="76">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="048e9193b264219ed0e7bc134377a91adbc3069a" resname="label.date_of_issue">
+        <source>label.date_of_issue</source>
+        <target>Data wystawienia</target>
+        <jms:reference-file line="28">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1bc3beaad1ed3f843cbe33d787f7ee5e5c253bb6" resname="label.date_of_sell">
+        <source>label.date_of_sell</source>
+        <target>Data sprzedaży</target>
+        <jms:reference-file line="36">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f98229ed07361f96d867ebb1c3c6ac440db207bd" resname="label.edit.client.change">
+        <source>label.edit.client.change</source>
+        <target>Zmiana klienta faktury</target>
+        <jms:reference-file line="125">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="10b31a62fbc97acd789f74a481ff49a1fe006f40" resname="label.invoice">
+        <source>label.invoice</source>
+        <target>Faktura</target>
+        <jms:reference-file line="20">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="78f423cd5c60dffae0936ebe53d84908fee9ab1a" resname="label.invoice.edit">
+        <source>label.invoice.edit</source>
+        <target>Edycja faktury</target>
+        <jms:reference-file line="12">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="63496174bd3075bbe1b41fb4cc9a56f2ce3fc5a3" resname="label.invoice.list">
+        <source>label.invoice.list</source>
+        <target>Lista faktur</target>
+        <jms:reference-file line="12">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="91508c12db339ea4932e987f91554869e68eabff" resname="label.invoice.prefix">
+        <source>label.invoice.prefix</source>
+        <target>Prefiks numeru faktury</target>
+        <jms:reference-file line="47">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="07b0f59a4db8c39f7b020242b35d9e8dd03604d3" resname="label.locale">
+        <source>label.locale</source>
+        <target>Język interfejsu</target>
+        <jms:reference-file line="149">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="145">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="883fd7351aa0c6c43316fee48849759846474726" resname="label.password.change">
+        <source>label.password.change</source>
+        <target>Zmiana hasła</target>
+        <jms:reference-file line="7">/../app/Resources/FOSUserBundle/views/ChangePassword/changePassword_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6367fe28f72332e8ba8ab3987e797f13c31bbbd6" resname="label.payment.days">
+        <source>label.payment.days</source>
+        <target>Płatność (dni)</target>
+        <jms:reference-file line="57">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3b0ec541b69c2f0432b4d43c8b862cbb80f03bc7" resname="label.payment_due">
+        <source>label.payment_due</source>
+        <target>Płatność do</target>
+        <jms:reference-file line="44">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="28960198fe8bda1a9f6936e5f5d68d5c30e84081" resname="label.profile.edit">
+        <source>label.profile.edit</source>
+        <target>Edycja profilu użytkownika</target>
+        <jms:reference-file line="16">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1bb1571abeb7e232bfaccb106e8679fa75d3b729" resname="label.profile.lastlogin">
+        <source>label.profile.lastlogin</source>
+        <target>Ostatnie logowanie</target>
+        <jms:reference-file line="15">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5e6bd7b6354c36b9e70633848a551fa5cc26a6aa" resname="label.profile.title">
+        <source>label.profile.title</source>
+        <target>Profil użytkownika</target>
+        <jms:reference-file line="8">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="05353914133c4c4be543a454c6da7e36249a974a" resname="label.username">
+        <source>label.username</source>
+        <target>Nazwa użytkownika</target>
+        <jms:reference-file line="75">/../app/Resources/views/invoice/invoice1.tmpl.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dd491efc53583664caf6940831b0ae5c741addf5" resname="label.vatid">
+        <source>label.vatid</source>
+        <target>NIP</target>
+        <jms:reference-file line="76">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+        <jms:reference-file line="75">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/../app/Resources/views/client/show.html.twig</jms:reference-file>
+        <jms:reference-file line="69">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9aaa1f32d7e9cf3eb962a0ca168ba1ee4e483351" resname="menu.label.clients">
+        <source>menu.label.clients</source>
+        <target>Klienci</target>
+        <jms:reference-file line="26">/../app/Resources/views/top_menu.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4230c6d57b957236b8e8422a4687be69a88be59d" resname="menu.label.invoices">
+        <source>menu.label.invoices</source>
+        <target>Faktury</target>
+        <jms:reference-file line="13">/../app/Resources/views/top_menu.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="80388ff8a58509030432070cf92e79d1de51a11c" resname="menu.label.logout">
+        <source>menu.label.logout</source>
+        <target>Wyloguj</target>
+        <jms:reference-file line="60">/../app/Resources/views/top_menu.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cf8926217d655507d41f786c3a045a7a1b29bf15" resname="menu.label.products">
+        <source>menu.label.products</source>
+        <target>Produkty/Usługi</target>
+        <jms:reference-file line="39">/../app/Resources/views/top_menu.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="388eae64ff3f5e7984a371bb12add2add9521d0e" resname="menu.label.user_profile">
+        <source>menu.label.user_profile</source>
+        <target>Profil użytkownika</target>
+        <jms:reference-file line="52">/../app/Resources/views/top_menu.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9741ffbcf8dbb31e1a2d32bd25cb0ccc5a6dea54" resname="profile.edit.submit">
+        <source>profile.edit.submit</source>
+        <target>zapisz zmiany</target>
+        <jms:reference-file line="180">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

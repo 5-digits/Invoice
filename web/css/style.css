@@ -32,3 +32,8 @@ body {
 .text-red {
     color: red;
 }
+
+textarea {
+    resize: vertical;
+    rows: 10;
+}
