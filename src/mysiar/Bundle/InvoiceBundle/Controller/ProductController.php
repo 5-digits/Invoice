@@ -22,12 +22,13 @@ class ProductController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
 
-        $products = $em->getRepository('InvoiceBundle:Product')->findAll();
+        $products = $this->getProductRepository()->getAllProductsForUser($user);
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,
+            'user' => $user,
         ));
     }
 
@@ -39,21 +40,30 @@ class ProductController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
         $product = new Product();
         $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ProductType', $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $product->setInvoiceUser($user);
             $em->persist($product);
             $em->flush($product);
 
-            return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+            return $this->redirectToRoute(
+                'product_show',
+                array(
+                    'id' => $product->getId(),
+                    'user' => $user
+                )
+            );
         }
 
         return $this->render('product/new.html.twig', array(
             'product' => $product,
             'form' => $form->createView(),
+            'user' => $user,
         ));
     }
 
@@ -63,14 +73,23 @@ class ProductController extends Controller
      * @Route("/{id}", name="product_show")
      * @Method("GET")
      */
-    public function showAction(Product $product)
+    public function showAction($id)
     {
-        $deleteForm = $this->createDeleteForm($product);
+        $user = $this->getUser();
+        $product = $this->getProductRepository()->getProductById($id);
 
-        return $this->render('product/show.html.twig', array(
-            'product' => $product,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        if ($product) {
+            if ($this->getProductRepository()->productOwner($product, $user)) {
+                $deleteForm = $this->createDeleteForm($product);
+
+                return $this->render('product/show.html.twig', array(
+                    'product' => $product,
+                    'delete_form' => $deleteForm->createView(),
+                    'user' => $user,
+                ));
+            }
+        }
+        return $this->redirectToRoute('product_index');
     }
 
     /**
@@ -79,23 +98,41 @@ class ProductController extends Controller
      * @Route("/{id}/edit", name="product_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Product $product)
+    public function editAction(Request $request, $id)
     {
-        $deleteForm = $this->createDeleteForm($product);
-        $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ProductType', $product);
-        $editForm->handleRequest($request);
+        $user = $this->getUser();
+        $product = $this->getProductRepository()->getProductById($id);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+        if ($product) {
+            if ($this->getProductRepository()->productOwner($product, $user)) {
+                $deleteForm = $this->createDeleteForm($product);
+                $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ProductType', $product);
+                $editForm->handleRequest($request);
 
-            return $this->redirectToRoute('product_edit', array('id' => $product->getId()));
+                if ($editForm->isSubmitted() && $editForm->isValid()) {
+                    $this->getDoctrine()->getManager()->flush();
+
+                    return $this->redirectToRoute(
+                        'product_edit',
+                        array(
+                            'id' => $product->getId(),
+                            'user' => $user,
+                        )
+                    );
+                }
+
+                return $this->render(
+                    'product/edit.html.twig',
+                    array(
+                        'product' => $product,
+                        'edit_form' => $editForm->createView(),
+                        'delete_form' => $deleteForm->createView(),
+                        'user' => $user,
+                    )
+                );
+            }
         }
-
-        return $this->render('product/edit.html.twig', array(
-            'product' => $product,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+        return $this->redirectToRoute('product_index');
     }
 
     /**
@@ -104,15 +141,22 @@ class ProductController extends Controller
      * @Route("/{id}", name="product_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Product $product)
+    public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($product);
-        $form->handleRequest($request);
+        $user = $this->getUser();
+        $product = $this->getProductRepository()->getProductById($id);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($product);
-            $em->flush($product);
+        if ($product) {
+            if ($this->getProductRepository()->productOwner($product, $user)) {
+                $form = $this->createDeleteForm($product);
+                $form->handleRequest($request);
+
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->remove($product);
+                    $em->flush($product);
+                }
+            }
         }
 
         return $this->redirectToRoute('product_index');
@@ -132,5 +176,15 @@ class ProductController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * Gets InvoiceBundle:Product repository
+     *
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    private function getProductRepository()
+    {
+        return $this->getDoctrine()->getRepository('InvoiceBundle:Product');
     }
 }

@@ -42,13 +42,14 @@ class ClientController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
         $client = new Client();
         $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ClientType', $client);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $client->setInvoiceUser($this->getUser());
+            $client->setInvoiceUser($user);
             $em->persist($client);
             $em->flush();
 
@@ -58,7 +59,7 @@ class ClientController extends Controller
         return $this->render('client/new.html.twig', array(
             'client' => $client,
             'form' => $form->createView(),
-            'user' => $this->getUser()
+            'user' => $user
         ));
     }
 
@@ -70,7 +71,7 @@ class ClientController extends Controller
      */
     public function showAction($id)
     {
-        $client = $this->getClientRepository()->getClientById($id, $this);
+        $client = $this->getClientRepository()->getClientById($id);
 
         if ($client) {
             if ($this->getClientRepository()->clientOwner($client, $this->getUser())) {
@@ -97,10 +98,11 @@ class ClientController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $client = $this->getClientRepository()->getClientById($id, $this);
+        $user = $this->getUser();
+        $client = $this->getClientRepository()->getClientById($id);
 
         if ($client) {
-            if ($this->getClientRepository()->clientOwner($client, $this->getUser())) {
+            if ($this->getClientRepository()->clientOwner($client, $user)) {
                 $deleteForm = $this->createDeleteForm($client);
                 $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\ClientType', $client);
                 $editForm->handleRequest($request);
@@ -119,7 +121,7 @@ class ClientController extends Controller
                         'client' => $client,
                         'edit_form' => $editForm->createView(),
                         'delete_form' => $deleteForm->createView(),
-                        'user' => $this->getUser()
+                        'user' => $user,
                     )
                 );
             }
@@ -133,15 +135,22 @@ class ClientController extends Controller
      * @Route("/{id}", name="client_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Client $client)
+    public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($client);
-        $form->handleRequest($request);
+        $user = $this->getUser();
+        $client = $this->getClientRepository()->getClientById($id);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($client);
-            $em->flush();
+        if ($client) {
+            if ($this->getClientRepository()->clientOwner($client, $user)) {
+                $form = $this->createDeleteForm($client);
+                $form->handleRequest($request);
+
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->remove($client);
+                    $em->flush();
+                }
+            }
         }
 
         return $this->redirectToRoute('client_index');

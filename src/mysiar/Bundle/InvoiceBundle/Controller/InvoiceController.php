@@ -183,6 +183,26 @@ class InvoiceController extends Controller
     }
 
     /**
+     * Displays final invoice.
+     *
+     * @Route("/{id}/view", name="invoice_view")
+     * @Method({"GET", "POST"})
+     */
+    public function viewInvoiceAction($id)
+    {
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
+
+        return $this->render(
+            'invoice/invoice1.tmpl.twig',
+            array(
+                'invoice' => $invoice,
+                'user' => $this->getUser(),
+
+            )
+        );
+    }
+
+    /**
      * Creates a form to delete a Invoice entity.
      *
      * @param Invoice $invoice The Invoice entity
@@ -218,24 +238,6 @@ class InvoiceController extends Controller
     }
 
 
-    /**
-     * Displays final invoice.
-     *
-     * @Route("/{id}/view", name="invoice_view")
-     * @Method({"GET", "POST"})
-     */
-    public function viewInvoiceAction($id)
-    {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
 
-        return $this->render(
-            'invoice/invoice1.tmpl.twig',
-            array(
-                'invoice' => $invoice,
-                'user' => $this->getUser(),
-
-            )
-        );
-    }
 
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product
  *
- * @ORM\Table(name="product")
+ * @ORM\Table(name="products")
  * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\ProductRepository")
  */
 class Product

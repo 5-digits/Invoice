@@ -10,4 +10,35 @@ namespace mysiar\Bundle\InvoiceBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllProductsForUser($user)
+    {
+        return $this->_em->getRepository($this->_entityName)
+            ->findBy(
+                array( 'invoiceUser' => $user),
+                array( 'name' => 'ASC')
+            );
+    }
+
+    /**
+     * Gets product by its id from repository
+     *
+     * @param $id
+     * @return object
+     */
+    public function getProductById($id)
+    {
+        return $this->_em->find($this->_entityName, $id);
+    }
+
+    /**
+     * Checks if product is own by logged user
+     *
+     * @param Product $product
+     * @param InvoiceUser $user
+     * @return bool
+     */
+    public function productOwner($product, $user)
+    {
+        return $user == $product->getInvoiceUser() ? true : false;
+    }
 }

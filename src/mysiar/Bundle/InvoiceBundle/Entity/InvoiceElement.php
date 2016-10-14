@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InvoiceElement
  *
- * @ORM\Table(name="invoiceElements")
+ * @ORM\Table(name="invoice_elements")
  * @ORM\Entity(repositoryClass="mysiar\Bundle\InvoiceBundle\Repository\InvoiceElementRepository")
  */
 class InvoiceElement
