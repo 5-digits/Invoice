@@ -1,3 +1,7 @@
+invoice_product:
+    resource: "@InvoiceBundle/Controller/ProductController.php"
+    type:     annotation
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation

@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InvoiceUser")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $invoiceUser;
+
     /**
      * @var int
      *
@@ -70,6 +77,12 @@ class Product
      */
     private $notes;
 
+    /**
+     * Product constructor.
+     */
+    public function __construct()
+    {
+    }
 
     /**
      * Get id
@@ -248,5 +261,25 @@ class Product
     {
         return $this->notes;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getInvoiceUser()
+    {
+        return $this->invoiceUser;
+    }
+
+    /**
+     * @param mixed $invoiceUser
+     * @return Product
+     */
+    public function setInvoiceUser($invoiceUser)
+    {
+        $this->invoiceUser = $invoiceUser;
+
+        return $this;
+    }
+
+
+}

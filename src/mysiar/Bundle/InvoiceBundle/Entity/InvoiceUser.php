@@ -20,6 +20,11 @@ class InvoiceUser extends BaseUser
 {
 
     /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="invoiceUser")
+     */
+    private $products;
+
+    /**
      * @ORM\OneToMany(targetEntity="Client", mappedBy="invoiceUser")
      */
     private $clients;
@@ -125,6 +130,7 @@ class InvoiceUser extends BaseUser
         $dummy = "YOU HAVE TO SET IT";
         parent::__construct();
         $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
         $this->locale = "en";
         $this->payment = 30;
         $this->companyName = $dummy;
@@ -387,5 +393,39 @@ class InvoiceUser extends BaseUser
     public function getClients()
     {
         return $this->clients;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\Product $product
+     *
+     * @return InvoiceUser
+     */
+    public function addProduct(\mysiar\Bundle\InvoiceBundle\Entity\Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\Product $product
+     */
+    public function removeProduct(\mysiar\Bundle\InvoiceBundle\Entity\Product $product)
+    {
+        $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }
