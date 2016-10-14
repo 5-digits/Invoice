@@ -2,78 +2,87 @@ app.title: Twoje Faktury
 date.format: Y-m-d
 time.format: H:i
 datetime.format: Y-m-d  H:i
-label.locale: Język interfejsu
-label.password.change: Zmiana hasła
 
-# top_menu.html.twig
-menu.label.invoices: Faktury
-menu.label.clients: Klienci
-menu.label.products: Produkty/Usługi
-menu.label.user_profile: Profil użytkownika
-menu.label.logout: Wyloguj
+menu:
+    label:
+        invoices: Faktury
+        clients: Klienci
+        products: Produkty/Usługi
+        user_profile: Profil użytkownika
+        logout: Wyloguj
 
-label.username: Nazwa użytkownika
+label:
+    username: Nazwa użytkownika
+    invoice:
+        title: Faktura
+        list: Lista faktur
+        edit: Edycja faktury
+        prefix: Prefiks numeru faktury
+        date_of_issue: Wystawiona
+        date_of_sell: Sprzedaż
+        payment_due: Płatność do
+        payment.days: Termin płatności (dni)
+        company: Firma
+        actions: Akcje
+        vatid:  NIP
+    address:
+        street: Adres - ulica
+        house: Adres - nr budynku
+        flat: Adres - nr lokalu
+        zip:  Adres - kod pocztowy
+        city: Miejscowość
+        country: Kraj
+    company:
+        name: Firma
+    edit:
+        client:
+            change: Zmiana klienta faktury
+    contact:
+        phone: Telefon
+        mobile: Telefon kom.
+        fax: Fax
+        email: Email
+        www: Witryna www
+    client:
+        name: Reprezentant
+        list: Lista klientów
+        notes: Notatki
+    profile:
+        title: Profil użytkownika
+        lastlogin: Ostatnie logowanie
+        edit: Edycja profilu użytkownika
+    locale: Język interfejsu
+    password.change: Zmiana hasła
 
-label.invoice.list: Lista faktur
-label.invoice: Faktura
-label.invoice.edit: Edycja faktury
-label.invoice.prefix: Prefiks numeru faktury
+button:
+    invoice:
+        new: nowa Faktura
+        show: pokaż
+        edit: edycja
+        delete: usuń
+    client:
+        new: nowy Klient
+        show: pokaż
+        edit: edycja
+        delete: usuń
+    edit:
+        submit.change: zatwierdź zmiany
+        list: powrót do listy
+        delete: usuń
+        profile: edytuj profil
+    show:
+        list: powrót do listy
+        edit: edycja
+        delete: usuń
+    password.change: zmiana hasła
+    cancel: anuluj
 
-label.date_of_issue: Wystawiona
-label.date_of_sell: Sprzedaż
-label.payment_due: Płatność do
-label.payment.days: Termin płatności (dni)
-label.company: Firma
-label.actions: Akcje
-label.vatid:  NIP
 
-label.address.street: Adres - ulica
-label.address.house: Adres - nr budynku
-label.address.flat: Adres - nr lokalu
-label.address.zip:  Adres - kod pocztowy
-label.address.city: Miejscowość
-label.address.country: Kraj
 
-label.company.name: Firma
 
-label.edit.client.change: Zmiana klienta faktury
 
-button.invoice.new: nowa Faktura
-button.invoice.show: pokaż
-button.invoice.edit: edycja
-button.invoice.delete: usuń
 
-button.client.new: nowy Klient
-button.client.show: pokaż
-button.client.edit: edycja
-button.client.delete: usuń
 
-label.contact.phone: Telefon
-label.contact.mobile: Telefon kom.
-label.contact.fax: Fax
-label.contact.email: Email
-label.contact.www: Witryna www
-
-button.edit.submit.change: zatwierdź zmiany
-button.edit.list: powrót do listy
-button.edit.delete: usuń
-button.edit.profile: edytuj profil
-
-button.show.list: powrót do listy
-button.show.edit: edytuj klienta
-button.show.delete: usuń
-
-button.password.change: zmiana hasła
-button.cancel: anuluj
-
-label.client.name: Reprezentant
-label.client.list: Lista klientów
-label.client.notes: Notatki
-
-label.profile: Profil użytkownika
-label.profile.lastlogin: Ostatnie logowanie
-label.profile.edit: Edycja profilu użytkownika
-label.profile.edit.locale.msg: Zmiana nastąpie po przelogowaniu użytkownika
 
 
 

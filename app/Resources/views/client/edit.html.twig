@@ -1,21 +1,84 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Client edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    {% include 'top_menu.html.twig' %}
 
-    <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}
+    {#<h1>Client edit</h1>#}
+
+    {#{{ form_start(edit_form) }}#}
+        {#{{ form_widget(edit_form) }}#}
+        {#<input type="submit" value="Edit" />#}
+    {#{{ form_end(edit_form) }}#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('client_index') }}">Back to the list</a>#}
+        {#</li>#}
+        {#<li>#}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+        {#</li>#}
+    {#</ul>#}
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+
+                    {{ 'label.invoice.edit' | trans }}
+
+                </h4>
+            </div>
+            <div class="panel-body">
+                {{ form_start(edit_form) }}
+                <table class="table table-hover table-responsive table-condensed">
+                    <tr>
+                        <th>
+                            {{ 'label.client.name' | trans }}
+
+                        </th>
+                        <td>
+
+                        </td>
+                    </tr>
+
+                </table>
+                <table class="table-button">
+                    <tr>
+                        <td>
+                            <input class="btn btn-xs btn-info" type="submit" value="
+                                    {% trans %}
+                                        button.edit.submit.change
+                                    {% endtrans %}
+                                "/>
+                            {{ form_end(edit_form) }}
+                        </td>
+                        <td>
+                            <a href="{{ path('client_index') }}">
+                                <button type="button" class="btn btn-xs btn-success">
+                                    {% trans %}
+                                    button.edit.list
+                                    {% endtrans %}
+                                </button>
+                            </a>
+                        </td>
+                        <td>
+                            {{ form_start(delete_form) }}
+                            <input class="btn btn-xs btn-danger" type="submit" value="
+                                    {% trans %}
+                                        button.edit.delete
+                                    {% endtrans %}
+                                ">
+                            {{ form_end(delete_form) }}
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+
+                {% endblock %}
