@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new mysiar\Bundle\InvoiceBundle\InvoiceBundle(),
             new mysiar\Bundle\UserBundle\UserBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\AopBundle\JMSAopBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

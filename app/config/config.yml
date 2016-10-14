@@ -74,3 +74,27 @@ fos_user:
             type: mysiar\Bundle\UserBundle\Form\Type\ProfileType
             handler: app.form.handler.profile
 
+services:
+    twig.text_extension:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - name: twig.extension
+
+#jms_translation:
+#    configs:
+#        app:
+#            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+#            output_dir: %kernel.root_dir%/Resources/translations
+#            ignored_domains: [routes]
+#            excluded_names: ["*TestCase.php", "*Test.php"]
+#            excluded_dirs: [cache, data, logs]
+#            #extractors: [alias_of_the_extractor]
+
+jms_translation:
+    configs:
+        app:
+            dirs: [%kernel.root_dir%/../app/Resources/views, %kernel.root_dir%/../app/Resources/FOSUserBundle/views ]
+            output_dir: %kernel.root_dir%/Resources/translations
+            ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php"]
+            excluded_dirs: [cache, data, logs]

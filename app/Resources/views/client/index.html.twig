@@ -7,9 +7,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>
-                    {% trans %}
-                        label.client.list
-                    {% endtrans %}
+                   {{ 'label.client.list' | trans }}
                 </h4>
             </div>
             <div class="panel-body">
@@ -18,9 +16,7 @@
                     <li>
                         <a href="{{ path('client_new') }}">
                             <button type="button" class="btn btn-xs btn-info">
-                                {% trans %}
-                                    button.client.new
-                                {% endtrans %}
+                                {{ 'button.client.new' | trans }}
                             </button>
                         </a>
                     </li>
@@ -31,36 +27,23 @@
                     <tr>
 
                         <th>
-                            {% trans %}
-                                label.company
-                            {% endtrans %}
+                            {{  'label.company.name' | trans}}
                         </th>
                         <th>
-                            {% trans %}
-                                label.client.name
-                            {% endtrans %}
+                            {{ 'label.client.name'  | trans }}
                         </th>
 
-                        <th>
-                            {% trans %}
-                                label.vatid
-                            {% endtrans %}
+                        <th>{{ 'label.vatid' | trans }}
                         </th>
                         <th>
-                            {% trans %}
-                                label.address.city
-                            {% endtrans %}
+                            {{ 'label.address.city' | trans }}
                         </th>
                         <th>
-                            {% trans %}
-                                label.address.country
-                            {% endtrans %}
+                            {{ 'label.address.country' | trans }}
                         </th>
 
                         <th class="td-center">
-                            {% trans %}
-                                label.actions
-                            {% endtrans %}
+                            {{ 'label.actions' | trans }}
                         </th>
                     </tr>
                     </thead>
@@ -85,18 +68,14 @@
                                     <li>
                                         <a href="{{ path('client_show', { 'id': client.id }) }}">
                                             <button type="button" class="btn btn-xs btn-success">
-                                                {% trans %}
-                                                    button.client.show
-                                                {% endtrans %}
+                                                {{ 'button.client.show' | trans }}
                                             </button>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ path('client_edit', { 'id': client.id }) }}">
                                             <button type="button" class="btn btn-xs btn-info">
-                                                {% trans %}
-                                                    button.client.edit
-                                                {% endtrans %}
+                                                {{ 'button.client.edit'| trans }}
                                             </button>
                                         </a>
                                     </li>
@@ -106,5 +85,9 @@
                     {% endfor %}
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-                {% endblock %}
+{% endblock %}

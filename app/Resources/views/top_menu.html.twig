@@ -10,9 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('invoice_index') }}">
-                {% trans %}
-                    menu.label.invoices
-                {% endtrans %}
+                {{ 'menu.label.invoices' | trans }}
             </a>
         </div>
 
@@ -25,9 +23,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('client_index') }}">
-                {% trans %}
-                    menu.label.clients
-                {% endtrans %}
+                {{ 'menu.label.clients' | trans }}
             </a>
         </div>
 
@@ -40,9 +36,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('client_index') }}">
-                {% trans %}
-                    menu.label.products
-                {% endtrans %}
+                {{ 'menu.label.products'  | trans }}
             </a>
         </div>
 
@@ -55,9 +49,7 @@
                     <ul class="dropdown-menu">
                         <li>
                             <a href="{{ url('fos_user_profile_show') }}">
-                                {% trans %}
-                                    menu.label.user_profile
-                                {% endtrans %}
+                                {{ 'menu.label.user_profile' | trans }}
                             </a>
                         </li>
                         {#<li><a href="#">Another action</a></li>#}
@@ -65,9 +57,7 @@
                         <li role="separator" class="divider"></li>
                         <li>
                             <a href="{{ url('fos_user_security_logout') }}">
-                                {% trans %}
-                                menu.label.logout
-                                {% endtrans %}
+                                {{ 'menu.label.logout' | trans }}
                             </a>
                         </li>
                     </ul>

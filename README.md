@@ -7,6 +7,7 @@
 ### Components used
 * Symfony 2.8
 * FOSUserBundle
+* JMSTranslationBundle
 
 ### Working application
  * http://invoice-cl.herokuapp.com

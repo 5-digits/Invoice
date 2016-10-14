@@ -158,9 +158,7 @@
                         <td>
                             <a href="{{ path('fos_user_profile_edit') }}">
                                 <button type="button" class="btn btn-xs btn-info">
-                                    {% trans %}
-                                        button.edit.profile
-                                    {% endtrans %}
+                                    {{ 'button.edit.profile' | trans }}
                                 </button>
                             </a>
 
@@ -168,9 +166,7 @@
                         <td>
                             <a href="{{ path('fos_user_change_password') }}">
                                 <button type="button" class="btn btn-xs btn-danger">
-                                    {% trans %}
-                                    button.password.change
-                                    {% endtrans %}
+                                    {{ 'button.password.change' | trans }}
                                 </button>
                             </a>
 
