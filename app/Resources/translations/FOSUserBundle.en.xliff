@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-14T17:44:12Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-10-15T15:39:08Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -29,12 +29,12 @@
       </trans-unit>
       <trans-unit id="6d384fb8ef3ca9318f0f9d983868842a211770f8" resname="form.password">
         <source>form.password</source>
-        <target state="new">form.password</target>
+        <target>Password</target>
         <jms:reference-file line="44">/../app/Resources/FOSUserBundle/views/Registration/register_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="30de94712c8550862006ed6a664870c398c9482d" resname="form.password_confirmation">
         <source>form.password_confirmation</source>
-        <target state="new">form.password_confirmation</target>
+        <target>Repeat password</target>
         <jms:reference-file line="55">/../app/Resources/FOSUserBundle/views/Registration/register_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4e0b1d3f135337a4f6615d13711fed97e3d92080" resname="group.edit.submit">
@@ -67,14 +67,14 @@
       </trans-unit>
       <trans-unit id="6f2b87ab0da336a9cb633f397ff7f86ab7ea522b" resname="profile.show.email">
         <source>profile.show.email</source>
-        <target state="new">profile.show.email</target>
+        <target>Email</target>
         <jms:reference-file line="37">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="35">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="33">/../app/Resources/FOSUserBundle/views/Registration/register_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0d6307def2ec4ecb26978118bb2deca9d566945c" resname="profile.show.username">
         <source>profile.show.username</source>
-        <target state="new">profile.show.username</target>
+        <target>User name</target>
         <jms:reference-file line="27">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="24">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="23">/../app/Resources/FOSUserBundle/views/Registration/register_content.html.twig</jms:reference-file>

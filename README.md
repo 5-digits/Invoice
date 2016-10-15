@@ -12,7 +12,7 @@
 * JMSTranslationBundle
 
 ### Working application
- * http://invoice-cl.herokuapp.com
+ * http://your-invoices.herokuapp.com
  * login: jdoe@gmail.com
  * password: john.doe
 
