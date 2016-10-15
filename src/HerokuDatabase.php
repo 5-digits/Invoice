@@ -7,9 +7,6 @@
  */
 
 
-
-//namespace mysiar\Bundle\InvoiceBundle;
-
 use Composer\Script\Event;
 
 

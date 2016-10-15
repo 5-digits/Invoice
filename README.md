@@ -4,6 +4,8 @@
 
 ### **Symfony** application at <a target="_blank" href="http://coderslab.pl">CodersLab</a> **BACK-END Developer** training
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ### Components used
 * Symfony 2.8
 * FOSUserBundle
