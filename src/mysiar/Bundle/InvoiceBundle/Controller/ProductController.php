@@ -5,11 +5,14 @@ namespace mysiar\Bundle\InvoiceBundle\Controller;
 use mysiar\Bundle\InvoiceBundle\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
 
 /**
  * Product controller.
- *
+ * @Security("has_role('ROLE_USER')")
  * @Route("product")
  */
 class ProductController extends Controller

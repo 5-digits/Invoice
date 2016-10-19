@@ -3,111 +3,112 @@
 {% block body %}
     {% include 'top_menu.html.twig' %}
 
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        {{ client.companyName }}
+                        {% if client.clientName|length > 0 %} - {{ client.clientName }}
+                        {% endif %}
 
-<div class="row">
-    <div class="col-lg-7">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>
-                    {{ client.companyName }}
-                    {% if client.clientName|length > 0 %} - {{ client.clientName }}
-                    {% endif %}
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover table-responsive table-condensed">
+                        <tr>
+                            <th class="col-md-3">{{ 'label.vatid' | trans }}</th>
+                            <td>{{ client.vatId }}</td>
+                        </tr>
 
-                </h4>
-            </div>
-            <div class="panel-body">
-                <table class="table table-hover table-responsive table-condensed">
-                    <tr>
-                        <th class="col-md-3">{{ 'label.vatid' | trans }}</th>
-                        <td>{{ client.vatId }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.address.street' | trans }}</th>
+                            <td>{{ client.addressStreet }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{  'label.address.street' | trans }}</th>
-                        <td>{{ client.addressStreet }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.address.house' | trans }}</th>
+                            <td>{{ client.addressHouse }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.address.house' | trans }}</th>
-                        <td>{{ client.addressHouse }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.address.flat' | trans }}</th>
+                            <td>{{ client.addressFlat }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.address.flat' | trans }}</th>
-                        <td>{{ client.addressFlat }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.address.zip' | trans }}</th>
+                            <td>{{ client.addressZip }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.address.zip' | trans }}</th>
-                        <td>{{ client.addressZip }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.address.city' | trans }}</th>
+                            <td>{{ client.addressCity }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.address.city' | trans }}</th>
-                        <td>{{ client.addressCity }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.address.country' | trans }}</th>
+                            <td>{{ client.addressCountry }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.address.country' | trans }}</th>
-                        <td>{{ client.addressCountry }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.contact.phone' | trans }}</th>
+                            <td>{{ client.contactPhone }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.contact.phone' | trans }}</th>
-                        <td>{{ client.contactPhone }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.contact.mobile' | trans }}</th>
+                            <td>{{ client.contactMobile }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.contact.mobile' | trans }}</th>
-                        <td>{{ client.contactMobile }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.contact.fax' | trans }}</th>
+                            <td>{{ client.contactFax }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.contact.fax' | trans }}</th>
-                        <td>{{ client.contactFax }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.contact.email' | trans }}</th>
+                            <td>{{ client.contactEmail }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.contact.email' | trans }}</th>
-                        <td>{{ client.contactEmail }}</td>
-                    </tr>
+                        <tr>
+                            <th>{{ 'label.contact.www' | trans }}</th>
+                            <td>{{ client.contactWww }}</td>
+                        </tr>
+                        <tr>
+                            <th class="td-va-top">{{ 'label.client.notes' | trans }}</th>
+                            <td>{{ client.notes }}</td>
+                        </tr>
 
-                    <tr>
-                        <th>{{ 'label.contact.www' | trans}}</th>
-                        <td>{{ client.contactWww }}</td>
-                    </tr>
-                    <tr>
-                        <th class="td-va-top">{{ 'label.client.notes' | trans}}</th>
-                        <td>{{ client.notes }}</td>
-                    </tr>
+                    </table>
 
-                </table>
+                    <table class="table-button">
+                        <tr>
+                            <td>
+                                <a href="{{ path('client_edit', { 'id': client.id }) }}">
+                                    <button type="button"
+                                            class="btn btn-xs btn-info">{{ 'button.show.edit' | trans }}</button>
+                                </a>
+                            </td>
 
-                <table class="table-button">
-                    <tr>
-                        <td>
-                            <a href="{{ path('client_edit', { 'id': client.id }) }}">
-                                <button type="button" class="btn btn-xs btn-info">{{ 'button.show.edit' | trans }}</button>
-                            </a>
-                        </td>
+                            <td>
+                                <a href="{{ path('client_index') }}">
+                                    <button type="button"
+                                            class="btn btn-xs btn-success">{{ 'button.show.list' | trans }}</button>
+                                </a>
+                            </td>
 
-                        <td>
-                            <a href="{{ path('client_index') }}">
-                                <button type="button" class="btn btn-xs btn-success">{{ 'button.show.list' | trans }}</button>
-                            </a>
-                        </td>
-
-                        <td>
-                            {{ form_start(delete_form) }}
-                                <input class="btn btn-xs btn-danger" type="submit" value="{{ 'button.show.delete' | trans }}">
-                            {{ form_end(delete_form) }}
-                        </td>
-                    </tr>
-                </table>
+                            <td>
+                                {{ form_start(delete_form) }}
+                                <input class="btn btn-xs btn-danger" type="submit"
+                                       value="{{ 'button.show.delete' | trans }}">
+                                {{ form_end(delete_form) }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 
 {% endblock %}
