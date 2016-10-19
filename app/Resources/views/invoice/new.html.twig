@@ -1,16 +1,82 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Invoice creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    {% include 'top_menu.html.twig' %}
 
-    <ul>
-        <li>
-            <a href="{{ path('invoice_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        {{ 'label.invoice.new' | trans }}
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    <table class="table table-hover table-responsive table-condensed">
+                        <tr>
+                            <th class="col-md-3">
+                                {{ 'label.invoice' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.invoiceNumber, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.date_of_issue' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.dateOfIssue) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.date_of_sell' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.dateOfSell) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.payment_due' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.paymentDue) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                {{ 'label.client.name' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.client, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table-button">
+                        <tr>
+                            <td>
+                                <input class="btn btn-xs btn-info" type="submit" value="
+                                    {{ 'button.invoice.new.submit' | trans }}
+                                "/>
+                                {{ form_end(form) }}
+                            </td>
+                            <td>
+                                <a href="{{ path('invoice_index') }}">
+                                    <button type="button" class="btn btn-xs btn-success">
+                                        {{ 'button.new.list' | trans }}
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

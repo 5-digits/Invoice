@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-19T11:42:21Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+  <file date="2016-10-19T13:35:38Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -27,6 +27,11 @@
         <source>button.client.new</source>
         <target>nowy Klient</target>
         <jms:reference-file line="19">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2692b2d969133451b5173f2a0123276fedba4e96" resname="button.client.new.submit">
+        <source>button.client.new.submit</source>
+        <target>twórz</target>
+        <jms:reference-file line="154">/../app/Resources/views/client/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a84624491ab98cb461de676f37ab77fba84e9ee8" resname="button.client.show">
         <source>button.client.show</source>
@@ -69,10 +74,22 @@
         <target>nowa Faktura</target>
         <jms:reference-file line="20">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="22cd6de860fa02cb09a631aff8a2ecd3301ba188" resname="button.invoice.new.submit">
+        <source>button.invoice.new.submit</source>
+        <target>twórz</target>
+        <jms:reference-file line="64">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="996a3cd2f9e68f6827f63119c1af8bd57c7037a1" resname="button.invoice.show">
         <source>button.invoice.show</source>
         <target>pokaż</target>
         <jms:reference-file line="65">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="01dbd6ca6c645a806ec418f720b2f4b3e67d14d3" resname="button.new.list">
+        <source>button.new.list</source>
+        <target>powrót do listy</target>
+        <jms:reference-file line="161">/../app/Resources/views/client/new.html.twig</jms:reference-file>
+        <jms:reference-file line="71">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
+        <jms:reference-file line="90">/../app/Resources/views/product/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="643325c7436efcdd5561ea3c7ffd91ac54d424e8" resname="button.password.change">
         <source>button.password.change</source>
@@ -88,6 +105,11 @@
         <source>button.product.new</source>
         <target>nowy Produkt/Usługa</target>
         <jms:reference-file line="21">/../app/Resources/views/product/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c1bb76c508dd990b9c3490b295faff7b3e6ba844" resname="button.product.new.submit">
+        <source>button.product.new.submit</source>
+        <target>twórz</target>
+        <jms:reference-file line="83">/../app/Resources/views/product/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="82451d570d5da1e0b6a7c0bce94cab35ccec9cb8" resname="button.product.show">
         <source>button.product.show</source>
@@ -131,6 +153,7 @@
         <jms:reference-file line="125">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="78">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
         <jms:reference-file line="39">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="77">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="45">/../app/Resources/views/client/show.html.twig</jms:reference-file>
         <jms:reference-file line="109">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
       </trans-unit>
@@ -141,6 +164,7 @@
         <jms:reference-file line="135">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="86">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
         <jms:reference-file line="42">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="50">/../app/Resources/views/client/show.html.twig</jms:reference-file>
         <jms:reference-file line="117">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
       </trans-unit>
@@ -150,6 +174,7 @@
         <jms:reference-file line="107">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="105">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="62">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="35">/../app/Resources/views/client/show.html.twig</jms:reference-file>
         <jms:reference-file line="93">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
       </trans-unit>
@@ -159,6 +184,7 @@
         <jms:reference-file line="97">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="95">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="54">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="30">/../app/Resources/views/client/show.html.twig</jms:reference-file>
         <jms:reference-file line="85">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
       </trans-unit>
@@ -168,6 +194,7 @@
         <jms:reference-file line="87">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="85">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="46">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="25">/../app/Resources/views/client/show.html.twig</jms:reference-file>
         <jms:reference-file line="77">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
       </trans-unit>
@@ -177,6 +204,7 @@
         <jms:reference-file line="117">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="115">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="70">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="69">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="40">/../app/Resources/views/client/show.html.twig</jms:reference-file>
         <jms:reference-file line="101">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
       </trans-unit>
@@ -195,12 +223,20 @@
         <target>Reprezentant</target>
         <jms:reference-file line="22">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
         <jms:reference-file line="33">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="53">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1350e697d73de3fc2ea439978d244df5d615f3b9" resname="label.client.new">
+        <source>label.client.new</source>
+        <target>Nowy Klient</target>
+        <jms:reference-file line="12">/../app/Resources/views/client/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="604ec6db360252ce6b99de7e4684c1cb8c361d2c" resname="label.client.notes">
         <source>label.client.notes</source>
         <target>Notatki</target>
         <jms:reference-file line="142">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="141">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="79">/../app/Resources/views/client/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3f98b738e4af6432583ba1c8086a6d11daf44f9f" resname="label.company.name">
@@ -210,6 +246,7 @@
         <jms:reference-file line="65">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="30">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
         <jms:reference-file line="30">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="61">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
         <jms:reference-file line="38">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
       </trans-unit>
@@ -217,18 +254,21 @@
         <source>label.contact.email</source>
         <target>Email</target>
         <jms:reference-file line="126">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="125">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="70">/../app/Resources/views/client/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="be643eeb295b70e134cf007775f4ce74834bb81f" resname="label.contact.fax">
         <source>label.contact.fax</source>
         <target>Fax</target>
         <jms:reference-file line="118">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="117">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="65">/../app/Resources/views/client/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f6be9d900a57ca402fabf905cb790b6c6781a55d" resname="label.contact.mobile">
         <source>label.contact.mobile</source>
         <target>Telefon kom.</target>
         <jms:reference-file line="110">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="109">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="60">/../app/Resources/views/client/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="08bef260e6b8e64fd297764f0cad477af13ab827" resname="label.contact.phone">
@@ -236,12 +276,15 @@
         <target>Telefon</target>
         <jms:reference-file line="102">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
         <jms:reference-file line="94">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/../app/Resources/views/client/new.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="55">/../app/Resources/views/client/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="be5ff65045020147054363d99f6dfc6681fb0b0a" resname="label.contact.www">
         <source>label.contact.www</source>
         <target>Witryna www</target>
         <jms:reference-file line="134">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="133">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="75">/../app/Resources/views/client/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="048e9193b264219ed0e7bc134377a91adbc3069a" resname="label.date_of_issue">
@@ -249,11 +292,13 @@
         <target>Data wystawienia</target>
         <jms:reference-file line="28">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
         <jms:reference-file line="32">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1bc3beaad1ed3f843cbe33d787f7ee5e5c253bb6" resname="label.date_of_sell">
         <source>label.date_of_sell</source>
         <target>Data sprzedaży</target>
         <jms:reference-file line="36">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f98229ed07361f96d867ebb1c3c6ac440db207bd" resname="label.edit.client.change">
         <source>label.edit.client.change</source>
@@ -265,6 +310,7 @@
         <target>Faktura</target>
         <jms:reference-file line="20">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
         <jms:reference-file line="29">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="78f423cd5c60dffae0936ebe53d84908fee9ab1a" resname="label.invoice.edit">
         <source>label.invoice.edit</source>
@@ -275,6 +321,11 @@
         <source>label.invoice.list</source>
         <target>Lista faktur</target>
         <jms:reference-file line="12">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="28620a4da314ec4d18bbc5fa696783351771890d" resname="label.invoice.new">
+        <source>label.invoice.new</source>
+        <target>Nowa Faktura</target>
+        <jms:reference-file line="12">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="91508c12db339ea4932e987f91554869e68eabff" resname="label.invoice.prefix">
         <source>label.invoice.prefix</source>
@@ -304,12 +355,14 @@
         <target>Płatność do</target>
         <jms:reference-file line="44">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
         <jms:reference-file line="35">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
+        <jms:reference-file line="44">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="592b6734bd1e54cd3711a0aeabcdec222877e1e4" resname="label.product.code">
         <source>label.product.code</source>
         <target>Kod</target>
         <jms:reference-file line="29">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="28">/../app/Resources/views/product/index.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="19">/../app/Resources/views/product/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6d9f4524a4f3a02028ad9fa971b7021fff1b750f" resname="label.product.edit">
@@ -327,18 +380,26 @@
         <target>Nazwa</target>
         <jms:reference-file line="21">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="29">/../app/Resources/views/product/index.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="23">/../app/Resources/views/product/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0664fd0ce989dff99129b5ebc64c144e7e027c80" resname="label.product.new">
+        <source>label.product.new</source>
+        <target>Nowy Produkt/Usługa</target>
+        <jms:reference-file line="12">/../app/Resources/views/product/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="64141ef3b1e9f1d5dddab6d91b1b890bc3e11836" resname="label.product.notes">
         <source>label.product.notes</source>
         <target>Notatki</target>
         <jms:reference-file line="72">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="72">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="43">/../app/Resources/views/product/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ee996cc5b45994ccc6567cec08b19e0559c0166d" resname="label.product.pkwiu">
         <source>label.product.pkwiu</source>
         <target>PKWiU</target>
         <jms:reference-file line="37">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="27">/../app/Resources/views/product/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2ec045d5de508985f48b4d74e52ade3e78032aad" resname="label.product.price.gross">
@@ -346,6 +407,7 @@
         <target>Cena brutto</target>
         <jms:reference-file line="61">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="32">/../app/Resources/views/product/index.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="39">/../app/Resources/views/product/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="44ceb2f36146291171e843f6345007f4fb5da238" resname="label.product.price.net">
@@ -353,6 +415,7 @@
         <target>Cena netto</target>
         <jms:reference-file line="45">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="30">/../app/Resources/views/product/index.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="31">/../app/Resources/views/product/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dd3d9393930360a0a2e9f44d2729e8616c2b9ca7" resname="label.product.vat">
@@ -360,6 +423,7 @@
         <target>VAT</target>
         <jms:reference-file line="53">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="31">/../app/Resources/views/product/index.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="35">/../app/Resources/views/product/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="28960198fe8bda1a9f6936e5f5d68d5c30e84081" resname="label.profile.edit">
@@ -389,6 +453,7 @@
         <jms:reference-file line="75">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="38">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
         <jms:reference-file line="36">/../app/Resources/views/client/index.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/../app/Resources/views/client/new.html.twig</jms:reference-file>
         <jms:reference-file line="20">/../app/Resources/views/client/show.html.twig</jms:reference-file>
         <jms:reference-file line="69">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
       </trans-unit>

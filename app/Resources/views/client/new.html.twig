@@ -1,16 +1,175 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Client creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    {% include 'top_menu.html.twig' %}
 
-    <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        {{ 'label.client.new' | trans }}
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    <table class="table table-hover table-responsive table-condensed">
+                        <tr>
+                            <th class="col-md-3">
+                                {{ 'label.client.name' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.clientName, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                {{ 'label.company.name' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.companyName, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.vatid' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.vatId, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.address.street' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.addressStreet, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.address.house' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.addressHouse, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.address.flat' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.addressFlat, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.address.zip' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.addressZip, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.address.city' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.addressCity, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.address.country' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.addressCountry, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.contact.phone' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.contactPhone, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.contact.phone' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.contactPhone, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.contact.mobile' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.contactMobile, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.contact.fax' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.contactFax, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.contact.email' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.contactEmail, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.contact.www' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.contactWww, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="td-va-top">
+                                {{ 'label.client.notes' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.notes, { 'attr': {'class': 'col-xs-12', 'rows' : 10 } }) }}
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <table class="table-button">
+                        <tr>
+                            <td>
+                                <input class="btn btn-xs btn-info" type="submit" value="
+                                    {{ 'button.client.new.submit' | trans }}
+                                "/>
+                                {{ form_end(form) }}
+                            </td>
+                            <td>
+                                <a href="{{ path('client_index') }}">
+                                    <button type="button" class="btn btn-xs btn-success">
+                                        {{ 'button.new.list' | trans }}
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 {% endblock %}
