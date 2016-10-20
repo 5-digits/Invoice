@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-19T13:35:12Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-10-20T22:03:46Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -377,6 +377,7 @@
       <trans-unit id="7a5cdb669cafd0e51a242618e1a316ddf50f7c58" resname="label.product.name">
         <source>label.product.name</source>
         <target>Name</target>
+        <jms:reference-file line="75">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
         <jms:reference-file line="21">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="29">/../app/Resources/views/product/index.html.twig</jms:reference-file>
         <jms:reference-file line="21">/../app/Resources/views/product/new.html.twig</jms:reference-file>
@@ -397,6 +398,7 @@
       <trans-unit id="ee996cc5b45994ccc6567cec08b19e0559c0166d" resname="label.product.pkwiu">
         <source>label.product.pkwiu</source>
         <target>PKWiU</target>
+        <jms:reference-file line="76">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
         <jms:reference-file line="37">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="37">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="27">/../app/Resources/views/product/show.html.twig</jms:reference-file>
@@ -417,9 +419,40 @@
         <jms:reference-file line="45">/../app/Resources/views/product/new.html.twig</jms:reference-file>
         <jms:reference-file line="31">/../app/Resources/views/product/show.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="030fef39757f116035671c05c9012ac03a880cb3" resname="label.product.priceNet">
+        <source>label.product.priceNet</source>
+        <target state="new">label.product.priceNet</target>
+        <jms:reference-file line="79">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1fe57a763bffb1e0f07a9cd4fb67ad18a86794d7" resname="label.product.quantity">
+        <source>label.product.quantity</source>
+        <target state="new">label.product.quantity</target>
+        <jms:reference-file line="78">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f209fa4dfa6a0a223c002bccdf6d445b80278407" resname="label.product.unit">
+        <source>label.product.unit</source>
+        <target state="new">label.product.unit</target>
+        <jms:reference-file line="77">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="787ad7bf11c71dea46c781bb6931d30f825d3abe" resname="label.product.valueGross">
+        <source>label.product.valueGross</source>
+        <target state="new">label.product.valueGross</target>
+        <jms:reference-file line="90">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4ca842df703003d7fb6f9780102a9121b546630c" resname="label.product.valueNet">
+        <source>label.product.valueNet</source>
+        <target state="new">label.product.valueNet</target>
+        <jms:reference-file line="82">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2e9ff8883ae8c5c200c31f8cca4a0797bc15d1cf" resname="label.product.valueVat">
+        <source>label.product.valueVat</source>
+        <target state="new">label.product.valueVat</target>
+        <jms:reference-file line="87">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="dd3d9393930360a0a2e9f44d2729e8616c2b9ca7" resname="label.product.vat">
         <source>label.product.vat</source>
         <target>VAT</target>
+        <jms:reference-file line="84">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
         <jms:reference-file line="53">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
         <jms:reference-file line="31">/../app/Resources/views/product/index.html.twig</jms:reference-file>
         <jms:reference-file line="53">/../app/Resources/views/product/new.html.twig</jms:reference-file>

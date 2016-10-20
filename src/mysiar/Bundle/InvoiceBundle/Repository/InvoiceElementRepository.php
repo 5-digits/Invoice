@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class InvoiceElementRepository extends EntityRepository
 {
+    public function getAllElementsForInvoice($invoice)
+    {
+        return $this->_em->getRepository($this->_entityName)
+            ->findBy(
+                array( 'invoice' => $invoice),
+                array( 'id' => 'ASC')
+            );
+    }
+
 }

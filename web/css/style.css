@@ -8,6 +8,10 @@ body {
     text-align: center;
 }
 
+.td-right {
+    text-align: right;
+}
+
 .td-va-top {
     vertical-align: top;
 }
@@ -36,4 +40,40 @@ body {
 textarea {
     resize: vertical;
     rows: 10;
+}
+
+
+.ie-index {
+    width: 1em;
+}
+.ie-name {
+    width: 12em;
+}
+.ie-quantity {
+    width: 3em;
+    text-align: right;
+}
+
+.ie-unit {
+    width: 2em;
+}
+
+.ie-price {
+    width: 5em;
+    text-align: right;
+}
+
+.ie-discount {
+    width: 2em;
+    text-align: right;
+}
+
+.ie-pkwiu {
+    width: 5em;
+    text-align: center;
+}
+
+.ie-vat {
+    width: 2em;
+    text-align: right;
 }

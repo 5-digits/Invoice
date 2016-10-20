@@ -5,7 +5,6 @@ namespace mysiar\Bundle\InvoiceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 
-
 /**
  * InvoiceElement
  *
@@ -57,13 +56,6 @@ class InvoiceElement
      * @ORM\Column(name="price_net", type="decimal", precision=10, scale=2)
      */
     private $priceNet;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="discount", type="decimal", precision=10, scale=2, nullable=true)
-     */
-    private $discount;
 
     /**
      * @var string
@@ -180,29 +172,6 @@ class InvoiceElement
     public function getPriceNet()
     {
         return $this->priceNet;
-    }
-
-    /**
-     * Set discount
-     *
-     * @param string $discount
-     * @return InvoiceElement
-     */
-    public function setDiscount($discount)
-    {
-        $this->discount = $discount;
-
-        return $this;
-    }
-
-    /**
-     * Get discount
-     *
-     * @return string
-     */
-    public function getDiscount()
-    {
-        return $this->discount;
     }
 
     /**

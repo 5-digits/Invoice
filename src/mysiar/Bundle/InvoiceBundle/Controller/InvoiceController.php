@@ -2,21 +2,13 @@
 
 namespace mysiar\Bundle\InvoiceBundle\Controller;
 
-use mysiar\Bundle\InvoiceBundle\Repository\InvoiceRepository;
+use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
+use mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements;
+use mysiar\Bundle\InvoiceBundle\Form\InvoiceElementsType;
+use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
-use mysiar\Bundle\InvoiceBundle\Repository\InvoiceRepository as InvoiceRepo;
-use mysiar\Bundle\InvoiceBundle\Form\InvoiceType;
-use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
-use mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\Loader\ArrayLoader;
 
 /**
  * Invoice controller.
@@ -103,8 +95,7 @@ class InvoiceController extends Controller
                     'invoice/invoice1.tmpl.twig',
                     array(
                         'invoice' => $invoice,
-                        'user' => $this->getUser(),                   // Seller details
-                        'user' => $this->getUser()                    // Logged user name for menu
+                        'user' => $this->getUser(),
                     )
                 );
             }
@@ -165,7 +156,7 @@ class InvoiceController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id);
         if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
                 $form = $this->createDeleteForm($invoice);
@@ -190,7 +181,7 @@ class InvoiceController extends Controller
      */
     public function viewInvoiceAction($id)
     {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id);
 
         return $this->render(
             'invoice/invoice1.tmpl.twig',
@@ -201,6 +192,66 @@ class InvoiceController extends Controller
             )
         );
     }
+
+
+    /**
+     *  Invoice elements
+     *
+     * @Route("/{id}/elem", name="invoice_elem")
+     * @Method({"GET", "POST"})
+     */
+    public function elemInvoiceAction(Request $request, $id)
+    {
+        $user = $this->getUser();
+        $invoice = $this->getInvoiceRepository()->getInvoiceById($id);
+        if ($invoice) {
+            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
+                // $products = $this->getProductRepository()->getAllProductsForUser($user);
+
+                $ie = new InvoiceElements();
+                $ie->setInvoice($invoice);
+                $ie->setAllElements($invoice->getInvoiceElements());
+
+                // kept just for error reporting
+                // $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements', $ie);
+
+                $form = $this->createForm(new InvoiceElementsType(), $ie);
+
+
+
+                $form->handleRequest($request);
+
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+
+                    $ie = $form->getData();
+                    $invoice->updateInvoiceElements($ie->getElements());
+                    //dump($ie);
+                    $em->persist($invoice);
+                    $em->flush();
+                }
+
+
+                return $this->render(
+                    'invoice/invoice_elem.html.twig',
+                    array(
+                        'invoice' => $invoice,
+                        'user' => $this->getUser(),
+                        'form' => $form->createView()
+                    )
+                );
+
+
+
+            }
+        }
+        return new Response("invoice elements");
+    }
+
+
+
+
+
 
     /**
      * Creates a form to delete a Invoice entity.
@@ -237,7 +288,24 @@ class InvoiceController extends Controller
         return $this->getDoctrine()->getRepository('InvoiceBundle:Client');
     }
 
+    /**
+     * Gets InvoiceBundle:InvoiceElement repository
+     *
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    private function getInvoiceElementRepository()
+    {
+        return $this->getDoctrine()->getRepository('InvoiceBundle:InvoiceElement');
+    }
 
-
+    /**
+     * Gets InvoiceBundle:Product repository
+     *
+     * @return \Doctrine\Common\Persistence\ObjectRepository
+     */
+    private function getProductRepository()
+    {
+        return $this->getDoctrine()->getRepository('InvoiceBundle:Product');
+    }
 
 }

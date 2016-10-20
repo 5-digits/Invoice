@@ -26,7 +26,8 @@
     "ext-pdo_pgsql": "*",
     "twig/extensions": "1.4.*",
     "jms/translation-bundle": "dev-master",
-    "jms/di-extra-bundle": "1.8.*"
+    "jms/di-extra-bundle": "1.8.*",
+    "friendsofsymfony/rest-bundle": "1.7"
   },
   "require-dev": {
     "sensio/generator-bundle": "~3.0",

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Invoiceelements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Unit</th>
+                <th>Pricenet</th>
+                <th>Discount</th>
+                <th>Pkwiucode</th>
+                <th>Vatrate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for invoiceElement in invoiceElements %}
+            <tr>
+                <td><a href="{{ path('invoiceelement_show', { 'id': invoiceElement.id }) }}">{{ invoiceElement.id }}</a></td>
+                <td>{{ invoiceElement.name }}</td>
+                <td>{{ invoiceElement.amount }}</td>
+                <td>{{ invoiceElement.unit }}</td>
+                <td>{{ invoiceElement.priceNet }}</td>
+                <td>{{ invoiceElement.discount }}</td>
+                <td>{{ invoiceElement.pkwiuCode }}</td>
+                <td>{{ invoiceElement.vatRate }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('invoiceelement_show', { 'id': invoiceElement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('invoiceelement_edit', { 'id': invoiceElement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('invoiceelement_new') }}">Create a new invoiceElement</a>
+        </li>
+    </ul>
+{% endblock %}

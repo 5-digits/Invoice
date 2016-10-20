@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/jquery-ui.theme.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}{% endblock %}
 
-        {% block javascripts %}
+{% block javascripts %}
+    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    {#<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>#}
 
-        <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-        {% endblock %}
-    </body>
+    <script src="{{ asset('js/invoice.js') }}"></script>
+{% endblock %}
+</body>
 </html>

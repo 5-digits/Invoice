@@ -2,8 +2,8 @@
 
 namespace mysiar\Bundle\InvoiceBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use DateInterval;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Invoice
@@ -513,6 +513,11 @@ class Invoice
         return $this->invoiceElements;
     }
 
+    public function updateInvoiceElements($elements)
+    {
+        $this->invoiceElements = $elements;
+    }
+
     /**
      * Set invoiceUser
      *
@@ -560,5 +565,10 @@ class Invoice
         return $this->client;
     }
 
+    public function __toString()
+    {
+        $text = $this->invoiceNumber . " " . $this->client->getCompanyName();
+        return $text;
+    }
 
 }
