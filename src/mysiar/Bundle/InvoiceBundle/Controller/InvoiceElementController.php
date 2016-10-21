@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Invoiceelement controller.
  *
- * @Route("invoiceelement")
+ * @Route("/invoiceelement")
  */
 class InvoiceElementController extends Controller
 {

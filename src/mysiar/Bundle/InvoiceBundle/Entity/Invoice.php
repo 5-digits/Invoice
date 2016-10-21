@@ -55,6 +55,13 @@ class Invoice
     private $invoiceNumberPrefix;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_invoice_net", type="boolean")
+     */
+    private $isInvoiceNet;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_of_issue", type="date")
@@ -139,6 +146,26 @@ class Invoice
      */
     private $addressCountry;
 
+    /**
+     * @return boolean
+     */
+    public function isIsInvoiceNet()
+    {
+        return $this->isInvoiceNet;
+    }
+
+    /**
+     * @param boolean $isInvoiceNet
+     * @return Invoice
+     */
+    public function setIsInvoiceNet($isInvoiceNet)
+    {
+        $this->isInvoiceNet = $isInvoiceNet;
+
+        return $this;
+    }
+
+
 
 
     /**
@@ -147,6 +174,7 @@ class Invoice
     public function __construct()
     {
         $this->invoiceElements = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isInvoiceNet = true;
     }
 
     /**

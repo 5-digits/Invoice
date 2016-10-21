@@ -3,17 +3,16 @@
 namespace mysiar\Bundle\InvoiceBundle\Form;
 
 
-use Doctrine\ORM\EntityRepository;
 use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
 class InvoiceEditType extends AbstractType
@@ -67,6 +66,14 @@ class InvoiceEditType extends AbstractType
         $builder->add('addressZip');
         $builder->add('addressCity');
         $builder->add('addressCountry');
+        $builder->add('isInvoiceNet', ChoiceType::class, array(
+            'choices' => array(
+                'select.invoice.net' => true,
+                'select.invoice.gross' => false,
+            ),
+            // *this line is important*
+            'choices_as_values' => true,
+        ));
 
         // creates select for all clients owned by user
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder) {

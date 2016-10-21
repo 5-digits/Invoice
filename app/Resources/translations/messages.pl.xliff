@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-20T22:19:23Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+  <file date="2016-10-21T09:24:10Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
+      <trans-unit id="da39a3ee5e6b4b0d3255bfef95601890afd80709" resname="">
+        <source></source>
+        <target state="new"></target>
+        <jms:reference-file line="82">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
+        <jms:reference-file line="79">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
+      </trans-unit>
       <trans-unit id="b81db93ae658298a99273bd02974f8b0381608a9" resname="app.title">
         <source>app.title</source>
         <target xml:space="preserve">Twoje Faktury
@@ -77,7 +83,7 @@
       <trans-unit id="22cd6de860fa02cb09a631aff8a2ecd3301ba188" resname="button.invoice.new.submit">
         <source>button.invoice.new.submit</source>
         <target>twórz</target>
-        <jms:reference-file line="64">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
+        <jms:reference-file line="72">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="996a3cd2f9e68f6827f63119c1af8bd57c7037a1" resname="button.invoice.show">
         <source>button.invoice.show</source>
@@ -88,7 +94,7 @@
         <source>button.new.list</source>
         <target>powrót do listy</target>
         <jms:reference-file line="161">/../app/Resources/views/client/new.html.twig</jms:reference-file>
-        <jms:reference-file line="71">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
         <jms:reference-file line="90">/../app/Resources/views/product/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="643325c7436efcdd5561ea3c7ffd91ac54d424e8" resname="button.password.change">
@@ -138,6 +144,21 @@
         <source>datetime.format</source>
         <target>Y-m-d  H:i</target>
         <jms:reference-file line="19">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="452a993b9d8f066bc5001984e59e70a2a0ea24bc" resname="invoice.buyer">
+        <source>invoice.buyer</source>
+        <target>Nabywca</target>
+        <jms:reference-file line="42">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="304c1b5ba8e9c60d3a63d4c51b2ab63594e6d8c6" resname="invoice.header">
+        <source>invoice.header</source>
+        <target>FAKTURA</target>
+        <jms:reference-file line="12">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8f4b39071291a3e8232c93e67bfbecc864bc117b" resname="invoice.seller">
+        <source>invoice.seller</source>
+        <target>Sprzedawca</target>
+        <jms:reference-file line="16">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="bbec3012ccea1aacc10dd0996f8c474a43c10eb8" resname="label.actions">
         <source>label.actions</source>
@@ -316,6 +337,11 @@
         <source>label.invoice.edit</source>
         <target>Edycja faktury</target>
         <jms:reference-file line="12">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f0183faa3747de093b42b3fea7d554cdfd78778c" resname="label.invoice.isnet">
+        <source>label.invoice.isnet</source>
+        <target>Rodzaj cen</target>
+        <jms:reference-file line="61">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="63496174bd3075bbe1b41fb4cc9a56f2ce3fc5a3" resname="label.invoice.list">
         <source>label.invoice.list</source>
@@ -519,6 +545,26 @@
         <source>profile.edit.submit</source>
         <target>zapisz zmiany</target>
         <jms:reference-file line="178">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cf3a4fc818fe40a1c26159fb01323172e092b179" resname="select.invoice.gross">
+        <source>select.invoice.gross</source>
+        <target>Ceny Brutto</target>
+        <jms:reference-file line="61">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="18bf8d90ac2474071f2754e4f27e2379f61bce52" resname="select.invoice.net">
+        <source>select.invoice.net</source>
+        <target>Ceny Netto</target>
+        <jms:reference-file line="60">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7e746d340667e415de67844ca297722f073c4eb5" resname="yyyy-MM-dd">
+        <source>yyyy-MM-dd</source>
+        <target state="new">yyyy-MM-dd</target>
+        <jms:reference-file line="40">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
+        <jms:reference-file line="49">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
+        <jms:reference-file line="57">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
+        <jms:reference-file line="38">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
+        <jms:reference-file line="46">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
+        <jms:reference-file line="54">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
       </trans-unit>
     </body>
   </file>

@@ -93,7 +93,7 @@ services:
 jms_translation:
     configs:
         app:
-            dirs: [%kernel.root_dir%/../app/Resources/views, %kernel.root_dir%/../app/Resources/FOSUserBundle/views ]
+            dirs: [%kernel.root_dir%/../app/Resources/views, %kernel.root_dir%/../app/Resources/FOSUserBundle/views, %kernel.root_dir%/../src/mysiar/Bundle/InvoiceBundle/Form]
             output_dir: %kernel.root_dir%/Resources/translations
             ignored_domains: [routes]
             excluded_names: ["*TestCase.php", "*Test.php"]

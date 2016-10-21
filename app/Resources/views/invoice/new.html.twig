@@ -56,6 +56,14 @@
                                 {{ form_widget(form.client, { 'attr': {'class': 'col-xs-12'} }) }}
                             </td>
                         </tr>
+                        <tr>
+                            <th>
+                                {{ 'label.invoice.isnet' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.isInvoiceNet, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
                     </table>
                     <table class="table-button">
                         <tr>

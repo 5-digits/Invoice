@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+
 /**
  * Invoice controller.
  * @Security("has_role('ROLE_USER')")
@@ -240,8 +241,6 @@ class InvoiceController extends Controller
                         'form' => $form->createView()
                     )
                 );
-
-
 
             }
         }
