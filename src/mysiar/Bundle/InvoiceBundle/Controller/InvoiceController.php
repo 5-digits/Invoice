@@ -9,7 +9,9 @@ use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * Invoice controller.
@@ -216,16 +218,16 @@ class InvoiceController extends Controller
                 // kept just for error reporting
                 // $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements', $ie);
 
-                $form = $this->createForm(new InvoiceElementsType(), $ie);
+                $form_invoice_elements = $this->createForm(new InvoiceElementsType(), $ie);
 
 
 
-                $form->handleRequest($request);
+                $form_invoice_elements->handleRequest($request);
 
-                if ($form->isSubmitted() && $form->isValid()) {
+                if ($form_invoice_elements->isSubmitted() && $form_invoice_elements->isValid()) {
                     $em = $this->getDoctrine()->getManager();
 
-                    $ie = $form->getData();
+                    $ie = $form_invoice_elements->getData();
                     $invoice->updateInvoiceElements($ie->getElements());
                     //dump($ie);
                     $em->persist($invoice);
@@ -238,7 +240,7 @@ class InvoiceController extends Controller
                     array(
                         'invoice' => $invoice,
                         'user' => $this->getUser(),
-                        'form' => $form->createView()
+                        'form_invoice_elements' => $form_invoice_elements->createView()
                     )
                 );
 
