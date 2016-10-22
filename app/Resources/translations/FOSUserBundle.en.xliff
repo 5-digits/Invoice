@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-21T16:08:45Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-10-22T14:23:30Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -81,17 +81,17 @@
       </trans-unit>
       <trans-unit id="1fa5b2873fe30be026b854f6a51503b86c6ac81a" resname="registration.back">
         <source>registration.back</source>
-        <target state="new">registration.back</target>
+        <target>back</target>
         <jms:reference-file line="16">/../app/Resources/FOSUserBundle/views/Registration/confirmed.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="85a4eff0132a6f92eae3057837f285b3aedf38b8" resname="registration.check_email">
         <source>registration.check_email</source>
-        <target state="new">registration.check_email</target>
+        <target>registration.check_email</target>
         <jms:reference-file line="4">/../app/Resources/FOSUserBundle/views/Registration/checkEmail.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="7a0a8fbc70fe82997f8a2ff89090f523ee63f72a" resname="registration.confirmed">
         <source>registration.confirmed</source>
-        <target state="new">registration.confirmed</target>
+        <target>Registration successful</target>
         <jms:reference-file line="13">/../app/Resources/FOSUserBundle/views/Registration/confirmed.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6362bc7b7a8f72b782ffd590744ab069327bbe4a" resname="registration.email.message">

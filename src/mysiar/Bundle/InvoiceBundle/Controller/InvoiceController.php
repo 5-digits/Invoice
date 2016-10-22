@@ -257,7 +257,7 @@ class InvoiceController extends Controller
                     $em->flush();
 
                     $invoiceSummary = $this->invoiceTotalSummary($invoice->getInvoiceElements());
-                    //return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
+                    return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
                 }
 
                 /**
