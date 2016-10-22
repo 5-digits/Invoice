@@ -8,7 +8,7 @@
 $(document).ready(function () {
 
         function addElementFormDeleteLink($formElement) {
-            var $removeFormA = $('<td><a href="#">delete</a></td>');
+            var $removeFormA = $('<td class="td-center"><a href="#"><img src="/img/61117_153968_delete_remove.png"></a></td>');
             $formElement.append($removeFormA);
 
             $removeFormA.on('click', function(e) {
@@ -20,14 +20,12 @@ $(document).ready(function () {
             });
         }
 
-
-        $collectionHolder = $('table.elements');
+        var $collectionHolder = $('table.elements');
         // add a delete link to all of the existing tag form tr elements
-        $collectionHolder.find('tr:gt(0)').each(function() {
+        // .not(':last')
+        $collectionHolder.find('tr').not(':first').each(function() {
             addElementFormDeleteLink($(this));
         });
-
-
 
 
 

@@ -98,7 +98,7 @@
                         {# valueGross - calulate#}
                         <th class="small text-center">{{ 'label.product.valueGross' | trans }}</th>
 
-                        <th class="small text-center">AKCJA</th>
+                        <th class="small text-center">  {{ 'label.actions' | trans }}</th>
 
                     </tr>
 
@@ -126,6 +126,16 @@
                 </table>
                 <input class="btn btn-xs btn-danger" type="submit"  value="{{ 'button.invoice.element.update' | trans }}">
                 {{ form_end(form_invoice_elements) }}
+            </div>
+            <div>
+                {% for key, value in invoice_summary %}
+                    <b>{{ key }} </b>
+                    {% for val in value %}
+                        {{ val }}
+                        {% endfor %}
+                    <br>
+                {% endfor %}
+
             </div>
             <hr>
         {% endif %}

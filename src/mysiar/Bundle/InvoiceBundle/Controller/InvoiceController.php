@@ -209,15 +209,14 @@ class InvoiceController extends Controller
         $user = $this->getUser();
         $invoice = $this->getInvoiceRepository()->getInvoiceById($id);
 
-
-
         if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
                 $invoiceElementsDB = new ArrayCollection();
                 foreach ($invoice->getInvoiceElements() as $e) {
                     $invoiceElementsDB->add($e);
                 }
-                dump($invoiceElementsDB);
+
+                $invoiceSummary = $this->invoiceTotalSummary($invoice->getInvoiceElements());
 
                 $invoiceElementsProducts = new InvoiceElementsProducts();
                 $invoiceElementsProducts->setInvoice($invoice);
@@ -251,12 +250,14 @@ class InvoiceController extends Controller
                     $new_elem->setPriceNet($product->getPriceNet());
                     $new_elem->setVatRate($product->getVatRate());
                     $new_elem->setPkwiuCode($product->getPkwiuCode());
+                    $new_elem->setUnit($product->getUnit());
                     $em->persist($new_elem);
                     $invoice->addInvoiceElement($new_elem);
                     $em->persist($invoice);
                     $em->flush();
 
-                    return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
+                    $invoiceSummary = $this->invoiceTotalSummary($invoice->getInvoiceElements());
+                    //return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
                 }
 
                 /**
@@ -272,25 +273,28 @@ class InvoiceController extends Controller
                         }
                     }
 
+                    $invoiceSummary = $this->invoiceTotalSummary($invoice->getInvoiceElements());
+
                     $em->persist($invoice);
                     $em->flush();
                 }
 
-                return $this->render(
-                    'invoice/invoice_elem.html.twig',
-                    array(
-                        'invoice' => $invoice,
-                        'user' => $this->getUser(),
-                        'form_invoice_elements' => $formInvoiceElements->createView(),
-                        'form_products' => $formProducts->createView()
-                    )
-                );
-
             }
-        }
-        return new Response("invoice elements");
-    }
 
+            return $this->render(
+                'invoice/invoice_elem.html.twig',
+                array(
+                    'invoice' => $invoice,
+                    'user' => $this->getUser(),
+                    'form_invoice_elements' => $formInvoiceElements->createView(),
+                    'form_products' => $formProducts->createView(),
+                    'invoice_summary' => $invoiceSummary,
+                )
+            );
+
+        }
+        return $this->redirectToRoute('invoice_index');
+    }
 
 
     /**
@@ -347,5 +351,31 @@ class InvoiceController extends Controller
     {
         return $this->getDoctrine()->getRepository('InvoiceBundle:Product');
     }
+
+
+    private function invoiceTotalSummary($elements)
+    {
+        $summary = array();
+        foreach ($elements as $elem) {
+            $vatRate = $elem->getVatRate();
+            $amount = $elem->getAmount();
+            $valueNet = $amount * $elem->getPriceNet();
+            $valueVat = $valueNet * $vatRate / 100;
+            $valueGross = $valueNet + $valueVat;
+
+            if (empty($summary[$vatRate])) {
+                $summary[$vatRate] = array( $valueNet, $valueVat, $valueGross);
+            } else {
+                $totals = $summary[$vatRate];
+                $totals[0] += $valueNet;
+                $totals[1] += $valueVat;
+                $totals[2] += $valueGross;
+                $summary[$vatRate] = $totals;
+            }
+        }
+        ksort($summary);
+        return $summary;
+    }
+
 
 }

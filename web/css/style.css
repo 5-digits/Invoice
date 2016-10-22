@@ -55,7 +55,8 @@ textarea {
 }
 
 .ie-unit {
-    width: 2em;
+    width: 3em;
+    text-align: right;
 }
 
 .ie-price {
