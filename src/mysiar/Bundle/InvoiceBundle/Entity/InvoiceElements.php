@@ -42,4 +42,9 @@ class InvoiceElements
         $this->elements = $elements;
     }
 
+    public function removeElement($element)
+    {
+        $this->elements->removeElement($element);
+    }
+
 }

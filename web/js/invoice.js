@@ -7,6 +7,31 @@
 
 $(document).ready(function () {
 
+        function addElementFormDeleteLink($formElement) {
+            var $removeFormA = $('<td><a href="#">delete</a></td>');
+            $formElement.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the tag form
+                $formElement.remove();
+            });
+        }
+
+
+        $collectionHolder = $('table.elements');
+        // add a delete link to all of the existing tag form tr elements
+        $collectionHolder.find('tr:gt(0)').each(function() {
+            addElementFormDeleteLink($(this));
+        });
+
+
+
+
+
+
 // http://stackoverflow.com/questions/4565112/javascript-how-to-find-out-if-the-user-browser-is-chrome
 // please note,
 // that IE11 now returns undefined again for window.chrome

@@ -511,12 +511,12 @@ class Invoice
     /**
      * Add invoiceElements
      *
-     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElement
      * @return Invoice
      */
-    public function addInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements)
+    public function addInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElement)
     {
-        $this->invoiceElements[] = $invoiceElements;
+        $this->invoiceElements[] = $invoiceElement;
 
         return $this;
     }
@@ -524,11 +524,11 @@ class Invoice
     /**
      * Remove invoiceElements
      *
-     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements
+     * @param \mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElement
      */
-    public function removeInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElements)
+    public function removeInvoiceElement(\mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement $invoiceElement)
     {
-        $this->invoiceElements->removeElement($invoiceElements);
+        $this->invoiceElements->removeElement($invoiceElement);
     }
 
     /**

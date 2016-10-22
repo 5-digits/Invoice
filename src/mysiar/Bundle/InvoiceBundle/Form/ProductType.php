@@ -16,9 +16,9 @@ class ProductType extends AbstractType
         $builder
             ->add('code')
             ->add('name')
-            ->add('pkwiu')
+            ->add('pkwiuCode')
             ->add('priceNet')
-            ->add('vat')
+            ->add('vatRate')
             ->add('priceGross')
             ->add('notes')
         ;

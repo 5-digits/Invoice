@@ -66,12 +66,19 @@
             </div>
 
         </div>
+        <hr>
+        {{ form_start(form_products) }}
+        {{ 'label.product' | trans }}
+            {{ form_widget(form_products.product) }}
+            <input class="btn btn-xs btn-danger" type="submit"  value="{{ 'button.invoice.element.add' | trans }}">
+        {{ form_end(form_products) }}
+
 
         {##}
-        {% if form.elements.children | length > 0 %}
+        {% if form_invoice_elements.elements.children | length > 0 %}
             <hr>
             <div id="invoice_elements">
-                <table class="table-condensed table-striped table-bordered table-hover table-responsive">
+                <table class="table-condensed table-striped table-bordered table-hover table-responsive elements">
                     <tr>
                         <th class="small text-center">#</th>
                         <th class="small text-center">{{ 'label.product.name' | trans }}</th>
@@ -91,11 +98,13 @@
                         {# valueGross - calulate#}
                         <th class="small text-center">{{ 'label.product.valueGross' | trans }}</th>
 
+                        <th class="small text-center">AKCJA</th>
+
                     </tr>
 
-                    {{ form_start(form) }}
+                    {{ form_start(form_invoice_elements) }}
                     {% set counter = 1 %}
-                    {% for elem in form.elements %}
+                    {% for elem in form_invoice_elements.elements %}
                         {% set valueNet = elem.vars.value.amount * elem.vars.value.priceNet %}
                         {% set valueVat = valueNet * elem.vars.value.vatRate / 100 %}
                         {% set valueGross = valueNet + valueVat %}
@@ -110,13 +119,13 @@
                             <td>{{ form_widget(elem.vatRate, { 'attr': {'class': 'ie-vat'} }) }}</td>
                             <td class="td-right">{{ valueVat |number_format(2) }}</td>
                             <td class="td-right">{{ valueGross |number_format(2) }}</td>
-
+                            {#<td class="elements-action"></td>#}
                         </tr>
                         {% set counter = counter + 1 %}
                     {% endfor %}
                 </table>
-                <input type="submit" value="Submit"/>
-                {{ form_end(form) }}
+                <input class="btn btn-xs btn-danger" type="submit"  value="{{ 'button.invoice.element.update' | trans }}">
+                {{ form_end(form_invoice_elements) }}
             </div>
             <hr>
         {% endif %}

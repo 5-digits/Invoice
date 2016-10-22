@@ -2,16 +2,23 @@
 
 namespace mysiar\Bundle\InvoiceBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use mysiar\Bundle\InvoiceBundle\Entity\Invoice;
+use mysiar\Bundle\InvoiceBundle\Entity\InvoiceElement;
 use mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements;
+use mysiar\Bundle\InvoiceBundle\Entity\InvoiceElementsProducts;
+use mysiar\Bundle\InvoiceBundle\Entity\Product;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceElementsType;
 use mysiar\Bundle\InvoiceBundle\Form\InvoiceNewType;
+use mysiar\Bundle\InvoiceBundle\Form\InvoiceElementsProductsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 /**
  * Invoice controller.
@@ -94,13 +101,7 @@ class InvoiceController extends Controller
         $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
         if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
-                return $this->render(
-                    'invoice/invoice1.tmpl.twig',
-                    array(
-                        'invoice' => $invoice,
-                        'user' => $this->getUser(),
-                    )
-                );
+                return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
             }
         }
 
@@ -207,40 +208,81 @@ class InvoiceController extends Controller
     {
         $user = $this->getUser();
         $invoice = $this->getInvoiceRepository()->getInvoiceById($id);
+
+
+
         if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
-                // $products = $this->getProductRepository()->getAllProductsForUser($user);
+                $invoiceElementsDB = new ArrayCollection();
+                foreach ($invoice->getInvoiceElements() as $e) {
+                    $invoiceElementsDB->add($e);
+                }
+                dump($invoiceElementsDB);
 
-                $ie = new InvoiceElements();
-                $ie->setInvoice($invoice);
-                $ie->setAllElements($invoice->getInvoiceElements());
+                $invoiceElementsProducts = new InvoiceElementsProducts();
+                $invoiceElementsProducts->setInvoice($invoice);
+                $invoiceElementsProducts->setAllProducts($this->getProductRepository()->getAllProductsForUser($user));
 
-                // kept just for error reporting
-                // $form = $this->createForm('mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements', $ie);
+                $formProducts = $this->createForm(
+                    'mysiar\Bundle\InvoiceBundle\Form\InvoiceElementsProductsType',
+                    $invoiceElementsProducts
+                );
 
-                $form_invoice_elements = $this->createForm(new InvoiceElementsType(), $ie);
+                $invoiceElements = new InvoiceElements();
+                $invoiceElements->setInvoice($invoice);
+                $invoiceElements->setAllElements($invoice->getInvoiceElements());
 
+                $formInvoiceElements = $this->createForm(
+                    'mysiar\Bundle\InvoiceBundle\Form\InvoiceElementsType',
+                    $invoiceElements
+                );
 
+                /**
+                 *  processing adding new elements to invoice
+                 */
+                $formProducts->handleRequest($request);
+                if ($formProducts->isSubmitted() && $formProducts->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $invoiceElementsProducts = $formProducts->getData();
+                    $product = $invoiceElementsProducts->getProduct();
+                    $new_elem = new InvoiceElement();
+                    $new_elem->setInvoice($invoice);
+                    $new_elem->setName($product->getName());
+                    $new_elem->setPriceNet($product->getPriceNet());
+                    $new_elem->setVatRate($product->getVatRate());
+                    $new_elem->setPkwiuCode($product->getPkwiuCode());
+                    $em->persist($new_elem);
+                    $invoice->addInvoiceElement($new_elem);
+                    $em->persist($invoice);
+                    $em->flush();
 
-                $form_invoice_elements->handleRequest($request);
+                    return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
+                }
 
-                if ($form_invoice_elements->isSubmitted() && $form_invoice_elements->isValid()) {
+                /**
+                 *  processing invoice elements changes
+                 */
+                $formInvoiceElements->handleRequest($request);
+                if ($formInvoiceElements->isSubmitted() && $formInvoiceElements->isValid()) {
                     $em = $this->getDoctrine()->getManager();
 
-                    $ie = $form_invoice_elements->getData();
-                    $invoice->updateInvoiceElements($ie->getElements());
-                    //dump($ie);
+                    foreach ($invoiceElementsDB as $e) {
+                        if (false === $invoice->getInvoiceElements()->contains($e)) {
+                            $em->remove($e);
+                        }
+                    }
+
                     $em->persist($invoice);
                     $em->flush();
                 }
-
 
                 return $this->render(
                     'invoice/invoice_elem.html.twig',
                     array(
                         'invoice' => $invoice,
                         'user' => $this->getUser(),
-                        'form_invoice_elements' => $form_invoice_elements->createView()
+                        'form_invoice_elements' => $formInvoiceElements->createView(),
+                        'form_products' => $formProducts->createView()
                     )
                 );
 
@@ -248,9 +290,6 @@ class InvoiceController extends Controller
         }
         return new Response("invoice elements");
     }
-
-
-
 
 
 

@@ -18,18 +18,22 @@ class InvoiceElementsType extends AbstractType
             ->add(
                 'elements',
                 'collection',
-                array('type' => new InvoiceElementType())
-            )
-        ;
+                array(
+                    'type' => new InvoiceElementType(),
+                    'prototype' => true,
+                    'allow_delete' => true,
+                   // 'by_reference' => false,
+                )
+            );
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements'
+            'data_class' => 'mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements',
         ));
     }
 
@@ -40,7 +44,6 @@ class InvoiceElementsType extends AbstractType
     {
         return 'mysiar_bundle_invoicebundle_invoiceelements';
     }
-
 
 
 }

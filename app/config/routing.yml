@@ -1,11 +1,3 @@
-invoice_invoice_element:
-    resource: "@InvoiceBundle/Controller/InvoiceElementController.php"
-    type:     annotation
-
-invoice_product:
-    resource: "@InvoiceBundle/Controller/ProductController.php"
-    type:     annotation
-
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation

@@ -14,7 +14,7 @@ class Product
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="InvoiceUser")
+     * @ORM\ManyToOne(targetEntity="InvoiceUser", inversedBy="products", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $invoiceUser;
@@ -45,9 +45,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="pkwiu", type="string", length=255, nullable=true)
+     * @ORM\Column(name="pkwiu_code", type="string", length=255, nullable=true)
      */
-    private $pkwiu;
+    private $pkwiuCode;
 
     /**
      * @var string
@@ -59,9 +59,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="vat", type="decimal", precision=4, scale=2, nullable=true)
+     * @ORM\Column(name="vat_rate", type="decimal", precision=4, scale=2, nullable=true)
      */
-    private $vat;
+    private $vatRate;
 
     /**
      * @var string
@@ -145,13 +145,13 @@ class Product
     /**
      * Set pkwiu
      *
-     * @param string $pkwiu
+     * @param string $pkwiuCode
      *
      * @return Product
      */
-    public function setPkwiu($pkwiu)
+    public function setPkwiuCode($pkwiuCode)
     {
-        $this->pkwiu = $pkwiu;
+        $this->pkwiuCode = $pkwiuCode;
 
         return $this;
     }
@@ -161,9 +161,9 @@ class Product
      *
      * @return string
      */
-    public function getPkwiu()
+    public function getPkwiuCode()
     {
-        return $this->pkwiu;
+        return $this->pkwiuCode;
     }
 
     /**
@@ -193,13 +193,13 @@ class Product
     /**
      * Set vat
      *
-     * @param string $vat
+     * @param string $vatRate
      *
      * @return Product
      */
-    public function setVat($vat)
+    public function setVatRate($vatRate)
     {
-        $this->vat = $vat;
+        $this->vatRate = $vatRate;
 
         return $this;
     }
@@ -209,9 +209,9 @@ class Product
      *
      * @return string
      */
-    public function getVat()
+    public function getVatRate()
     {
-        return $this->vat;
+        return $this->vatRate;
     }
 
     /**
@@ -281,5 +281,9 @@ class Product
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
 
 }

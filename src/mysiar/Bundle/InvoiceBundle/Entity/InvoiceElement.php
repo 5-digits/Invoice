@@ -46,7 +46,7 @@ class InvoiceElement
     /**
      * @var string
      *
-     * @ORM\Column(name="unit", type="string", length=255)
+     * @ORM\Column(name="unit", type="string", length=255, nullable=true)
      */
     private $unit;
 
@@ -71,6 +71,11 @@ class InvoiceElement
      */
     private $vatRate;
 
+
+    public function __construct()
+    {
+        $this->amount = 1;
+    }
 
     /**
      * Get id
