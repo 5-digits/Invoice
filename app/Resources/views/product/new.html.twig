@@ -34,10 +34,18 @@
                         </tr>
                         <tr>
                             <th>
+                                {{ 'label.product.unit' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.unit, { 'attr': {'class': 'col-xs-12'} }) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
                                 {{ 'label.product.pkwiu' | trans }}
                             </th>
                             <td>
-                                {{ form_widget(form.pkwiu, { 'attr': {'class': 'col-xs-12'} }) }}
+                                {{ form_widget(form.pkwiuCode, { 'attr': {'class': 'col-xs-12'} }) }}
                             </td>
                         </tr>
                         <tr>
@@ -53,7 +61,7 @@
                                 {{ 'label.product.vat' | trans }}
                             </th>
                             <td>
-                                {{ form_widget(form.vat, { 'attr': {'class': 'col-xs-12'} }) }}
+                                {{ form_widget(form.vatRate, { 'attr': {'class': 'col-xs-12'} }) }}
                             </td>
                         </tr>
                         <tr>

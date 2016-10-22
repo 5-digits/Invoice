@@ -27,7 +27,7 @@ class Invoice
     private $client;
 
     /**
-     * @ORM\OneToMany(targetEntity="InvoiceElement", mappedBy="invoice")
+     * @ORM\OneToMany(targetEntity="InvoiceElement", mappedBy="invoice", cascade={"persist", "remove"})
      */
     private $invoiceElements;
 

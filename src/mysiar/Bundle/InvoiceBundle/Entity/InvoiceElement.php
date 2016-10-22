@@ -16,7 +16,7 @@ class InvoiceElement
 
     /**
      * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="invoiceElements")
-     * @@ORM\JoinColumn(name="invoice_id", referencedColumnName="id")
+     * @@ORM\JoinColumn(name="invoice_id", referencedColumnName="id", )
      */
     private $invoice;
 

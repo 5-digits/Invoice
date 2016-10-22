@@ -45,6 +45,13 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(name="unit", type="string", length=255, nullable=true)
+     */
+    private $unit;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="pkwiu_code", type="string", length=255, nullable=true)
      */
     private $pkwiuCode;
@@ -280,6 +287,26 @@ class Product
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
+    /**
+     * @param string $unit
+     * @return Product
+     */
+    public function setUnit($unit)
+    {
+        $this->unit = $unit;
+
+        return $this;
+    }
+
 
     public function __toString()
     {
