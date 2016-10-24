@@ -227,13 +227,9 @@ class InvoiceController extends Controller
                     $invoiceElementsProducts
                 );
 
-                $invoiceElements = new InvoiceElements();
-                $invoiceElements->setInvoice($invoice);
-                $invoiceElements->setAllElements($invoice->getInvoiceElements());
-
                 $formInvoiceElements = $this->createForm(
                     'mysiar\Bundle\InvoiceBundle\Form\InvoiceElementsType',
-                    $invoiceElements
+                    $invoice
                 );
 
                 /**
@@ -256,7 +252,6 @@ class InvoiceController extends Controller
                     $em->persist($invoice);
                     $em->flush();
 
-                    $invoiceSummary = $this->invoiceTotalSummary($invoice->getInvoiceElements());
                     return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
                 }
 
@@ -278,7 +273,6 @@ class InvoiceController extends Controller
                     $em->persist($invoice);
                     $em->flush();
                 }
-
             }
 
             return $this->render(

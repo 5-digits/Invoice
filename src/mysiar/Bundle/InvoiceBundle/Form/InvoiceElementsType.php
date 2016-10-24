@@ -16,7 +16,7 @@ class InvoiceElementsType extends AbstractType
     {
         $builder
             ->add(
-                'elements',
+                'invoiceElements',
                 'collection',
                 array(
                     'type' => new InvoiceElementType(),
@@ -32,7 +32,7 @@ class InvoiceElementsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'mysiar\Bundle\InvoiceBundle\Entity\InvoiceElements',
+            'data_class' => 'mysiar\Bundle\InvoiceBundle\Entity\Invoice',
         ));
     }
 
@@ -41,7 +41,7 @@ class InvoiceElementsType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'mysiar_bundle_invoicebundle_invoiceelements';
+        return 'mysiar_bundle_invoicebundle_invoice';
     }
 
 
