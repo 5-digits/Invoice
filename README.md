@@ -29,7 +29,7 @@
 
 * Invoice edit
 
-<img src="web/img/invoice.edit.png" width="600">
+<img src="web/img/invoice.edit-new.png" width="600">
 
 * User profile show
 
