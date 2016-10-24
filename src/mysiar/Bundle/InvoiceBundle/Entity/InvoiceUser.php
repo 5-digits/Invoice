@@ -127,7 +127,7 @@ class InvoiceUser extends BaseUser
      */
     public function __construct()
     {
-        $dummy = "YOU HAVE TO SET IT";
+        $dummy = str_repeat(".", 5);
         parent::__construct();
         $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
         $this->products = new \Doctrine\Common\Collections\ArrayCollection();

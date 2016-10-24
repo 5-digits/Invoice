@@ -22,7 +22,6 @@ class InvoiceElementsType extends AbstractType
                     'type' => new InvoiceElementType(),
                     'prototype' => true,
                     'allow_delete' => true,
-                   // 'by_reference' => false,
                 )
             );
     }
