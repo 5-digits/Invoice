@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-22T14:23:45Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-10-22T14:30:43Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -76,12 +76,12 @@
       </trans-unit>
       <trans-unit id="9b9b002b46d4127dbe1a79e8faddc3bce3e0e136" resname="button.invoice.element.add">
         <source>button.invoice.element.add</source>
-        <target state="new">button.invoice.element.add</target>
+        <target>add to invoice</target>
         <jms:reference-file line="73">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="bceb8adee466520f54e45bd811e59d4af7907183" resname="button.invoice.element.update">
         <source>button.invoice.element.update</source>
-        <target state="new">button.invoice.element.update</target>
+        <target>update changes</target>
         <jms:reference-file line="125">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="59d4eb45c80ab710493dd8ada0d614494852665e" resname="button.invoice.new">
@@ -156,18 +156,18 @@
       </trans-unit>
       <trans-unit id="452a993b9d8f066bc5001984e59e70a2a0ea24bc" resname="invoice.buyer">
         <source>invoice.buyer</source>
-        <target state="new">invoice.buyer</target>
+        <target>Buyer</target>
         <jms:reference-file line="42">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="304c1b5ba8e9c60d3a63d4c51b2ab63594e6d8c6" resname="invoice.header">
         <source>invoice.header</source>
-        <target state="new">invoice.header</target>
+        <target>INVOICE</target>
         <jms:reference-file line="12">/../app/Resources/views/invoice/invoice1.tmpl.twig</jms:reference-file>
         <jms:reference-file line="12">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8f4b39071291a3e8232c93e67bfbecc864bc117b" resname="invoice.seller">
         <source>invoice.seller</source>
-        <target state="new">invoice.seller</target>
+        <target>Seller</target>
         <jms:reference-file line="16">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="bbec3012ccea1aacc10dd0996f8c474a43c10eb8" resname="label.actions">
@@ -350,7 +350,7 @@
       </trans-unit>
       <trans-unit id="f0183faa3747de093b42b3fea7d554cdfd78778c" resname="label.invoice.isnet">
         <source>label.invoice.isnet</source>
-        <target state="new">label.invoice.isnet</target>
+        <target>Price type</target>
         <jms:reference-file line="133">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
         <jms:reference-file line="61">/../app/Resources/views/invoice/new.html.twig</jms:reference-file>
       </trans-unit>
@@ -396,7 +396,7 @@
       </trans-unit>
       <trans-unit id="df34336561c728d8f89dfe765b259ff2e9a186d7" resname="label.product">
         <source>label.product</source>
-        <target state="new">label.product</target>
+        <target>Product</target>
         <jms:reference-file line="71">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="592b6734bd1e54cd3711a0aeabcdec222877e1e4" resname="label.product.code">
@@ -464,12 +464,12 @@
       </trans-unit>
       <trans-unit id="030fef39757f116035671c05c9012ac03a880cb3" resname="label.product.priceNet">
         <source>label.product.priceNet</source>
-        <target state="new">label.product.priceNet</target>
+        <target>Price Net</target>
         <jms:reference-file line="88">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1fe57a763bffb1e0f07a9cd4fb67ad18a86794d7" resname="label.product.quantity">
         <source>label.product.quantity</source>
-        <target state="new">label.product.quantity</target>
+        <target>Amount</target>
         <jms:reference-file line="87">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f209fa4dfa6a0a223c002bccdf6d445b80278407" resname="label.product.unit">
@@ -479,17 +479,17 @@
       </trans-unit>
       <trans-unit id="787ad7bf11c71dea46c781bb6931d30f825d3abe" resname="label.product.valueGross">
         <source>label.product.valueGross</source>
-        <target state="new">label.product.valueGross</target>
+        <target>Value Gross</target>
         <jms:reference-file line="99">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4ca842df703003d7fb6f9780102a9121b546630c" resname="label.product.valueNet">
         <source>label.product.valueNet</source>
-        <target state="new">label.product.valueNet</target>
+        <target>Value Net</target>
         <jms:reference-file line="91">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2e9ff8883ae8c5c200c31f8cca4a0797bc15d1cf" resname="label.product.valueVat">
         <source>label.product.valueVat</source>
-        <target state="new">label.product.valueVat</target>
+        <target>Value VAT</target>
         <jms:reference-file line="96">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dd3d9393930360a0a2e9f44d2729e8616c2b9ca7" resname="label.product.vat">
@@ -566,13 +566,13 @@
       </trans-unit>
       <trans-unit id="cf3a4fc818fe40a1c26159fb01323172e092b179" resname="select.invoice.gross">
         <source>select.invoice.gross</source>
-        <target state="new">select.invoice.gross</target>
+        <target>Price Gross</target>
         <jms:reference-file line="72">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
         <jms:reference-file line="59">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="18bf8d90ac2474071f2754e4f27e2379f61bce52" resname="select.invoice.net">
         <source>select.invoice.net</source>
-        <target state="new">select.invoice.net</target>
+        <target>Price Net</target>
         <jms:reference-file line="71">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
         <jms:reference-file line="58">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceType.php</jms:reference-file>
       </trans-unit>
