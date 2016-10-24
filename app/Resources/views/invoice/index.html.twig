@@ -59,13 +59,13 @@
                                 <td>{{ invoice.companyName }}</td>
                                 <td class="td-center">
                                     <ul class="list-inline">
-                                        <li>
-                                            <a href="{{ path('invoice_show', { 'id': invoice.id }) }}">
-                                                <button type="button" class="btn btn-xs btn-success">
-                                                        {{ 'button.invoice.show' | trans }}
-                                                </button>
-                                            </a>
-                                        </li>
+                                        {#<li>#}
+                                            {#<a href="{{ path('invoice_show', { 'id': invoice.id }) }}">#}
+                                                {#<button type="button" class="btn btn-xs btn-success">#}
+                                                        {#{{ 'button.invoice.show' | trans }}#}
+                                                {#</button>#}
+                                            {#</a>#}
+                                        {#</li>#}
                                         <li>
                                             <a href="{{ path('invoice_edit', { 'id': invoice.id }) }}">
                                                 <button type="button" class="btn btn-xs btn-info">

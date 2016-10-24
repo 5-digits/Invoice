@@ -4,167 +4,247 @@
 
     {% include 'top_menu.html.twig' %}
 
-    <div class="row">
-        <div class="col-lg-5">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>
-                        {{ 'label.invoice.edit' | trans }}
-                    </h4>
-                </div>
-                <div class="panel-body">
-                    {{ form_start(edit_form) }}
-                    <table class="table table-hover table-responsive table-condensed">
-                        <tr>
-                            <th>
-                                {{ 'label.invoice' | trans }}
-                            </th>
-                            <td >
-                                {{ form_widget(edit_form.invoiceNumber) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th >
-                                {{ 'label.date_of_issue' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.dateOfIssue) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.date_of_sell' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.dateOfSell) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.payment_due' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.paymentDue) }}
-                            </td>
-                        </tr>
+    {% block invoice %} {# TEMPLATE START #}
 
-                        <tr>
-                            <th>
-                                {{ 'label.client.name' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.clientName, { 'attr': {'style': 'width: 300px'} }) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.company.name' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.companyName, { 'attr': {'style': 'width: 300px'} }) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.vatid' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.vatId) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.address.street' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.addressStreet) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.address.house' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.addressHouse) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.address.flat' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.addressFlat) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.address.zip' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.addressZip) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.address.city' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.addressCity) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.address.country' | trans  }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.addressCountry) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.edit.client.change' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.client) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ 'label.invoice.isnet' | trans }}
-                            </th>
-                            <td>
-                                {{ form_widget(edit_form.isInvoiceNet) }}
-                            </td>
-                        </tr>
-                    </table>
-                    <table class="table-button">
-                        <tr>
-                            <td>
-                                <input class="btn btn-xs btn-info" type="submit" value="
-                                    {{ 'button.edit.submit.change' | trans }}
-                                "/>
-                                {{ form_end(edit_form) }}
-                            </td>
-                            <td>
-                                <a href="{{ path('invoice_index') }}">
-                                    <button type="button" class="btn btn-xs btn-success">
-                                        {{ 'button.edit.list' | trans }}
-                                    </button>
-                                </a>
-                            </td>
-                            <td>
-                                {{ form_start(delete_form) }}
-                                <input class="btn btn-xs btn-danger" type="submit" value="
-                                    {{ 'button.edit.delete' | trans }}
-                                ">
-                                {{ form_end(delete_form) }}
-                            </td>
-                        </tr>
-                    </table>
+        <div class="row show-grid">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-xs-6">
+                            {{ 'invoice.header' | trans }}
+                            <b>{{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</b>
+                        </div>
 
+                        <div class="col-xs-6 text-right">
+                            {{ form_start(form_delete) }}
+                            <input class="btn btn-xs btn-danger" type="submit"
+                                   value="{{ 'button.edit.delete' | trans }}">
+                            {{ form_end(form_delete) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="row show-grid">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        {# COLUMN LEFT #}
+                        <div class="col-xs-6">
+
+                            {{ form_start(form_edit) }}
+                            {# hide invoice number #}
+                            <div class="hidden">
+                                {{ form_widget(form_edit.invoiceNumber, { 'attr': {'class': 'hidden-row'} }) }}
+                                {{ form_widget(form_edit.isInvoiceNet, { 'attr': {'class': 'hidden-row'} }) }}
+                            </div>
+                            {#invoice dates#}
+                            <table class="table-condensed table-bordered table-responsive">
+                                <tr>
+                                    <th class="small text-center">{{ 'label.date_of_issue' | trans }}</th>
+                                    <th class="small text-center">{{ 'label.date_of_sell' | trans }}</th>
+                                    <th class="small text-center">{{ 'label.payment_due' | trans }}</th>
+                                </tr>
+                                <tr>
+                                    <td>{{ form_widget(form_edit.dateOfIssue, { 'attr': {'class': 'ie-dates'} }) }}</td>
+                                    <td>{{ form_widget(form_edit.dateOfSell) }}</td>
+                                    <td>{{ form_widget(form_edit.paymentDue) }}</td>
+                                </tr>
+                            </table>
+
+
+                            {{ 'invoice.seller' | trans }}
+                            <div>
+                                <b>{{ user.userName }}</b>
+                            </div>
+                            <div>
+                                <b>{{ user.companyName }}</b>
+                            </div>
+                            <div>
+                                <b> {{ user.addressStreet }}
+                                    {% if user.addressFlat|length > 0 %}
+                                        {{ user.addressHouse }}/{{ user.addressFlat }}
+                                    {% else %}
+                                        {{ user.addressHouse }}
+                                    {% endif %}
+                                </b>
+                            </div>
+                            <div>
+                                <b>{{ user.addressZip }} {{ user.addressCity }}</b>
+                            </div>
+                            <div>
+                                {{ 'label.vatid' | trans }} <b>{{ user.vatID }}</b>
+                            </div>
+                        </div>
+
+                        {# COLUMN RIGHT #}
+                        <div class="col-xs-6">
+
+                            {{ 'invoice.buyer' | trans }}
+                            {#{{ form_widget(form_edit) }}#}
+                            <table class="table-condensed table-bordered table-responsive">
+                                <tr>
+                                    <th class="small"> {{ 'label.client.name' | trans }}</th>
+                                    <td> {{ form_widget(form_edit.clientName) }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="small">{{ 'label.company.name' | trans }}</th>
+                                    <td> {{ form_widget(form_edit.companyName) }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="small">{{ 'label.vatid' | trans }}</th>
+                                    <td>  {{ form_widget(form_edit.vatId) }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="small">{{ 'label.address.street' | trans }}</th>
+                                    <td>{{ form_widget(form_edit.addressStreet) }}</td>
+                                    <td>{{ form_widget(form_edit.addressHouse, { 'attr': {'class': 'ie-house'} }) }}</td>
+                                    <td> /</td>
+                                    <td>{{ form_widget(form_edit.addressFlat, { 'attr': {'class': 'ie-flat'} }) }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="small"> {{ 'label.address.zip' | trans }}</th>
+                                    <td>{{ form_widget(form_edit.addressZip) }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="small">{{ 'label.address.city' | trans }}</th>
+                                    <td>{{ form_widget(form_edit.addressCity) }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="small">{{ 'label.address.country' | trans }}</th>
+                                    <td>{{ form_widget(form_edit.addressCountry) }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="small">{{ 'label.edit.client.change' | trans }}</th>
+                                    <td> {{ form_widget(form_edit.client) }}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div>
+                            <input class="btn btn-xs btn-info" type="submit" value="
+                                    {{ 'button.edit.submit.change' | trans }}
+                                "/>
+                            {# BUTTONS - delete invoice, submit changes#}
+                            {{ form_end(form_edit) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{ form_start(form_products) }}
+                        {{ 'label.product' | trans }}
+                        {{ form_widget(form_products.product) }}
+                        <input class="btn btn-xs btn-info" type="submit"
+                               value="{{ 'button.invoice.element.add' | trans }}">
+                        {{ form_end(form_products) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {# check if invoice elements exists and display them#}
+        {% if form_invoice_elements.invoiceElements.children | length > 0 %}
+            <div class="row show-grid">
+                <div class="col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <div id="invoice_elements">
+                                <table class="table-condensed table-bordered table-responsive elements">
+                                    <tr>
+                                        <th class="small text-center">#</th>
+                                        <th class="small text-center">{{ 'label.product.name' | trans }}</th>
+                                        <th class="small text-center">{{ 'label.product.pkwiu' | trans }}</th>
+                                        <th class="small text-center">{{ 'label.product.unit' | trans }}</th>
+                                        <th class="small text-center">{{ 'label.product.quantity' | trans }}</th>
+                                        <th class="small text-center">{{ 'label.product.priceNet' | trans }}</th>
+
+                                        {# valueNet - calulate#}
+                                        <th class="small text-center">{{ 'label.product.valueNet' | trans }}</th>
+
+                                        <th class="small text-center">{{ 'label.product.vat' | trans }}</th>
+
+                                        {# valueVat - calulate#}
+                                        <th class="small text-center">{{ 'label.product.valueVat' | trans }}</th>
+
+                                        {# valueGross - calulate#}
+                                        <th class="small text-center">{{ 'label.product.valueGross' | trans }}</th>
+
+                                        <th class="small text-center">  {{ 'label.actions' | trans }}</th>
+
+                                    </tr>
+
+                                    {{ form_start(form_invoice_elements) }}
+                                    {% set counter = 1 %}
+                                    {% for elem in form_invoice_elements.invoiceElements %}
+                                        {% set valueNet = elem.vars.value.amount * elem.vars.value.priceNet %}
+                                        {% set valueVat = valueNet * elem.vars.value.vatRate / 100 %}
+                                        {% set valueGross = valueNet + valueVat %}
+                                        <tr>
+                                            <td class="ie-index">{{ counter }}</td>
+                                            <td>{{ form_widget(elem.name, { 'attr': {'class': 'ie-name'} }) }}</td>
+                                            <td>{{ form_widget(elem.pkwiuCode, { 'attr': {'class': 'ie-pkwiu'} }) }}</td>
+                                            <td>{{ form_widget(elem.unit, { 'attr': {'class': 'ie-unit'} }) }}</td>
+                                            <td>{{ form_widget(elem.amount, { 'attr': {'class': 'ie-quantity'} }) }}</td>
+                                            <td>{{ form_widget(elem.priceNet, { 'attr': {'class': 'ie-price'} }) }}</td>
+                                            <td class="td-right">{{ valueNet |number_format(2) }}</td>
+                                            <td>{{ form_widget(elem.vatRate, { 'attr': {'class': 'ie-vat'} }) }}</td>
+                                            <td class="td-right">{{ valueVat |number_format(2) }}</td>
+                                            <td class="td-right">{{ valueGross |number_format(2) }}</td>
+                                            {#<td class="elements-action"></td>#}
+                                        </tr>
+                                        {% set counter = counter + 1 %}
+                                    {% endfor %}
+                                </table>
+                                <table class="table-button">
+                                    <tr><td>
+                                    <input class="btn btn-xs btn-info" type="submit"
+                                           value="{{ 'button.invoice.element.update' | trans }}">
+                                        </td></tr>
+                                </table>
+                                {{ form_end(form_invoice_elements) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row show-grid">
+                <div class="col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5>Podsumowanie</h5>
+                        </div>
+                        <div class="panel-body">
+
+                            <div>
+                                {% for key, value in invoice_summary %}
+                                    <b>{{ key }} </b>
+                                    {% for val in value %}
+                                        {{ val }}
+                                    {% endfor %}
+                                    <br>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        {% endif %}
+
+    {% endblock %} {# TEMPLATE END #}
 
 {% endblock %}

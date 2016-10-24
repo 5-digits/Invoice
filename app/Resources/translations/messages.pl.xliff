@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-22T14:21:42Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+  <file date="2016-10-24T14:34:30Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -46,7 +46,7 @@
       </trans-unit>
       <trans-unit id="03e0f96dd4a20c9d19b288d662b247e6f95e39be" resname="button.edit.delete">
         <source>button.edit.delete</source>
-        <target>usuń</target>
+        <target>usuń fakturę</target>
         <jms:reference-file line="168">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
         <jms:reference-file line="158">/../app/Resources/views/invoice/edit.html.twig</jms:reference-file>
         <jms:reference-file line="97">/../app/Resources/views/product/edit.html.twig</jms:reference-file>
@@ -72,7 +72,7 @@
       </trans-unit>
       <trans-unit id="9a4b21aa4a1f376456614006d80d5ebce2173f5f" resname="button.invoice.edit">
         <source>button.invoice.edit</source>
-        <target>zmiana klienta</target>
+        <target>edycja</target>
         <jms:reference-file line="72">/../app/Resources/views/invoice/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9b9b002b46d4127dbe1a79e8faddc3bce3e0e136" resname="button.invoice.element.add">
@@ -82,7 +82,7 @@
       </trans-unit>
       <trans-unit id="bceb8adee466520f54e45bd811e59d4af7907183" resname="button.invoice.element.update">
         <source>button.invoice.element.update</source>
-        <target>zapamiętaj zmiany</target>
+        <target>zatwierdź zmiany</target>
         <jms:reference-file line="125">/../app/Resources/views/invoice/invoice_elem.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="59d4eb45c80ab710493dd8ada0d614494852665e" resname="button.invoice.new">
@@ -202,7 +202,7 @@
       </trans-unit>
       <trans-unit id="cf9d591d2d4d1b0dd8aaf0f41ceade5ea4e0d66c" resname="label.address.flat">
         <source>label.address.flat</source>
-        <target>Adres - nr lokalu</target>
+        <target>Lokal</target>
         <jms:reference-file line="107">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="105">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="62">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -212,7 +212,7 @@
       </trans-unit>
       <trans-unit id="8f3eccba28153bf83ce93acdc09d3df424754b73" resname="label.address.house">
         <source>label.address.house</source>
-        <target>Adres - nr budynku</target>
+        <target>Budynek</target>
         <jms:reference-file line="97">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="95">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="54">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -222,7 +222,7 @@
       </trans-unit>
       <trans-unit id="e3a708ba566b1da8dda814d199f6c111012beeac" resname="label.address.street">
         <source>label.address.street</source>
-        <target>Adres - ulica</target>
+        <target>Ulica</target>
         <jms:reference-file line="87">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="85">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="46">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -232,7 +232,7 @@
       </trans-unit>
       <trans-unit id="896361f7da3505e5c6b3eebdd6a85dc5959a0cbf" resname="label.address.zip">
         <source>label.address.zip</source>
-        <target>Adres - kod pocztowy</target>
+        <target>Kod poczt.</target>
         <jms:reference-file line="117">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="115">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="70">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -579,7 +579,7 @@
       </trans-unit>
       <trans-unit id="7e746d340667e415de67844ca297722f073c4eb5" resname="yyyy-MM-dd">
         <source>yyyy-MM-dd</source>
-        <target state="new">yyyy-MM-dd</target>
+        <target>yyyy-MM-dd</target>
         <jms:reference-file line="39">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
         <jms:reference-file line="48">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>
         <jms:reference-file line="56">/../src/mysiar/Bundle/InvoiceBundle/Form/InvoiceEditType.php</jms:reference-file>

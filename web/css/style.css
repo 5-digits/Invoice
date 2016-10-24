@@ -78,3 +78,20 @@ textarea {
     width: 2em;
     text-align: right;
 }
+
+.ie-dates {
+    width: 10em;
+}
+
+.ie-house, .ie-flat {
+    width: 3em;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.panel {
+    background-color: #f2f2f2 !important;
+    border-color: #999999 !important;
+}

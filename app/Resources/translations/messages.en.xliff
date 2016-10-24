@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-10-22T14:30:43Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-10-24T10:47:20Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -179,7 +179,7 @@
       </trans-unit>
       <trans-unit id="f8ebbcff84acc051096fcff331305193175c32a2" resname="label.address.city">
         <source>label.address.city</source>
-        <target>Address - city</target>
+        <target>City</target>
         <jms:reference-file line="127">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="125">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="78">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -190,7 +190,7 @@
       </trans-unit>
       <trans-unit id="e87c028ac0cdb5f97f4f1a9072f67aeffef8ccbe" resname="label.address.country">
         <source>label.address.country</source>
-        <target>Address - country</target>
+        <target>Country</target>
         <jms:reference-file line="137">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="135">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="86">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -201,7 +201,7 @@
       </trans-unit>
       <trans-unit id="cf9d591d2d4d1b0dd8aaf0f41ceade5ea4e0d66c" resname="label.address.flat">
         <source>label.address.flat</source>
-        <target>Address - flat</target>
+        <target>Flat</target>
         <jms:reference-file line="107">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="105">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="62">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -211,7 +211,7 @@
       </trans-unit>
       <trans-unit id="8f3eccba28153bf83ce93acdc09d3df424754b73" resname="label.address.house">
         <source>label.address.house</source>
-        <target>Address - house</target>
+        <target>House</target>
         <jms:reference-file line="97">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="95">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="54">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -221,7 +221,7 @@
       </trans-unit>
       <trans-unit id="e3a708ba566b1da8dda814d199f6c111012beeac" resname="label.address.street">
         <source>label.address.street</source>
-        <target>Address - street</target>
+        <target>Street</target>
         <jms:reference-file line="87">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="85">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="46">/../app/Resources/views/client/edit.html.twig</jms:reference-file>
@@ -231,7 +231,7 @@
       </trans-unit>
       <trans-unit id="896361f7da3505e5c6b3eebdd6a85dc5959a0cbf" resname="label.address.zip">
         <source>label.address.zip</source>
-        <target>Address - zip</target>
+        <target>Zip</target>
         <jms:reference-file line="117">/../app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig</jms:reference-file>
         <jms:reference-file line="115">/../app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</jms:reference-file>
         <jms:reference-file line="70">/../app/Resources/views/client/edit.html.twig</jms:reference-file>

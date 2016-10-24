@@ -108,49 +108,7 @@ class InvoiceController extends Controller
         return $this->redirectToRoute('invoice_index');
     }
 
-    /**
-     * Displays a form to edit an existing Invoice entity.
-     *
-     * @Route("/{id}/edit", name="invoice_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, $id)
-    {
-        $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
-        if ($invoice) {
-            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
-                $preEditInvoiceClient = $invoice->getClient();
-                $deleteForm = $this->createDeleteForm($invoice);
-                $editForm = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceEditType', $invoice);
-                $editForm->handleRequest($request);
 
-                if ($editForm->isSubmitted() && $editForm->isValid()) {
-                    $em = $this->getDoctrine()->getManager();
-
-                    // if client has been changed in Select of InvoiceEditType - rewrite all client data
-                    if ($preEditInvoiceClient != $invoice->getClient()) {
-                        $invoice->updateInvoiceWithClient();
-                    }
-                    $em->persist($invoice);
-                    $em->flush();
-
-                    return $this->redirectToRoute('invoice_edit', array('id' => $invoice->getId()));
-                }
-
-                return $this->render(
-                    'invoice/edit.html.twig',
-                    array(
-                        'invoice' => $invoice,
-                        'edit_form' => $editForm->createView(),
-                        'delete_form' => $deleteForm->createView(),
-                        'user' => $this->getUser()
-                    )
-                );
-            }
-        }
-
-        return $this->redirectToRoute('invoice_index');
-    }
 
     /**
      * Deletes a Invoice entity.
@@ -199,9 +157,9 @@ class InvoiceController extends Controller
 
 
     /**
-     *  Invoice elements
+     *  Invoice edit
      *
-     * @Route("/{id}/elem", name="invoice_elem")
+     * @Route("/{id}/edit", name="invoice_edit")
      * @Method({"GET", "POST"})
      */
     public function elemInvoiceAction(Request $request, $id)
@@ -218,6 +176,14 @@ class InvoiceController extends Controller
 
                 $invoiceSummary = $this->invoiceTotalSummary($invoice->getInvoiceElements());
 
+
+                $preEditInvoiceClient = $invoice->getClient();
+                $formDelete = $this->createDeleteForm($invoice);
+                $formEdit = $this->createForm('mysiar\Bundle\InvoiceBundle\Form\InvoiceEditType', $invoice);
+
+
+
+
                 $invoiceElementsProducts = new InvoiceElementsProducts();
                 $invoiceElementsProducts->setInvoice($invoice);
                 $invoiceElementsProducts->setAllProducts($this->getProductRepository()->getAllProductsForUser($user));
@@ -231,6 +197,24 @@ class InvoiceController extends Controller
                     'mysiar\Bundle\InvoiceBundle\Form\InvoiceElementsType',
                     $invoice
                 );
+
+
+                /**
+                 * processing client invoice dates, invoice client changes
+                 */
+                $formEdit->handleRequest($request);
+                if ($formEdit->isSubmitted() && $formEdit->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+
+                    // if client has been changed in Select of InvoiceEditType - rewrite all client data
+                    if ($preEditInvoiceClient != $invoice->getClient()) {
+                        $invoice->updateInvoiceWithClient();
+                    }
+                    $em->persist($invoice);
+                    $em->flush();
+
+                    return $this->redirectToRoute('invoice_edit', array('id' => $invoice->getId()));
+                }
 
                 /**
                  *  processing adding new elements to invoice
@@ -252,7 +236,7 @@ class InvoiceController extends Controller
                     $em->persist($invoice);
                     $em->flush();
 
-                    return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
+                    return $this->redirectToRoute('invoice_edit', array('id' => $invoice->getId()));
                 }
 
                 /**
@@ -276,16 +260,17 @@ class InvoiceController extends Controller
             }
 
             return $this->render(
-                'invoice/invoice_elem.html.twig',
+                'invoice/edit.html.twig',
                 array(
                     'invoice' => $invoice,
                     'user' => $this->getUser(),
                     'form_invoice_elements' => $formInvoiceElements->createView(),
                     'form_products' => $formProducts->createView(),
                     'invoice_summary' => $invoiceSummary,
+                    'form_edit' => $formEdit->createView(),
+                    'form_delete' => $formDelete->createView(),
                 )
             );
-
         }
         return $this->redirectToRoute('invoice_index');
     }
