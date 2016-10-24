@@ -150,7 +150,6 @@
             </div>
         </div>
 
-
         {# check if invoice elements exists and display them#}
         {% if form_invoice_elements.invoiceElements.children | length > 0 %}
             <div class="row show-grid">
@@ -223,20 +222,31 @@
                 <div class="col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h5>Podsumowanie</h5>
+                            <h5>{{ 'invoice.summary.title' | trans }}</h5>
                         </div>
                         <div class="panel-body">
 
-                            <div>
+                            <table class="table-condensed table-bordered table-responsive">
+                                <tr>
+                                    <th class="small text-center">{{ 'invoice.summary.vat_rate' | trans }}</th>
+                                    <th class="small text-center">{{ 'invoice.summary.val.net' | trans }}</th>
+                                    <th class="small text-center">{{ 'invoice.summary.val.vat' | trans }}</th>
+                                    <th class="small text-center">{{ 'invoice.summary.val.gross' | trans }}</th>
+                                </tr>
+
                                 {% for key, value in invoice_summary %}
-                                    <b>{{ key }} </b>
+                                    <tr>
+                                    <td>{{ key }}</td>
                                     {% for val in value %}
-                                        {{ val }}
+                                        <td class="td-right">{{ val |number_format(2) }}</td>
                                     {% endfor %}
-                                    <br>
+                                    </tr>
                                 {% endfor %}
 
-                            </div>
+                            </table>
+
+
+
                         </div>
                     </div>
                 </div>

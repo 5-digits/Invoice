@@ -101,7 +101,7 @@ class InvoiceController extends Controller
         $invoice = $this->getInvoiceRepository()->getInvoiceById($id, $this);
         if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
-                return $this->redirectToRoute('invoice_elem', array('id' => $invoice->getId()));
+                return $this->redirectToRoute('invoice_edit', array('id' => $invoice->getId()));
             }
         }
 
