@@ -73,6 +73,13 @@
                                                 </button>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="{{ path('invoice_print', { 'id': invoice.id }) }}">
+                                                <button type="button" class="btn btn-xs btn-success">
+                                                    {{ 'button.invoice.print' | trans }}
+                                                </button>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </td>
                             </tr>

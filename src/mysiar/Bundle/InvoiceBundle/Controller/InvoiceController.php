@@ -168,7 +168,7 @@ class InvoiceController extends Controller
         $invoice = $this->getInvoiceRepository()->getInvoiceById($id);
 
         if ($invoice) {
-            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $this->getUser())) {
+            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $user)) {
                 $invoiceElementsDB = new ArrayCollection();
                 foreach ($invoice->getInvoiceElements() as $e) {
                     $invoiceElementsDB->add($e);
@@ -277,6 +277,44 @@ class InvoiceController extends Controller
 
 
     /**
+     * Finds and displays a Invoice entity.
+     *
+     * @Route("/print/{id}", name="invoice_print")
+     * @Method("GET")
+     */
+    public function printToPdfAction($id)
+    {
+        $user = $this->getUser();
+        $invoice = $this->getInvoiceRepository()->find($id);
+        if ($invoice) {
+            if ($this->getInvoiceRepository()->invoiceOwner($invoice, $user)) {
+                $html = $this->renderView('pdf.invoice.1.html.twig', array(
+                    'user' => $user,
+                    'invoice' => $invoice,
+                ));
+
+                $translator = $this->get('translator');
+                $fileNamePrefix = $translator->trans('label.invoice') . "-";
+                $invoiceFileName = $this->cleanFileNameString($fileNamePrefix . $invoice->getInvoiceNumberPrefix() . $invoice->getInvoiceNumber()) . ".pdf";
+
+                return new Response(
+                    $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+                    200,
+                    array(
+                        'Content-Type' => 'application/pdf',
+                        'Content-Disposition' => 'attachment; filename="' . $invoiceFileName . '"',
+                    )
+                );
+            }
+        }
+        return $this->redirectToRoute('invoice_index');
+    }
+
+
+
+
+
+    /**
      * Creates a form to delete a Invoice entity.
      *
      * @param Invoice $invoice The Invoice entity
@@ -356,5 +394,12 @@ class InvoiceController extends Controller
         return $summary;
     }
 
+    private function cleanFileNameString($string)
+    {
+        $string = mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '-', $string);
+        $string = mb_ereg_replace("([\.]{2,})", '-', $string);
+
+        return $string;
+    }
 
 }

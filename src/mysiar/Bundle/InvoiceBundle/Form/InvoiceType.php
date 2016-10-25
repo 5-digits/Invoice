@@ -53,14 +53,14 @@ class InvoiceType extends AbstractType
                     'placeholder' => 'yyyy-MM-dd'
                 )
             )
-            ->add('isInvoiceNet', ChoiceType::class, array(
-                    'choices' => array(
-                        'select.invoice.net' => true,
-                        'select.invoice.gross' => false,
-                    ),
-                    // *this line is important*
-                    'choices_as_values' => true,
-                ))
+//            ->add('isInvoiceNet', ChoiceType::class, array(
+//                    'choices' => array(
+//                        'select.invoice.net' => true,
+//                        'select.invoice.gross' => false,
+//                    ),
+//                    // *this line is important*
+//                    'choices_as_values' => true,
+//                ))
         ;
 
 
