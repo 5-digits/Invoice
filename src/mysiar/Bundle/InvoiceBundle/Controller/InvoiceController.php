@@ -288,9 +288,11 @@ class InvoiceController extends Controller
         $invoice = $this->getInvoiceRepository()->find($id);
         if ($invoice) {
             if ($this->getInvoiceRepository()->invoiceOwner($invoice, $user)) {
+                $invoiceSummary = $this->invoiceTotalSummary($invoice->getInvoiceElements());
                 $html = $this->renderView('pdf.invoice.1.html.twig', array(
                     'user' => $user,
                     'invoice' => $invoice,
+                    'invoice_summary' => $invoiceSummary,
                 ));
 
                 $translator = $this->get('translator');
@@ -305,6 +307,7 @@ class InvoiceController extends Controller
                         'Content-Disposition' => 'attachment; filename="' . $invoiceFileName . '"',
                     )
                 );
+                //return new Response($html);
             }
         }
         return $this->redirectToRoute('invoice_index');

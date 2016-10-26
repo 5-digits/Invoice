@@ -4,65 +4,221 @@
 
 {% block body %}
 
+
+
+    {# INVOICE HEADER #}
     <div class="row show-grid">
-
         <div class="col-xs-12">
-            {{ 'invoice.header' | trans }} <b>{{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</b>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-xs-12">
+                        <h3 class="text-center">{{ 'invoice.header' | trans }} {{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</h3>
+                    </div>
+                    <div>
+                        <table class="table-pdf">
+                            <tr>
+                                <td>
+                                    {{ 'label.date_of_issue' | trans }}:
+                                </td>
+                                <td>
+                                    {{ invoice.dateOfIssue |date('Y-m-d') }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ 'label.date_of_sell' | trans }}:
+                                </td>
+                                <td>
+                                    {{ invoice.dateOfSell | date('Y-m-d') }}
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="col-xs-6">
-            {{ 'invoice.seller' | trans }}
-            <div>
-                <b>{{ user.userName }}</b>
-            </div>
-            <div>
-                <b>{{ user.companyName }}</b>
-            </div>
-            <div>
-                <b> {{ user.addressStreet }}
-                    {% if user.addressFlat|length > 0 %}
-                        {{ user.addressHouse }}/{{ user.addressFlat }}
-                    {% else %}
-                        {{ user.addressHouse }}
-                    {% endif %}
-                </b>
-            </div>
-            <div>
-                <b>{{ user.addressZip }} {{ user.addressCity }}</b>
-            </div>
-            <div>
-                {{ 'label.vatid' | trans }}: <b>{{ user.vatID }}</b>
-            </div>
-
-
-        </div>
-        <div class="col-xs-6">
-            NABYWCA
-            <div>
-                Client Name :<b> {{ invoice.clientName }}</b>
-            </div>
-            <div>
-                Company Name :<b>{{ invoice.companyName }}</b>
-            </div>
-            <div>Address :
-                <b> {{ invoice.addressStreet }}
-                    {% if invoice.addressFlat|length > 0 %}
-                        {{ invoice.addressHouse }}/{{ invoice.addressFlat }}
-                    {% else %}
-                        {{ invoice.addressHouse }}
-                    {% endif %}
-                </b>
-            </div>
-            <div>
-                City : <b>{{ invoice.addressZip }} {{ invoice.addressCity }}</b>
-            </div>
-            <div>
-                {{ 'label.vatid' | trans }}: <b>{{ invoice.vatID }}</b>
-            </div>
-
-
-        </div>
-
     </div>
+
+
+    {# #}
+    <div class="row show-grid">
+        {#<div class="col-xs-12">#}
+            {#<div class="panel panel-default">#}
+                {#<div class="panel-body">#}
+
+                    <div class="col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h4> {{ 'invoice.seller' | trans }}</h4>
+                                <div>
+                                    {{ user.userName }}
+                                </div>
+                                <div>
+                                    {{ user.companyName }}
+                                </div>
+                                <div>
+                                    {{ user.addressStreet }}
+                                        {% if user.addressFlat|length > 0 %}
+                                            {{ user.addressHouse }}/{{ user.addressFlat }}
+                                        {% else %}
+                                            {{ user.addressHouse }}
+                                        {% endif %}
+                                </div>
+                                <div>
+                                    {{ user.addressZip }} {{ user.addressCity }}
+                                </div>
+                                <div>
+                                    {{ 'label.vatid' | trans }}: {{ user.vatID }}
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h4> {{ 'invoice.buyer' | trans }}</h4>
+
+                                <div>
+                                    {{ invoice.clientName }}
+                                </div>
+                                <div>
+                                    {{ invoice.companyName }}
+                                </div>
+                                <div>
+                                    {{ invoice.addressStreet }}
+                                        {% if invoice.addressFlat|length > 0 %}
+                                            {{ invoice.addressHouse }}/{{ invoice.addressFlat }}
+                                        {% else %}
+                                            {{ invoice.addressHouse }}
+                                        {% endif %}
+                                </div>
+                                <div>
+                                    {{ invoice.addressZip }} {{ invoice.addressCity }}
+                                </div>
+                                <div>
+                                    {{ 'label.vatid' | trans }}: {{ invoice.vatID }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {#</div>#}
+        {#</div>#}
+    </div>
+
+
+    {% if invoice.invoiceElements | length > 0 %}
+        <div class="row show-grid">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table-condensed table-bordered table-responsive elements">
+                            <tr>
+                                <th class="small text-center">#</th>
+                                <th class="small text-center">{{ 'label.product.name' | trans }}</th>
+                                <th class="small text-center">{{ 'label.product.pkwiu' | trans }}</th>
+                                <th class="small text-center">{{ 'label.product.unit' | trans }}</th>
+                                <th class="small text-center">{{ 'label.product.quantity' | trans }}</th>
+                                <th class="small text-center">{{ 'label.product.priceNet' | trans }}</th>
+
+                                {# valueNet - calulate#}
+                                <th class="small text-center">{{ 'label.product.valueNet' | trans }}</th>
+
+                                <th class="small text-center">{{ 'label.product.vat' | trans }}</th>
+
+                                {# valueVat - calulate#}
+                                <th class="small text-center">{{ 'label.product.valueVat' | trans }}</th>
+
+                                {# valueGross - calulate#}
+                                <th class="small text-center">{{ 'label.product.valueGross' | trans }}</th>
+                            </tr>
+
+                        {% set counter = 1 %}
+                        {% set totalNet = 0 %}
+                        {% set totalVat = 0 %}
+                        {% set totalGross = 0 %}
+                        {% for elem in invoice.invoiceElements %}
+                            {% set valueNet = elem.amount * elem.priceNet %}
+                            {% set valueVat = valueNet * elem.vatRate / 100 %}
+                            {% set valueGross = valueNet + valueVat %}
+                            {% set totalNet = totalNet + valueNet %}
+                            {% set totalVat = totalVat + valueVat %}
+                            {% set totalGross = totalGross + valueGross %}
+
+                            <tr>
+                                <td class="ie-index">{{ counter }}</td>
+                                <td class="ie-name">{{ elem.name }}</td>
+                                <td class="ie-pkwiu">{{ elem.pkwiuCode }}</td>
+                                <td class="ie-unit">{{ elem.unit}}</td>
+                                <td class="ie-quantity">{{ elem.amount }}</td>
+                                <td class="ie-price">{{ elem.priceNet }}</td>
+                                <td class="td-right">{{ valueNet |number_format(2) }}</td>
+                                <td class="ie-vat">{{ elem.vatRate }}</td>
+                                <td class="td-right">{{ valueVat |number_format(2) }}</td>
+                                <td class="td-right">{{ valueGross |number_format(2) }}</td>
+
+                            </tr>
+                            {% set counter = counter + 1 %}
+                        {% endfor %}
+                            <tr>
+                                <td colspan="6" class="text-right">{{ 'invoice.summary.total' | trans }}</td>
+                                <td class="td-right">{{ totalNet |number_format(2) }}</td>
+                                <td></td>
+                                <td class="td-right">{{ totalVat |number_format(2) }}</td>
+                                <td class="td-right">{{ totalGross |number_format(2) }}</td>
+
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <table class="table-condensed table-bordered table-responsive">
+                            <tr>
+                                <th class="small text-center">{{ 'invoice.summary.vat_rate' | trans }}</th>
+                                <th class="small text-center">{{ 'invoice.summary.val.net' | trans }}</th>
+                                <th class="small text-center">{{ 'invoice.summary.val.vat' | trans }}</th>
+                                <th class="small text-center">{{ 'invoice.summary.val.gross' | trans }}</th>
+                            </tr>
+
+                            {% for key, value in invoice_summary %}
+                                <tr>
+                                    <td class="text-right">{{ key }}</td>
+                                    {% for val in value %}
+                                        <td class="td-right">{{ val |number_format(2) }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row show-grid">
+            <div class="col-xs-12">
+                {{ 'label.payment_due' | trans }}: {{ invoice.paymentDue|date('Y-m-d') }}
+            </div>
+        </div>
+
+
+{%  endif %}
+
+
+
 
 {% endblock body %}

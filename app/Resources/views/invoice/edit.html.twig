@@ -87,30 +87,48 @@
                             <table class="table-condensed table-bordered table-responsive">
                                 <tr>
                                     <th class="small"> {{ 'label.client.name' | trans }}</th>
-                                    <td> {{ form_widget(form_edit.clientName) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.clientName) }}
+                                        <span class="text-red">{{ form_errors(form.clientName) }}</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.company.name' | trans }}</th>
-                                    <td> {{ form_widget(form_edit.companyName) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.companyName) }}
+                                        <span class="text-red">{{ form_errors(form.companyName) }}</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.vatid' | trans }}</th>
-                                    <td>  {{ form_widget(form_edit.vatId) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.vatId) }}
+                                        <span class="text-red">{{ form_errors(form.vatId) }}</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.address.street' | trans }}</th>
-                                    <td>{{ form_widget(form_edit.addressStreet) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.addressStreet) }}
+                                        <span class="text-red">{{ form_errors(form.addressStreet) }}</span>
+                                    </td>
                                     <td>{{ form_widget(form_edit.addressHouse, { 'attr': {'class': 'ie-house'} }) }}</td>
                                     <td> /</td>
                                     <td>{{ form_widget(form_edit.addressFlat, { 'attr': {'class': 'ie-flat'} }) }}</td>
                                 </tr>
                                 <tr>
                                     <th class="small"> {{ 'label.address.zip' | trans }}</th>
-                                    <td>{{ form_widget(form_edit.addressZip) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.addressZip) }}
+                                        <span class="text-red">{{ form_errors(form.addressZip) }}</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.address.city' | trans }}</th>
-                                    <td>{{ form_widget(form_edit.addressCity) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.addressCity) }}
+                                        <span class="text-red">{{ form_errors(form.addressCity) }}</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.address.country' | trans }}</th>

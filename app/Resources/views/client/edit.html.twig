@@ -23,6 +23,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.clientName, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.clientName) }}</span>
                         </td>
                     </tr>
                     <tr>
@@ -31,6 +32,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.companyName, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.companyName) }}</span>
                         </td>
                     </tr>
                     <tr>
@@ -39,6 +41,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.vatId, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.vatId) }}</span>
                         </td>
                     </tr>
                     <tr>
@@ -47,6 +50,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.addressStreet, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.addressStreet) }}</span>
                         </td>
                     </tr>
                     <tr>
@@ -71,6 +75,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.addressZip, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.addressZip) }}</span>
                         </td>
                     </tr>
                     <tr>
@@ -79,6 +84,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.addressCity, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.addressCity) }}</span>
                         </td>
                     </tr>
                     <tr>

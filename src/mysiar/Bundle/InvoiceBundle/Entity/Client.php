@@ -3,6 +3,7 @@
 namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use mysiar\Bundle\InvoiceBundle\Entity\InvoiceUser;
 
 /**
@@ -32,6 +33,8 @@ class Client
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="client_name", type="string", length=255)
      */
     private $clientName;
@@ -40,6 +43,8 @@ class Client
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="company_name", type="string", length=255)
      */
     private $companyName;
@@ -47,12 +52,16 @@ class Client
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="vat_id", type="string", length=255)
      */
     private $vatId;
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="address_street", type="string", length=255)
      */
@@ -75,12 +84,16 @@ class Client
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="address_zip", type="string", length=255)
      */
     private $addressZip;
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="address_city", type="string", length=255)
      */

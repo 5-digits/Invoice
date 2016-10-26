@@ -95,3 +95,12 @@ textarea {
     background-color: #f2f2f2 !important;
     border-color: #999999 !important;
 }
+
+.table-pdf {
+
+}
+
+.table-pdf td {
+    padding-top: 2px;
+    padding-right: 10px;
+}
