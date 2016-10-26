@@ -9,7 +9,7 @@
     {# INVOICE HEADER #}
     <div class="row show-grid">
         <div class="col-xs-12">
-            <div class="panel panel-default">
+            <div class="panel panel-default panel-pdf">
                 <div class="panel-body">
                     <div class="col-xs-12">
                         <h3 class="text-center">{{ 'invoice.header' | trans }} {{ invoice.invoiceNumberPrefix }}{{ invoice.invoiceNumber }}</h3>
@@ -48,7 +48,7 @@
                 {#<div class="panel-body">#}
 
                     <div class="col-xs-6">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default panel-pdf">
                             <div class="panel-body">
                                 <h4> {{ 'invoice.seller' | trans }}</h4>
                                 <div>
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="col-xs-6">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default panel-pdf">
                             <div class="panel-body">
                                 <h4> {{ 'invoice.buyer' | trans }}</h4>
 
@@ -115,7 +115,7 @@
     {% if invoice.invoiceElements | length > 0 %}
         <div class="row show-grid">
             <div class="col-xs-12">
-                <div class="panel panel-default">
+                <div class="panel panel-default panel-pdf">
                     <div class="panel-body">
                         <table class="table-condensed table-bordered table-responsive elements">
                             <tr>
@@ -182,7 +182,7 @@
 
         <div class="row show-grid">
             <div class="col-xs-12">
-                <div class="panel panel-default">
+                <div class="panel panel-default panel-pdf">
                     <div class="panel-body">
 
                         <table class="table-condensed table-bordered table-responsive">

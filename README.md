@@ -10,6 +10,7 @@
 * Symfony 2.8
 * FOSUserBundle
 * JMSTranslationBundle
+* KnpSnappyBundle
 
 ### Working application
  * http://your-invoices.herokuapp.com
