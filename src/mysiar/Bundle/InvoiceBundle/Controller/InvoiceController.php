@@ -397,10 +397,18 @@ class InvoiceController extends Controller
         return $summary;
     }
 
+//    private function cleanFileNameString($string)
+//    {
+//        $string = mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '-', $string);
+//        $string = mb_ereg_replace("([\.]{2,})", '-', $string);
+//
+//        return $string;
+//    }
+
     private function cleanFileNameString($string)
     {
-        $string = mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '-', $string);
-        $string = mb_ereg_replace("([\.]{2,})", '-', $string);
+        $string = preg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '-', $string);
+        $string = preg_replace("([\.]{2,})", '-', $string);
 
         return $string;
     }
