@@ -48,9 +48,18 @@
                                     <th class="small text-center">{{ 'label.payment_due' | trans }}</th>
                                 </tr>
                                 <tr>
-                                    <td>{{ form_widget(form_edit.dateOfIssue, { 'attr': {'class': 'ie-dates'} }) }}</td>
-                                    <td>{{ form_widget(form_edit.dateOfSell) }}</td>
-                                    <td>{{ form_widget(form_edit.paymentDue) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.dateOfIssue) }}
+                                        <span class="text-red">{{ form_errors(form_edit.dateOfIssue) }}</span>
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form_edit.dateOfSell) }}
+                                        <span class="text-red">{{ form_errors(form_edit.dateOfSell) }}</span>
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form_edit.paymentDue) }}
+                                        <span class="text-red">{{ form_errors(form_edit.paymentDue) }}</span>
+                                    </td>
                                 </tr>
                             </table>
 
@@ -89,28 +98,28 @@
                                     <th class="small"> {{ 'label.client.name' | trans }}</th>
                                     <td>
                                         {{ form_widget(form_edit.clientName) }}
-                                        <span class="text-red">{{ form_errors(form.clientName) }}</span>
+                                        <span class="text-red">{{ form_errors(form_edit.clientName) }}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.company.name' | trans }}</th>
                                     <td>
                                         {{ form_widget(form_edit.companyName) }}
-                                        <span class="text-red">{{ form_errors(form.companyName) }}</span>
+                                        <span class="text-red">{{ form_errors(form_edit.companyName) }}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.vatid' | trans }}</th>
                                     <td>
                                         {{ form_widget(form_edit.vatId) }}
-                                        <span class="text-red">{{ form_errors(form.vatId) }}</span>
+                                        <span class="text-red">{{ form_errors(form_edit.vatId) }}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.address.street' | trans }}</th>
                                     <td>
                                         {{ form_widget(form_edit.addressStreet) }}
-                                        <span class="text-red">{{ form_errors(form.addressStreet) }}</span>
+                                        <span class="text-red">{{ form_errors(form_edit.addressStreet) }}</span>
                                     </td>
                                     <td>{{ form_widget(form_edit.addressHouse, { 'attr': {'class': 'ie-house'} }) }}</td>
                                     <td> /</td>
@@ -120,14 +129,14 @@
                                     <th class="small"> {{ 'label.address.zip' | trans }}</th>
                                     <td>
                                         {{ form_widget(form_edit.addressZip) }}
-                                        <span class="text-red">{{ form_errors(form.addressZip) }}</span>
+                                        <span class="text-red">{{ form_errors(form_edit.addressZip) }}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.address.city' | trans }}</th>
                                     <td>
                                         {{ form_widget(form_edit.addressCity) }}
-                                        <span class="text-red">{{ form_errors(form.addressCity) }}</span>
+                                        <span class="text-red">{{ form_errors(form_edit.addressCity) }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -136,7 +145,11 @@
                                 </tr>
                                 <tr>
                                     <th class="small">{{ 'label.edit.client.change' | trans }}</th>
-                                    <td> {{ form_widget(form_edit.client) }}</td>
+                                    <td>
+                                        {{ form_widget(form_edit.client) }}
+                                        <span class="text-red">{{ form_errors(form_edit.client) }}</span>
+                                    </td>
+
                                 </tr>
                             </table>
                         </div>

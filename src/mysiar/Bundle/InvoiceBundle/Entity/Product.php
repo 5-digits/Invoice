@@ -3,6 +3,7 @@
 namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
@@ -37,6 +38,8 @@ class Product
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="name", type="string", length=255)
      */

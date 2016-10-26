@@ -4,6 +4,7 @@ namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use DateInterval;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Invoice
@@ -21,6 +22,8 @@ class Invoice
     private $invoiceUser;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\ManyToOne(targetEntity="Client")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
@@ -64,6 +67,8 @@ class Invoice
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="date_of_issue", type="date")
      */
     private $dateOfIssue;
@@ -71,12 +76,16 @@ class Invoice
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="date_of_sell", type="date")
      */
     private $dateOfSell;
 
     /**
      * @var \DateTime
+     *
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="payment_due", type="date")
      */
@@ -93,6 +102,8 @@ class Invoice
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="company_name", type="string", length=255)
      */
     private $companyName;
@@ -100,12 +111,16 @@ class Invoice
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="vat_id", type="string", length=255)
      */
     private $vatId;
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="address_street", type="string", length=255)
      */
@@ -128,12 +143,16 @@ class Invoice
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="address_zip", type="string", length=255)
      */
     private $addressZip;
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="address_city", type="string", length=255)
      */

@@ -54,6 +54,7 @@
                             </th>
                             <td>
                                 {{ form_widget(form.client, { 'attr': {'class': 'col-xs-12'} }) }}
+                                <span class="text-red">{{ form_errors(form.client) }}</span>
                             </td>
                         </tr>
                         {#<tr>#}

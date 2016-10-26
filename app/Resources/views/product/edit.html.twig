@@ -22,6 +22,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.name, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.name) }}</span>
                         </td>
                     </tr>
                     <tr>
