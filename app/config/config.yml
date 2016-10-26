@@ -103,4 +103,5 @@ knp_snappy:
     pdf:
         enabled:    true
         binary:     %kernel.root_dir%/../bin/wkhtmltopdf-amd64
+        options:    []
     temporary_folder: %kernel.cache_dir%/snappy
