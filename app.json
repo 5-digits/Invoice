@@ -7,10 +7,7 @@
   ],
   "success_url": "/",
   "scripts": {
-    "postdeploy": [
-      "php app/console doctrine:schema:create;",
-      "php app/console doctrine:fixtures:load -n"
-      ]
+    "postdeploy": "php app/console doctrine:schema:create; php app/console doctrine:fixtures:load -n"
   },
   "addons": [
     "heroku-postgresql:hobby-dev"
