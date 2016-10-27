@@ -30,6 +30,15 @@ class Invoice
     private $client;
 
     /**
+     * @Assert\NotNull()
+     *
+     * @ORM\ManyToOne(targetEntity="Currency")
+     * @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
+     */
+    private $currency;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="InvoiceElement", mappedBy="invoice", cascade={"persist", "remove"})
      */
     private $invoiceElements;
@@ -94,7 +103,7 @@ class Invoice
     /**
      * @var string
      *
-     * @ORM\Column(name="client_name", type="string", length=255)
+     * @ORM\Column(name="client_name", type="string", length=255, nullable=true)
      */
     private $clientName;
 
@@ -194,6 +203,11 @@ class Invoice
     {
         $this->invoiceElements = new \Doctrine\Common\Collections\ArrayCollection();
         $this->isInvoiceNet = true;
+        $this->companyName = ".";
+        $this->vatId = ".";
+        $this->addressStreet = ".";
+        $this->addressZip = ".";
+        $this->addressCity = ".";
     }
 
     /**
@@ -205,6 +219,26 @@ class Invoice
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param mixed $currency
+     * @return Invoice
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+        return $this;
+    }
+
+
 
     /**
      * Set invoiceNumber

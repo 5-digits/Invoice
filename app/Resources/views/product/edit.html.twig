@@ -55,6 +55,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.priceNet, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.priceNet) }}</span>
                         </td>
                     </tr>
                     <tr>
@@ -63,6 +64,7 @@
                         </th>
                         <td>
                             {{ form_widget(edit_form.vatRate, { 'attr': {'class': 'col-xs-12'} }) }}
+                            <span class="text-red">{{ form_errors(edit_form.vatRate) }}</span>
                         </td>
                     </tr>
                     <tr>

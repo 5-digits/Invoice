@@ -65,6 +65,16 @@
                                 {#{{ form_widget(form.isInvoiceNet, { 'attr': {'class': 'col-xs-12'} }) }}#}
                             {#</td>#}
                         {#</tr>#}
+                        <tr>
+                            <th>
+                                {{ 'label.currency' | trans }}
+                            </th>
+                            <td>
+                                {{ form_widget(form.currency) }}
+                                <span class="text-red">{{ form_errors(form.currency) }}</span>
+                            </td>
+                        </tr>
+
                     </table>
                     <table class="table-button">
                         <tr>

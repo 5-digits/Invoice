@@ -537,6 +537,6 @@ class Client
 
     public function __toString()
     {
-        return $this->clientName;
+        return $this->companyName;
     }
 }

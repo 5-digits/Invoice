@@ -92,6 +92,8 @@ class InvoiceEditType extends AbstractType
                 );
             }
         });
+
+        $builder->add('currency');
     }
     
     /**

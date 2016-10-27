@@ -80,6 +80,8 @@ class InvoiceType extends AbstractType
                 );
             }
         });
+
+        $builder->add('currency');
     }
     
     /**

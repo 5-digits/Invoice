@@ -153,11 +153,20 @@
                                 </tr>
                             </table>
                         </div>
+                        <div class="col-xs-12">
+                        {{ 'label.currency' | trans }}    {{ form_widget(form_edit.currency) }}
+                        </div>
 
                         <div>
-                            <input class="btn btn-xs btn-info" type="submit" value="
+                            <table class="table-button">
+                                <tr>
+                                    <td>
+                                        <input class="btn btn-xs btn-info" type="submit" value="
                                     {{ 'button.edit.submit.change' | trans }}
                                 "/>
+                                    </td>
+                                </tr>
+                            </table>
                             {# BUTTONS - delete invoice, submit changes#}
                             {{ form_end(form_edit) }}
                         </div>

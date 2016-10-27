@@ -3,6 +3,7 @@
 namespace mysiar\Bundle\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -67,7 +68,9 @@ class InvoiceElement
     /**
      * @var string
      *
-     * @ORM\Column(name="vat_rate", type="decimal", precision=10, scale=2, nullable=true)
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="vat_rate", type="string", length=10)
      */
     private $vatRate;
 

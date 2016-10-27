@@ -62,14 +62,18 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="price_net", type="decimal", precision=12, scale=2, nullable=true)
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="price_net", type="decimal", precision=12, scale=2)
      */
     private $priceNet;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="vat_rate", type="decimal", precision=4, scale=2, nullable=true)
+     * @Assert\NotBlank()
+     *
+     * @ORM\Column(name="vat_rate", type="string", length=10)
      */
     private $vatRate;
 
