@@ -20,7 +20,7 @@ class ProductType extends AbstractType
             ->add('pkwiuCode')
             ->add('priceNet')
             ->add('vatRate')
-            ->add('priceGross')
+//            ->add('priceGross')
             ->add('notes')
         ;
     }

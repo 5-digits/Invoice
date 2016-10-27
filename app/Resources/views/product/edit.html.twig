@@ -67,16 +67,14 @@
                             <span class="text-red">{{ form_errors(edit_form.vatRate) }}</span>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ 'label.product.price.gross' | trans }}
-                        </th>
-                        <td>
-                            {{ form_widget(edit_form.priceGross, { 'attr': {'class': 'col-xs-12'} }) }}
-                        </td>
-                    </tr>
-
-
+                    {#<tr>#}
+                        {#<th>#}
+                            {#{{ 'label.product.price.gross' | trans }}#}
+                        {#</th>#}
+                        {#<td>#}
+                            {#{{ form_widget(edit_form.priceGross, { 'attr': {'class': 'col-xs-12'} }) }}#}
+                        {#</td>#}
+                    {#</tr>#}
 
                     <tr>
                         <th class="td-va-top">

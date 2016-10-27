@@ -30,7 +30,7 @@
                         <th>{{ 'label.product.unit' | trans }}</th>
                         <th>{{ 'label.product.price.net' | trans }}</th>
                         <th>{{ 'label.product.vat' | trans }}</th>
-                        <th>{{ 'label.product.price.gross' | trans }}</th>
+                        {#<th>{{ 'label.product.price.gross' | trans }}</th>#}
                         <th>{{ 'label.actions' | trans }}</th>
                     </tr>
                     {% for product in products %}
@@ -40,7 +40,7 @@
                         <td>{{ product.unit }}</td>
                         <td>{{ product.priceNet }}</td>
                         <td>{{ product.vatRate }}</td>
-                        <td>{{ product.priceGross }}</td>
+                        {#<td>{{ product.priceGross }}</td>#}
                         <td class="td-center">
                             <ul class="list-inline">
                                 <li>
