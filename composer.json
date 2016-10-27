@@ -28,7 +28,8 @@
     "jms/translation-bundle": "dev-master",
     "jms/di-extra-bundle": "1.8.*",
     "knplabs/knp-snappy-bundle": "^1.4",
-    "h4cc/wkhtmltopdf-amd64": "^0.12.3"
+    "h4cc/wkhtmltopdf-amd64": "^0.12.3",
+    "doctrine/doctrine-fixtures-bundle": "^2.3"
   },
   "require-dev": {
     "sensio/generator-bundle": "~3.0",
