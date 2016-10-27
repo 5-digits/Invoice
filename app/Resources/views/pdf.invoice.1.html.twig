@@ -206,7 +206,7 @@
 
                         <br>
                         <div>
-                            Razem do zapłaty : {{ totalGross |number_format(2) }} {{ invoice.currency }}
+                            {{ 'invoice.total.payment' | trans }} : {{ totalGross |number_format(2) }} {{ invoice.currency }}
                         </div>
 
                     </div>
@@ -216,7 +216,7 @@
 
         <div class="row show-grid">
             <div class="col-xs-12">
-                {{ 'label.payment_due' | trans }}: {{ invoice.paymentDue|date('Y-m-d') }}
+                {{ 'label.payment_due' | trans }} : {{ invoice.paymentDue|date('Y-m-d') }}
             </div>
         </div>
 
